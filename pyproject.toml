@@ -36,3 +36,6 @@ build-backend = "uv_build"
 
 [tool.uv]
 package = true
+
+# make bash-script executable
+# git update-index --chmod=+x scripts/recreate_changelog.sh
