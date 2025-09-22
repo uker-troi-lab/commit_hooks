@@ -29,7 +29,7 @@ dev = [
 #changelog_helper = "commit_hooks.generate_changelog:changelog_helper"
 
 [project.entry-points."commitizen.plugin"]
-cz_troi_hook = "commit_hooks.cz_troi_hook:HooksCommitizenCz"
+cz_troi_hook = "commit_hooks.cz_troi_hook:TroiCommitizenCz"
 
 [build-system]
 requires = ["uv_build>=0.8.12,<0.9.0"]

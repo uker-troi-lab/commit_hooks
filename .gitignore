@@ -16,7 +16,7 @@ __pycache__
 !/src/commit_hooks/*.py
 !/src/commit_hooks/templates
 /src/commit_hooks/templates/*
-!/src/commit_hooks/templates/troi-CHANGELOG.md.j2
+!/src/commit_hooks/templates/CHANGELOG.md.j2
 !/scripts/
 /scripts/*
 !/scripts/recreate_changelog.sh
