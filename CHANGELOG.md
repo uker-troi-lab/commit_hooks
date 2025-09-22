@@ -7,7 +7,8 @@
 
 ### Other changes
 
-- cleaning up repo (cfb8d89)
+- removed comments from .pre-commit-config (84e7d5e)
+- cleaning up repo (0ce7d4f)
 - added comment (1624525)
 - added comment (32813df)
 - made scripts/recreate_changelog.sh executable (c398b7b)
