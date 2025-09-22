@@ -1,0 +1,38 @@
+[project]
+name = "commit_hooks"
+version = "0.0.1"
+description = "troi-lab commit hooks."
+readme = "README.md"
+requires-python = ">=3.11,<4.0"
+dependencies = [
+]
+exclude = [
+  "**/doc",
+  "**/tests", "**/dist",
+  "**/images",  "**/_images",
+  "**/data",  "**/_data"
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+
+[dependency-groups]
+dev = [
+    "commitizen>=4.9.1",
+    "pre-commit>=4.3.0",
+]
+
+#[project.scripts]
+#generate_changelog = "commit_hooks.generate_changelog:generate_changelog"
+#changelog_helper = "commit_hooks.generate_changelog:changelog_helper"
+
+[project.entry-points."commitizen.plugin"]
+cz_troi_hook = "commit_hooks.cz_troi_hook:HooksCommitizenCz"
+
+[build-system]
+requires = ["uv_build>=0.8.12,<0.9.0"]
+build-backend = "uv_build"
+
+[tool.uv]
+package = true

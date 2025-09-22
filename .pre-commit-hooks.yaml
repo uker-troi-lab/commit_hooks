@@ -1,0 +1,25 @@
+# check commit msg
+- id: check-commit-msg
+  name: check-commit-msg
+  entry: cz
+  args: [ -n,  cz_troi_hook, check, --allow-abort, --commit-msg-file]
+  language: python
+  language_version: python3
+  minimum_pre_commit_version: "1.4.3"
+  stages: [commit-msg]
+
+# prepare post-commit stage
+- id: changelog-helper
+  name: changelog-helper
+  entry: bash -c "touch .commit"
+  language: system
+  always_run: true
+  stages: [commit-msg]
+
+# update changelog after commit with --no-verify to avoid endless loop
+- id: recreate-changelog
+  name: recreate-changelog
+  entry: scripts/recreate_changelog.sh
+  language: script
+  always_run: true
+  stages: [post-commit]
