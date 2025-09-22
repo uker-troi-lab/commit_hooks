@@ -86,6 +86,9 @@ wheels = [
 name = "commit-hooks"
 version = "0.0.1"
 source = { editable = "." }
+dependencies = [
+    { name = "jinja2" },
+]
 
 [package.dev-dependencies]
 dev = [
@@ -94,6 +97,7 @@ dev = [
 ]
 
 [package.metadata]
+requires-dist = [{ name = "jinja2", specifier = ">=3.1.6" }]
 
 [package.metadata.requires-dev]
 dev = [
