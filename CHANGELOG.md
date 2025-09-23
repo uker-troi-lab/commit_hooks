@@ -5,9 +5,13 @@
 - fixed changelog-generation (1a49232)
 - re-organized repo; customize template in class (31a1d4e)
 
+### New Features
+
+- make it os-iindependent by switching bash-scripts to python (02d4553)
+
 ### Other changes
 
-- removed comments from .pre-commit-config (84e7d5e)
+- removed comments from .pre-commit-config (363e762)
 - cleaning up repo (0ce7d4f)
 - added comment (1624525)
 - added comment (32813df)

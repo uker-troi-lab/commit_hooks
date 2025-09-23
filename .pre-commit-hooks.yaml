@@ -11,15 +11,17 @@
 # prepare post-commit stage
 - id: changelog-helper
   name: changelog-helper
-  entry: bash -c "touch .commit"
-  language: system
+  entry: changelog_helper
+  language: python
+  language_version: python3
   always_run: true
   stages: [commit-msg]
 
 # update changelog after commit with --no-verify to avoid endless loop
 - id: recreate-changelog
   name: recreate-changelog
-  entry: scripts/recreate_changelog.sh
-  language: script
+  entry: recreate_changelog
+  language: python
+  language_version: python3
   always_run: true
   stages: [post-commit]
