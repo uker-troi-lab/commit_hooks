@@ -11,6 +11,7 @@
 
 ### Other changes
 
+- updated pre-commit-version (375fb88)
 - removed comments from .pre-commit-config (363e762)
 - cleaning up repo (0ce7d4f)
 - added comment (1624525)
@@ -19,4 +20,4 @@
 
 ### Refactor
 
-- removed bash-script (e376f70)
+- removed bash-script (cb16bf7)
