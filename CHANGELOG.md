@@ -7,7 +7,7 @@
 
 ### New Features
 
-- make it os-iindependent by switching bash-scripts to python (02d4553)
+- make it os-iindependent by switching bash-scripts to python (55e002c)
 
 ### Other changes
 
@@ -16,3 +16,7 @@
 - added comment (1624525)
 - added comment (32813df)
 - made scripts/recreate_changelog.sh executable (c398b7b)
+
+### Refactor
+
+- removed bash-script (e376f70)
