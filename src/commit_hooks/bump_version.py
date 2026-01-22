@@ -6,11 +6,53 @@ import tempfile
 import tomllib
 import subprocess
 
+bump_cfg = '''
+[tool.bumpversion]
+parse = """
+  (?P<major>0|[1-9]\\d*)\\.
+  (?P<minor>0|[1-9]\\d*)\\.
+  (?P<patch>0|[1-9]\\d*)
+  (?:
+      -
+      (?P<pre_l>[a-zA-Z-]+)
+      (?P<pre_n>0|[1-9]\\d*)
+  )?
+"""
+serialize = [
+    "{major}.{minor}.{patch}-{pre_l}{pre_n}",
+    "{major}.{minor}.{patch}",
+]
+search = "{current_version}"
+replace = "{new_version}"
+regex = false
+ignore_missing_version = false
+sign_tags = false
+tag_name = "v{new_version}"
+tag_message = "release v{new_version}"
+allow_dirty = false
+commit = true
+message = "chore: bump version: {current_version} -> {new_version}"
+commit_args = "--no-verify"
+
+[tool.bumpversion.parts.pre_l]
+values = ["dev", "rc", "final"]
+optional_value = "final"
+
+[[tool.bumpversion.files]]
+filename = "pyproject.toml"
+search = "version = \"{current_version}\""
+replace = "version = \"{new_version}\""
+
+'''
+
 system_tempdir = tempfile.gettempdir()
 msg_helper_file = os.path.join(system_tempdir, ".commit_msg.txt")
+bump_config_file = os.path.join(system_tempdir, ".bump_version.toml")
 
-pardir = os.path.dirname(os.path.abspath(__file__))
-bump_config_file = os.path.join(pardir, "configs", "bump_version.toml")
+with open(bump_config_file, "w") as f:
+    f.write(bump_cfg)
+os.chmod(bump_config_file, 0o644)
+
 
 print_prefix = "[bump-version]:"
 

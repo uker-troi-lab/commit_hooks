@@ -2,6 +2,7 @@
 
 ### Bug Fixes
 
+- added bump-config as string into python script (c4a02b1)
 - missing closing quots (ce808c0)
 - bump-my-version config to separate file (fcdcd9b)
 - removed changing of directory (2f645cf)
@@ -11,7 +12,7 @@
 
 ### New Features
 
-- move bump-version hook to python (075ff02)
+- move bump-version hook to python (a877111)
 - workaround to get correct version from project's pyproject.toml (7ee7e53)
 - adding bump-version (wip) (0c95c69)
 - make it os-iindependent by switching bash-scripts to python (55e002c)
