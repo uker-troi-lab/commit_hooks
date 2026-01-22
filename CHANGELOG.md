@@ -2,7 +2,8 @@
 
 ### Bug Fixes
 
-- typo in bump-config (84687ed)
+- bump-show cmd (a5a418d)
+- typo in bump-config (6a0f0a1)
 - output of show-bump command (6cf32bc)
 - fixed escape chars (d57ce8e)
 - added bump-config as string into python script (5195bf1)

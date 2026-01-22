@@ -102,11 +102,7 @@ def bump_version():
 
     print(f"{print_prefix} bumping to")
 
-    _cmd = (
-        "bump-my-version show "
-        f"--increment --current-version {current_version} "
-        f"{semver} new_version"
-    )
+    _cmd = f"bump-my-version show {base_command} --increment {semver} new_version"
     rec_output = subprocess.run(
         _cmd,
         stdout=subprocess.PIPE,
