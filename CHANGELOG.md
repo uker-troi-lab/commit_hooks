@@ -16,7 +16,8 @@
 
 ### Other changes
 
-- echo config-file path (754f53f)
+- explicitly providing path to config file (e7b03b0)
+- echo config-file path (e063872)
 - removed comments from .pre-commit-config (363e762)
 - cleaning up repo (0ce7d4f)
 - added comment (1624525)

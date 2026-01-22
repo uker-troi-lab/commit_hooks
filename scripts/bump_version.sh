@@ -15,7 +15,7 @@ fi
 if [ "$BUMP" == "" ]; then
     # quit silently, if bump is not set
     echo "[bump-version]: showing potential version paths, not incrementing version"
-    bump-my-version show-bump
+    bump-my-version show-bump --config-file $BUMPVERSION_CONFIG_FILE
     exit 0
   elif [ "$BUMP" == "1" ]; then
     SEMVER="pre_n"
@@ -38,7 +38,11 @@ print(toml_dict["project"]["version"])
 BUMPVERSION_CURRENT_VERSION=$(python -c $PYTHON_EXEC)
 
 echo "[bump-version]: would bump version:"
-NEWVER=$(bump-my-version show --increment --current-version $BUMPVERSION_CURRENT_VERSION $SEMVER new_version)
+NEWVER=$(bump-my-version show  \
+  --config-file $BUMPVERSION_CONFIG_FILE \
+  --increment --current-version $BUMPVERSION_CURRENT_VERSION \
+  $SEMVER new_version
+)
 echo $NEWVER
 
 
@@ -48,7 +52,10 @@ if [[ "$NEWVER" ~= "dev" ]] ; then
     TAG_COMMIT="--tag"
 fi
 
-bump-my-version bump $TAG_COMMIT --current-version $BUMPVERSION_CURRENT_VERSION --new-version $NEWVER
+bump-my-version bump $TAG_COMMIT \
+  --config-file $BUMPVERSION_CONFIG_FILE \
+  --current-version $BUMPVERSION_CURRENT_VERSION \
+  --new-version $NEWVER
 
 # save git message
 # git log -1 --pretty=%B > /tmp/msg.txt
