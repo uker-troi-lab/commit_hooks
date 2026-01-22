@@ -2,7 +2,8 @@
 
 ### Bug Fixes
 
-- fixed escape chars (e22026c)
+- output of show-bump command (71cbc65)
+- fixed escape chars (d57ce8e)
 - added bump-config as string into python script (5195bf1)
 - missing closing quots (ce808c0)
 - bump-my-version config to separate file (fcdcd9b)

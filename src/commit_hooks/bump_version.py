@@ -6,7 +6,7 @@ import tempfile
 import tomllib
 import subprocess
 
-bump_cfg = '''
+bump_cfg_bumpversion = '''
 [tool.bumpversion]
 parse = """
   (?P<major>0|[1-9]\\\\d*)\\\\.
@@ -33,7 +33,9 @@ allow_dirty = false
 commit = true
 message = "chore: bump version: {current_version} -> {new_version}"
 commit_args = "--no-verify"
+'''
 
+bump_cfg_parts = """
 [tool.bumpversion.parts.pre_l]
 values = ["dev", "rc", "final"]
 optional_value = "final"
@@ -43,7 +45,7 @@ filename = "pyproject.toml"
 search = "version = \\"{current_version}\\""
 replace = "version = \\"{new_version}\\""
 
-'''
+"""
 
 print_prefix = "[bump-version]:"
 
@@ -52,24 +54,28 @@ msg_helper_file = os.path.join(system_tempdir, ".commit_msg.txt")
 bump_config_file = os.path.join(system_tempdir, ".bump_version.toml")
 print(f"{print_prefix} config file: {bump_config_file}")
 
+# open pyproject toml from repo's root dir
+with open("pyproject.toml", "rb") as f:
+    toml_dict = tomllib.load(f)
+current_version = toml_dict["project"]["version"]
+if len(current_version) == "":
+    print(f"{print_prefix} failed to extract current version")
+    sys.exit(1)
+else:
+    print(
+        f"{print_prefix} extracted current version '{current_version}' from pyproject.toml"
+    )
+
 with open(bump_config_file, "w") as f:
-    f.write(bump_cfg)
+    f.write(
+        bump_cfg_bumpversion
+        + f'\ncurrent_version = "{current_version}\n\n"'
+        + bump_cfg_parts
+    )
 os.chmod(bump_config_file, 0o644)
 
 
 def bump_version():
-    # open pyproject toml from repo's root dir
-    with open("pyproject.toml", "rb") as f:
-        toml_dict = tomllib.load(f)
-    current_version = toml_dict["project"]["version"]
-    if len(current_version) == "":
-        print(f"{print_prefix} failed to extract current version")
-        sys.exit(1)
-    else:
-        print(
-            f"{print_prefix} extracted current version '{current_version}' from pyproject.toml"
-        )
-
     os.environ["BUMPVERSION_CURRENT_VERSION"] = current_version
 
     base_command = f"--config-file {bump_config_file}"
