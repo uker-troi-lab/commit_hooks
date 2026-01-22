@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+
+BUMPVERSION_CONFIG_FILE="$SCRIPT_DIR/bump_version.toml"
+
 if ! command -v bump-my-version &> /dev/null; then
     echo "[bump-version]: error - bump-my-version is not installed. Please run `pip install bump-my-version`"
     exit 1

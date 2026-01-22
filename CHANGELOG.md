@@ -2,7 +2,8 @@
 
 ### Bug Fixes
 
-- removed changing of directory (0ceb0e0)
+- bump-my-version config to separate file (1b82371)
+- removed changing of directory (2f645cf)
 - typo in hook-def and added exec-flag to script (2a9e567)
 - fixed changelog-generation (1a49232)
 - re-organized repo; customize template in class (31a1d4e)

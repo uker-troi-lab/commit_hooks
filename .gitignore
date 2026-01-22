@@ -20,6 +20,7 @@ __pycache__
 !/scripts/
 /scripts/*
 !/scripts/bump_version.sh
+!/scripts/bump_version.toml
 
 !LICENSE
 !README.md
