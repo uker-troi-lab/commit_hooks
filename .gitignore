@@ -17,10 +17,6 @@ __pycache__
 !/src/commit_hooks/templates
 /src/commit_hooks/templates/*
 !/src/commit_hooks/templates/CHANGELOG.md.j2
-!/scripts/
-/scripts/*
-!/scripts/bump_version.sh
-!/scripts/bump_version.toml
 
 !LICENSE
 !README.md

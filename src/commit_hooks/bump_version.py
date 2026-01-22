@@ -6,76 +6,82 @@ import tempfile
 import tomllib
 import subprocess
 
-bump_cfg_bumpversion = '''
-[tool.bumpversion]
-parse = """
-  (?P<major>0|[1-9]\\\\d*)\\\\.
-  (?P<minor>0|[1-9]\\\\d*)\\\\.
-  (?P<patch>0|[1-9]\\\\d*)
-  (?:
-      -
-      (?P<pre_l>[a-zA-Z-]+)
-      (?P<pre_n>0|[1-9]\\\\d*)
-  )?
-"""
-serialize = [
-    "{major}.{minor}.{patch}-{pre_l}{pre_n}",
-    "{major}.{minor}.{patch}",
-]
-search = "{current_version}"
-replace = "{new_version}"
-regex = false
-ignore_missing_version = false
-sign_tags = false
-tag_name = "v{new_version}"
-tag_message = "release v{new_version}"
-allow_dirty = false
-commit = true
-message = "chore: bump version: {current_version} -> {new_version}"
-commit_args = "--no-verify"
-'''
-
-bump_cfg_parts = """
-[tool.bumpversion.parts.pre_l]
-values = ["dev", "rc", "final"]
-optional_value = "final"
-
-[[tool.bumpversion.files]]
-filename = "pyproject.toml"
-search = "version = \\"{current_version}\\""
-replace = "version = \\"{new_version}\\""
-
-"""
-
 print_prefix = "[bump-version]:"
 
 system_tempdir = tempfile.gettempdir()
 msg_helper_file = os.path.join(system_tempdir, ".commit_msg.txt")
 bump_config_file = os.path.join(system_tempdir, ".bump_version.toml")
-print(f"{print_prefix} config file: {bump_config_file}")
 
-# open pyproject toml from repo's root dir
-with open("pyproject.toml", "rb") as f:
-    toml_dict = tomllib.load(f)
-current_version = toml_dict["project"]["version"]
-if len(current_version) == "":
-    print(f"{print_prefix} failed to extract current version")
-    sys.exit(1)
-else:
-    print(
-        f"{print_prefix} extracted current version '{current_version}' from pyproject.toml"
-    )
 
-with open(bump_config_file, "w") as f:
-    f.write(
-        bump_cfg_bumpversion
-        + f'current_version = "{current_version}"\n\n'
-        + bump_cfg_parts
-    )
-os.chmod(bump_config_file, 0o644)
+def write_config(version, tag: bool = False):
+    bump_cfg_bumpversion = '''
+    [tool.bumpversion]
+    parse = """
+      (?P<major>0|[1-9]\\\\d*)\\\\.
+      (?P<minor>0|[1-9]\\\\d*)\\\\.
+      (?P<patch>0|[1-9]\\\\d*)
+      (?:
+          -
+          (?P<pre_l>[a-zA-Z-]+)
+          (?P<pre_n>0|[1-9]\\\\d*)
+      )?
+    """
+    serialize = [
+        "{major}.{minor}.{patch}-{pre_l}{pre_n}",
+        "{major}.{minor}.{patch}",
+    ]
+    search = "{current_version}"
+    replace = "{new_version}"
+    regex = false
+    ignore_missing_version = false
+    sign_tags = false
+    tag_name = "v{new_version}"
+    tag_message = "release v{new_version}"
+    allow_dirty = false
+    commit = true
+    message = "chore: bump version: {current_version} -> {new_version}"
+    commit_args = "--no-verify"
+    '''
+
+    bump_cfg_parts = """
+    [tool.bumpversion.parts.pre_l]
+    values = ["dev", "rc", "final"]
+    optional_value = "final"
+
+    [[tool.bumpversion.files]]
+    filename = "pyproject.toml"
+    search = "version = \\"{current_version}\\""
+    replace = "version = \\"{new_version}\\""
+
+    """
+
+    tag_handling = f"tag={'true' if tag else 'false'}"
+    base_add = f'current_version = "{version}"\n{tag_handling}\n\n'
+
+    cfg_file = bump_cfg_bumpversion + base_add + bump_cfg_parts
+    print(cfg_file)
+
+    print(f"{print_prefix} writing config file: {bump_config_file}")
+    with open(bump_config_file, "w") as f:
+        f.write(cfg_file)
+    os.chmod(bump_config_file, 0o644)
 
 
 def bump_version():
+    # open pyproject toml from repo's root dir
+    with open("pyproject.toml", "rb") as f:
+        toml_dict = tomllib.load(f)
+    current_version = toml_dict["project"]["version"]
+    if len(current_version) == "":
+        print(f"{print_prefix} failed to extract current version")
+        sys.exit(1)
+    else:
+        print(
+            f"{print_prefix} extracted current version '{current_version}' from pyproject.toml"
+        )
+
+    write_config(version=current_version, tag=False)
+
     os.environ["BUMPVERSION_CURRENT_VERSION"] = current_version
 
     base_command = f"--config-file {bump_config_file}"
@@ -114,3 +120,26 @@ def bump_version():
     else:
         print(rec_output.stderr)
         sys.exit(1)
+
+    tag_commit = True if "dev" in new_version else False
+    write_config(version=current_version, tag=tag_commit)
+
+    # finally bump version
+    _cmd = f"bump-my-version bump {base_command} --new-version {new_version}"
+    subprocess.run(_cmd, shell=True)
+
+    # recreate changelog if tag was generated
+    if tag_commit:
+        # save git message to temp folder
+        subprocess.run(f"git log -1 --pretty=%B > {msg_helper_file}")
+        # only run commit-msg hook (to run changelog-helper)
+        subprocess.run(
+            f"pre-commit run --hook-stage commit-msg --commit-msg-file {msg_helper_file}"
+        )
+        # run post-commit stage to generate changelog with new commit tag included
+        subprocess.run("pre-commit run --hook-stage post-commit")
+        # remove temp files
+        os.remove(msg_helper_file)
+        os.remove(bump_config_file)
+
+    sys.exit(0)

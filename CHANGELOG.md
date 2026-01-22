@@ -2,6 +2,7 @@
 
 ### Bug Fixes
 
+- finalizing bump-version implementation (2a171f0)
 - bump-show cmd (3e60e48)
 - typo in bump-config (6a0f0a1)
 - output of show-bump command (6cf32bc)
@@ -23,7 +24,7 @@
 
 ### Other changes
 
-- fixed print statement (d8928ba)
+- fixed print statement (0f39c0b)
 - some more enhancements (f26171c)
 - explicitly providing path to config file (f845095)
 - echo config-file path (e063872)
