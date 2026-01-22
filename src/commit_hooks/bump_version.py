@@ -53,13 +53,12 @@ def write_config(version, tag: bool = False):
     filename = "pyproject.toml"
     search = "version = \\"{current_version}\\""
     replace = "version = \\"{new_version}\\""
-
     """
 
-    tag_handling = f"tag = {'true' if tag else 'false'}"
-    base_add = f'current_version = "{version}"\n{tag_handling}\n\n'
+    current_version = f'current_version = "{version}"'
+    tag_handling = f"tag = {'true' if tag else 'false'}\n\n"
 
-    cfg_file = bump_cfg_bumpversion + base_add + bump_cfg_parts
+    cfg_file = bump_cfg_bumpversion + current_version + tag_handling + bump_cfg_parts
     print(cfg_file)
 
     print(f"{print_prefix} writing config file: {bump_config_file}")

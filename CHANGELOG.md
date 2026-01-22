@@ -2,7 +2,7 @@
 
 ### Bug Fixes
 
-- sys commands (cf2821b)
+- sys commands (a2d2241)
 - exiting endless loop (9218e83)
 - exiting endless loop (81c5e85)
 - fixed issue with envar type (6c589f6)
@@ -28,6 +28,7 @@
 
 ### Other changes
 
+- updated bump-version script (e5b2961)
 - fixed print statement (0f39c0b)
 - some more enhancements (f26171c)
 - explicitly providing path to config file (f845095)
