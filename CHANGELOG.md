@@ -2,6 +2,7 @@
 
 ### Bug Fixes
 
+- missing closing quots (1affb1d)
 - bump-my-version config to separate file (fcdcd9b)
 - removed changing of directory (2f645cf)
 - typo in hook-def and added exec-flag to script (2a9e567)
@@ -16,7 +17,7 @@
 
 ### Other changes
 
-- some more enhancements (cc89152)
+- some more enhancements (f26171c)
 - explicitly providing path to config file (f845095)
 - echo config-file path (e063872)
 - removed comments from .pre-commit-config (363e762)
