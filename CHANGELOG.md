@@ -34,7 +34,8 @@
 
 ### Other changes
 
-- try find out source of loop (8d08cb8)
+- try re-create changelog as pre-push stage (47715ff)
+- try find out source of loop (3c1ab8a)
 - another try, fixing duplicate execution (d2ea704)
 - updated bump-version script (7539207)
 - fixed print statement (0f39c0b)

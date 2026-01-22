@@ -16,6 +16,8 @@ def changelog_helper():
             pass
         # Set permissions to rw-r--r-- (0o644)
         os.chmod(temp_helper_file, 0o644)
+    # always exit with status 0
+    sys.exit(0)
 
 
 # original bash-script (which worked well)
