@@ -27,19 +27,27 @@ if [ "$SEMVER" != "major" ] && [ "$SEMVER" != "minor" ] && [ "$SEMVER" != "patch
     usage
 fi
 
+PYTHON_EXEC="""
+import tomllib
+with open("pyproject.toml", "rb") as f:
+    toml_dict = tomllib.load(f)
+print(toml_dict["project"]["version"])
+"""
+
+BUMPVERSION_CURRENT_VERSION=$(python -c $PYTHON_EXEC)
 
 echo "[bump-version]: would bump version:"
-NEWVER=$(bump-my-version show --increment $SEMVER new_version)
+NEWVER=$(bump-my-version show --increment --current-version $BUMPVERSION_CURRENT_VERSION $SEMVER new_version)
 echo $NEWVER
 
 
 # should commit be tagged? infer from version-bump
 TAG_COMMIT="--no-tag"
-if [[ $NEWVER != "dev" ]] ; then
+if [[ "$NEWVER" ~= "dev" ]] ; then
     TAG_COMMIT="--tag"
 fi
 
-bump-my-version $TAG_COMMIT $NEWVER
+bump-my-version bump $TAG_COMMIT --current-version $BUMPVERSION_CURRENT_VERSION --new-version $NEWVER
 
 # save git message
 # git log -1 --pretty=%B > /tmp/msg.txt

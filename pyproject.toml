@@ -34,7 +34,6 @@ build-backend = "uv_build"
 [tool.uv]
 package = true
 
-
 [tool.bumpversion]
 parse = """
   (?P<major>0|[1-9]\\d*)\\.
