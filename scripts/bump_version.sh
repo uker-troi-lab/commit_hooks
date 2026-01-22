@@ -1,10 +1,5 @@
 #!/usr/bin/env bash
 
-set -e
-
-# change to project root
-cd "$(dirname "$(dirname "$0")")"
-
 if ! command -v bump-my-version &> /dev/null; then
     echo "[bump-version]: error - bump-my-version is not installed. Please run `pip install bump-my-version`"
     exit 1

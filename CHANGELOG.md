@@ -2,13 +2,14 @@
 
 ### Bug Fixes
 
+- removed changing of directory (0ceb0e0)
 - typo in hook-def and added exec-flag to script (2a9e567)
 - fixed changelog-generation (1a49232)
 - re-organized repo; customize template in class (31a1d4e)
 
 ### New Features
 
-- workaround to get correct version from project's pyproject.toml (e9c9864)
+- workaround to get correct version from project's pyproject.toml (7ee7e53)
 - adding bump-version (wip) (0c95c69)
 - make it os-iindependent by switching bash-scripts to python (55e002c)
 
