@@ -141,16 +141,16 @@ def bump_version():
         # subprocess.run(_cmd, shell=True)
 
         # recreate changelog if tag was generated
-        if tag_commit:
-            # save git message to temp folder
-            subprocess.run(f"git log -1 --pretty=%B > {msg_helper_file}", shell=True)
-            # only run commit-msg hook (to run changelog-helper)
-            subprocess.run(
-                f"pre-commit run --hook-stage commit-msg --commit-msg-file {msg_helper_file}",
-                shell=True,
-            )
-            # run post-commit stage to generate changelog with new commit tag included
-            subprocess.run("pre-commit run --hook-stage post-commit", shell=True)
+        # if tag_commit:
+        #     # save git message to temp folder
+        #     subprocess.run(f"git log -1 --pretty=%B > {msg_helper_file}", shell=True)
+        #     # only run commit-msg hook (to run changelog-helper)
+        #     subprocess.run(
+        #         f"pre-commit run --hook-stage commit-msg --commit-msg-file {msg_helper_file}",
+        #         shell=True,
+        #     )
+        #     # run post-commit stage to generate changelog with new commit tag included
+        #     subprocess.run("pre-commit run --hook-stage post-commit", shell=True)
     # remove temp files
     for f in [msg_helper_file, bump_config_file, temp_helper_file]:
         try:
