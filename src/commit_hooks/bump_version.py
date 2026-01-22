@@ -128,12 +128,15 @@ def bump_version():
         with open(temp_helper_file, "w"):
             pass
         # finally bump version
-        _cmd = (
-            f"bump-my-version bump {base_command} "
-            '--commit --commit-args="--no-verify" '
-            f"--new-version {new_version}"
-        )
+        _cmd = f"bump-my-version bump {base_command} --new-version {new_version}"
         subprocess.run(_cmd, shell=True)
+        # subprocess.run("uv lock", shell=True)
+        # commit_message = f"chore: bump version: {current_version} -> {new_version}"
+        # _cmd = (
+        #     "git add CHANGELOG.md uv.lock && "
+        #     f'git commit -m "{commit_message}" --no-verify'
+        # )
+        # subprocess.run(_cmd, shell=True)
 
         # recreate changelog if tag was generated
         if tag_commit:

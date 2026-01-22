@@ -34,7 +34,8 @@
 
 ### Other changes
 
-- another try, fixing duplicate execution (f815dca)
+- try find out source of loop (8d08cb8)
+- another try, fixing duplicate execution (d2ea704)
 - updated bump-version script (7539207)
 - fixed print statement (0f39c0b)
 - some more enhancements (f26171c)
