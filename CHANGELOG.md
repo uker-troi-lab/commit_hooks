@@ -7,6 +7,7 @@
 
 ### New Features
 
+- adding bump-version (wip) (42dee7b)
 - make it os-iindependent by switching bash-scripts to python (55e002c)
 
 ### Other changes
@@ -19,4 +20,4 @@
 
 ### Refactor
 
-- removed bash-script (e376f70)
+- removed bash-script (cb16bf7)

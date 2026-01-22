@@ -25,3 +25,11 @@
   language_version: python3
   always_run: true
   stages: [post-commit]
+
+- id: bump-version
+  name: bump-version
+  entry: scripts/bump_version.sh
+  language: script
+  always_run: true
+  stages: [post-commit]
+  verbos: true
