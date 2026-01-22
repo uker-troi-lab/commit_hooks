@@ -2,7 +2,7 @@
 
 ### Bug Fixes
 
-- bump-my-version config to separate file (1b82371)
+- bump-my-version config to separate file (fcdcd9b)
 - removed changing of directory (2f645cf)
 - typo in hook-def and added exec-flag to script (2a9e567)
 - fixed changelog-generation (1a49232)
@@ -16,6 +16,7 @@
 
 ### Other changes
 
+- echo config-file path (754f53f)
 - removed comments from .pre-commit-config (363e762)
 - cleaning up repo (0ce7d4f)
 - added comment (1624525)
