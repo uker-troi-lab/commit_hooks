@@ -2,7 +2,8 @@
 
 ### Bug Fixes
 
-- handling of residual files (964da50)
+- still fixiing endless loop (a4b83a0)
+- handling of residual files (5afe5e7)
 - sys commands (a2d2241)
 - exiting endless loop (9218e83)
 - exiting endless loop (81c5e85)
