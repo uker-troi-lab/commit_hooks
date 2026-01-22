@@ -130,7 +130,7 @@ def bump_version():
         # finally bump version
         _cmd = (
             f"bump-my-version bump {base_command} "
-            "--commit --commit-args=--no-verify "
+            '--commit --commit-args="--no-verify" '
             f"--new-version {new_version}"
         )
         subprocess.run(_cmd, shell=True)

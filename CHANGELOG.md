@@ -2,7 +2,7 @@
 
 ### Bug Fixes
 
-- cmd (cb790f2)
+- cmd (02a43c8)
 - commit args to cmd (f51e91b)
 - bump cfg (a1215c8)
 - bump cfg (e7fa87b)
@@ -34,6 +34,7 @@
 
 ### Other changes
 
+- another try, fixing duplicate execution (f815dca)
 - updated bump-version script (7539207)
 - fixed print statement (0f39c0b)
 - some more enhancements (f26171c)
