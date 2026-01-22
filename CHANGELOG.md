@@ -2,12 +2,13 @@
 
 ### Bug Fixes
 
+- typo in hook-def and added exec-flag to script (836e0df)
 - fixed changelog-generation (1a49232)
 - re-organized repo; customize template in class (31a1d4e)
 
 ### New Features
 
-- adding bump-version (wip) (42dee7b)
+- adding bump-version (wip) (0c95c69)
 - make it os-iindependent by switching bash-scripts to python (55e002c)
 
 ### Other changes

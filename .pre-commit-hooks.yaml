@@ -26,10 +26,11 @@
   always_run: true
   stages: [post-commit]
 
+# bump version
 - id: bump-version
   name: bump-version
   entry: scripts/bump_version.sh
   language: script
   always_run: true
   stages: [post-commit]
-  verbos: true
+  verbose: true
