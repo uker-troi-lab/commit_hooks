@@ -27,6 +27,7 @@
 
 ### New Features
 
+- re-introduced the commit-args to bump-cfg (9234b75)
 - move bump-version hook to python (a877111)
 - workaround to get correct version from project's pyproject.toml (7ee7e53)
 - adding bump-version (wip) (0c95c69)
@@ -34,7 +35,7 @@
 
 ### Other changes
 
-- try re-create changelog as pre-push stage (47715ff)
+- try re-create changelog as pre-push stage (2d2d54a)
 - try find out source of loop (3c1ab8a)
 - another try, fixing duplicate execution (d2ea704)
 - updated bump-version script (7539207)

@@ -40,6 +40,8 @@ def write_config(version, tag: bool = False):
     tag_message = "release v{new_version}"
     allow_dirty = false
     message = "chore: bump version: {current_version} -> {new_version}"
+    commit = true
+    commit_args = "--no-verify"
     '''
 
     bump_cfg_parts = """
