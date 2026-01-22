@@ -2,7 +2,8 @@
 
 ### Bug Fixes
 
-- finalizing bump-version implementation (2a171f0)
+- fixed issue with envar type (8c43932)
+- finalizing bump-version implementation (6003494)
 - bump-show cmd (3e60e48)
 - typo in bump-config (6a0f0a1)
 - output of show-bump command (6cf32bc)

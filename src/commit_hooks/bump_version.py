@@ -55,7 +55,7 @@ def write_config(version, tag: bool = False):
 
     """
 
-    tag_handling = f"tag={'true' if tag else 'false'}"
+    tag_handling = f"tag = {'true' if tag else 'false'}"
     base_add = f'current_version = "{version}"\n{tag_handling}\n\n'
 
     cfg_file = bump_cfg_bumpversion + base_add + bump_cfg_parts
@@ -93,7 +93,7 @@ def bump_version():
         _cmd = f"bump-my-version show-bump {base_command}"
         subprocess.run(_cmd, shell=True)
         sys.exit(0)
-    elif int(os.getenv("BUMP")) == 1:
+    elif os.getenv("BUMP") == "1":
         semver = "pre_n"
     else:
         semver = str(os.getenv("BUMP"))
