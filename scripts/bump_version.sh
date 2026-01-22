@@ -37,6 +37,8 @@ print(toml_dict["project"]["version"])
 
 BUMPVERSION_CURRENT_VERSION=$(python -c $PYTHON_EXEC)
 
+echo "[bump-version]: extracted version '$BUMPVERSION_CURRENT_VERSION' from pyproject.toml
+
 echo "[bump-version]: would bump version:"
 NEWVER=$(bump-my-version show  \
   --config-file $BUMPVERSION_CONFIG_FILE \
