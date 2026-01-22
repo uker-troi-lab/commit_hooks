@@ -69,7 +69,7 @@ else:
 with open(bump_config_file, "w") as f:
     f.write(
         bump_cfg_bumpversion
-        + f'\ncurrent_version = "{current_version}\n\n"'
+        + f'current_version = "{current_version}"\n\n'
         + bump_cfg_parts
     )
 os.chmod(bump_config_file, 0o644)
