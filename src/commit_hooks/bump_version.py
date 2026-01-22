@@ -70,6 +70,8 @@ def write_config(version, tag: bool = False):
 
 def bump_version():
     if not os.path.exists(temp_helper_file):
+        with open(temp_helper_file, "w"):
+            pass
         # open pyproject toml from repo's root dir
         with open("pyproject.toml", "rb") as f:
             toml_dict = tomllib.load(f)
@@ -132,8 +134,6 @@ def bump_version():
 
         # recreate changelog if tag was generated
         if tag_commit:
-            with open(temp_helper_file, "w"):
-                pass
             # save git message to temp folder
             subprocess.run(f"git log -1 --pretty=%B > {msg_helper_file}")
             # only run commit-msg hook (to run changelog-helper)

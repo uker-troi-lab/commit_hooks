@@ -2,7 +2,8 @@
 
 ### Bug Fixes
 
-- exiting endless loop (2af8e69)
+- exiting endless loop (4b0eb1a)
+- exiting endless loop (81c5e85)
 - fixed issue with envar type (6c589f6)
 - finalizing bump-version implementation (6003494)
 - bump-show cmd (3e60e48)
