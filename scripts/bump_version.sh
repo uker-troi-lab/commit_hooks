@@ -15,7 +15,7 @@ fi
 if [ "$BUMP" == "" ]; then
     # quit silently, if bump is not set
     echo "[bump-version]: showing potential version paths, not incrementing version"
-    bump-my-version show-bump --config-file $BUMPVERSION_CONFIG_FILE
+
     exit 0
   elif [ "$BUMP" == "1" ]; then
     SEMVER="pre_n"
@@ -30,6 +30,8 @@ fi
 
 PYTHON_EXEC="""
 import tomllib
+import os
+
 with open("pyproject.toml", "rb") as f:
     toml_dict = tomllib.load(f)
 print(toml_dict["project"]["version"])
@@ -58,6 +60,11 @@ bump-my-version bump $TAG_COMMIT \
   --config-file $BUMPVERSION_CONFIG_FILE \
   --current-version $BUMPVERSION_CURRENT_VERSION \
   --new-version $NEWVER
+
+
+PYTHON_TEMPDIR="import tempfile; print(tempfile.gettempdir())"
+
+MSG_TMPDIR=$(python -c $PYTHON_TEMPDIR)
 
 # save git message
 # git log -1 --pretty=%B > /tmp/msg.txt

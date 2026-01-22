@@ -29,8 +29,9 @@
 # bump version
 - id: bump-version
   name: bump-version
-  entry: scripts/bump_version.sh
-  language: script
+  entry: bump_version
+  language: python
+  language_version: python3
   always_run: true
   stages: [post-commit]
   verbose: true
