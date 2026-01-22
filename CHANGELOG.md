@@ -2,7 +2,8 @@
 
 ### Bug Fixes
 
-- commit args to cmd (82de065)
+- cmd (cb790f2)
+- commit args to cmd (f51e91b)
 - bump cfg (a1215c8)
 - bump cfg (e7fa87b)
 - still fixiing endless loop (e211d9c)
