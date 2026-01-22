@@ -124,7 +124,7 @@ def bump_version():
             print(rec_output.stderr)
             sys.exit(1)
 
-        tag_commit = True if "dev" in new_version else False
+        tag_commit = False if "dev" in new_version else True
         write_config(version=current_version, tag=tag_commit)
 
         # finally bump version
@@ -142,8 +142,10 @@ def bump_version():
             )
             # run post-commit stage to generate changelog with new commit tag included
             subprocess.run("pre-commit run --hook-stage post-commit", shell=True)
-            # remove temp files
-        os.remove(msg_helper_file)
-        os.remove(bump_config_file)
-    os.remove(temp_helper_file)
+    # remove temp files
+    for f in [msg_helper_file, bump_config_file, temp_helper_file]:
+        try:
+            os.remove(f)
+        except Exception:
+            pass
     sys.exit(0)

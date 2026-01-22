@@ -2,6 +2,7 @@
 
 ### Bug Fixes
 
+- handling of residual files (964da50)
 - sys commands (a2d2241)
 - exiting endless loop (9218e83)
 - exiting endless loop (81c5e85)
@@ -28,7 +29,7 @@
 
 ### Other changes
 
-- updated bump-version script (e5b2961)
+- updated bump-version script (7539207)
 - fixed print statement (0f39c0b)
 - some more enhancements (f26171c)
 - explicitly providing path to config file (f845095)
