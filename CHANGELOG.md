@@ -2,7 +2,8 @@
 
 ### Bug Fixes
 
-- still fixiing endless loop (a4b83a0)
+- bump cfg (7572fd3)
+- still fixiing endless loop (e211d9c)
 - handling of residual files (5afe5e7)
 - sys commands (a2d2241)
 - exiting endless loop (9218e83)

@@ -55,7 +55,7 @@ def write_config(version, tag: bool = False):
     replace = "version = \\"{new_version}\\""
     """
 
-    current_version = f'current_version = "{version}"'
+    current_version = f'current_version = "{version}\n"'
     tag_handling = f"tag = {'true' if tag else 'false'}\n\n"
 
     cfg_file = bump_cfg_bumpversion + current_version + tag_handling + bump_cfg_parts
