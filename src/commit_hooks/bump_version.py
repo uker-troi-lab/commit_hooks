@@ -39,9 +39,7 @@ def write_config(version, tag: bool = False):
     tag_name = "v{new_version}"
     tag_message = "release v{new_version}"
     allow_dirty = false
-    commit = true
     message = "chore: bump version: {current_version} -> {new_version}"
-    commit_args = "--no-verify"
     '''
 
     bump_cfg_parts = """
@@ -131,7 +129,11 @@ def bump_version():
         with open(temp_helper_file, "w"):
             pass
         # finally bump version
-        _cmd = f"bump-my-version bump {base_command} --new-version {new_version}"
+        _cmd = (
+            f"bump-my-version bump {base_command} "
+            f"--new-version {new_version} "
+            "--commit --commit-args=--no-verify"
+        )
         subprocess.run(_cmd, shell=True)
 
         # recreate changelog if tag was generated

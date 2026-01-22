@@ -2,7 +2,8 @@
 
 ### Bug Fixes
 
-- bump cfg (8cadf08)
+- commit args to cmd (82de065)
+- bump cfg (a1215c8)
 - bump cfg (e7fa87b)
 - still fixiing endless loop (e211d9c)
 - handling of residual files (5afe5e7)
