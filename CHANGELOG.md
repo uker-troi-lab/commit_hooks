@@ -35,7 +35,8 @@
 
 ### Other changes
 
-- trigger pipeline (a243018)
+- last try for today (fb67f6c)
+- trigger pipeline (75e424e)
 - updated bump-script (0599931)
 - try re-create changelog as pre-push stage (2d2d54a)
 - try find out source of loop (3c1ab8a)

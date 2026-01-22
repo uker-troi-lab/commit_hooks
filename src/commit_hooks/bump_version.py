@@ -40,8 +40,7 @@ def write_config(version, tag: bool = False):
     tag_message = "release v{new_version}"
     allow_dirty = false
     message = "chore: bump version: {current_version} -> {new_version}"
-    commit = true
-    commit_args = "--no-verify"
+    commit = false
     '''
 
     bump_cfg_parts = """
@@ -132,25 +131,29 @@ def bump_version():
         # finally bump version
         _cmd = f"bump-my-version bump {base_command} --new-version {new_version}"
         subprocess.run(_cmd, shell=True)
-        # subprocess.run("uv lock", shell=True)
-        # commit_message = f"chore: bump version: {current_version} -> {new_version}"
-        # _cmd = (
-        #     "git add CHANGELOG.md uv.lock && "
-        #     f'git commit -m "{commit_message}" --no-verify'
-        # )
-        # subprocess.run(_cmd, shell=True)
+        # update uv.lock with new version
+        subprocess.run("uv lock", shell=True)
+        commit_message = f"chore: bump version: {current_version} -> {new_version}"
+        _cmd = (
+            "git add CHANGELOG.md uv.lock && "
+            f'git commit -m "{commit_message}" --no-verify'
+        )
+        subprocess.run(_cmd, shell=True)
 
-        # recreate changelog if tag was generated
-        # if tag_commit:
-        #     # save git message to temp folder
-        #     subprocess.run(f"git log -1 --pretty=%B > {msg_helper_file}", shell=True)
-        #     # only run commit-msg hook (to run changelog-helper)
-        #     subprocess.run(
-        #         f"pre-commit run --hook-stage commit-msg --commit-msg-file {msg_helper_file}",
-        #         shell=True,
-        #     )
-        #     # run post-commit stage to generate changelog with new commit tag included
-        #     subprocess.run("pre-commit run --hook-stage post-commit", shell=True)
+        # save the changelog-msg
+        subprocess.run(f"git log -1 --pretty=%B > {msg_helper_file}", shell=True)
+        # only run commit-msg hook (to run changelog-helper)
+        subprocess.run(
+            f"pre-commit run --hook-stage commit-msg --commit-msg-file {msg_helper_file}",
+            shell=True,
+        )
+        # run post-commit stage to generate changelog with new commit tag included
+        subprocess.run("pre-commit run --hook-stage post-commit", shell=True)
+
+        if tag_commit:
+            # now, tag the release with the modified commit-sha
+            subprocess.run(f'git tag -a v{new_version} -m "release v{new_version}"')
+
     # remove temp files
     for f in [msg_helper_file, bump_config_file, temp_helper_file]:
         try:

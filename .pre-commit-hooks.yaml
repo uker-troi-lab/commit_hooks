@@ -17,6 +17,15 @@
   always_run: true
   stages: [commit-msg]
 
+# update changelog after commit with --no-verify to avoid endless loop
+- id: recreate-changelog
+  name: recreate-changelog
+  entry: recreate_changelog
+  language: python
+  language_version: python3
+  always_run: true
+  stages: [post-commit]
+
 # bump version
 - id: bump-version
   name: bump-version
@@ -26,12 +35,3 @@
   always_run: true
   stages: [post-commit]
   verbose: true
-
-# update changelog after commit with --no-verify to avoid endless loop
-- id: recreate-changelog
-  name: recreate-changelog
-  entry: recreate_changelog
-  language: python
-  language_version: python3
-  always_run: true
-  stages: [pre-push]
