@@ -100,8 +100,6 @@ def bump_version():
         )
         sys.exit(1)
 
-    print(f"{print_prefix} bumping to")
-
     _cmd = f"bump-my-version show {base_command} --increment {semver} new_version"
     rec_output = subprocess.run(
         _cmd,
@@ -112,6 +110,7 @@ def bump_version():
     )
     if rec_output.stdout != "":
         new_version = rec_output.stdout
+        print(f"{print_prefix} bumping to '{new_version}'")
     else:
         print(rec_output.stderr)
         sys.exit(1)
