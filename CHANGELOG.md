@@ -35,7 +35,8 @@
 
 ### Other changes
 
-- updated bump-script (5bc436d)
+- trigger pipeline (a243018)
+- updated bump-script (0599931)
 - try re-create changelog as pre-push stage (2d2d54a)
 - try find out source of loop (3c1ab8a)
 - another try, fixing duplicate execution (d2ea704)
