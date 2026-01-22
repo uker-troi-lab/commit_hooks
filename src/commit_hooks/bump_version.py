@@ -9,13 +9,13 @@ import subprocess
 bump_cfg = '''
 [tool.bumpversion]
 parse = """
-  (?P<major>0|[1-9]\\d*)\\.
-  (?P<minor>0|[1-9]\\d*)\\.
-  (?P<patch>0|[1-9]\\d*)
+  (?P<major>0|[1-9]\\\\d*)\\\\.
+  (?P<minor>0|[1-9]\\\\d*)\\\\.
+  (?P<patch>0|[1-9]\\\\d*)
   (?:
       -
       (?P<pre_l>[a-zA-Z-]+)
-      (?P<pre_n>0|[1-9]\\d*)
+      (?P<pre_n>0|[1-9]\\\\d*)
   )?
 """
 serialize = [
@@ -40,26 +40,24 @@ optional_value = "final"
 
 [[tool.bumpversion.files]]
 filename = "pyproject.toml"
-search = "version = \"{current_version}\""
-replace = "version = \"{new_version}\""
+search = "version = \\"{current_version}\\""
+replace = "version = \\"{new_version}\\""
 
 '''
+
+print_prefix = "[bump-version]:"
 
 system_tempdir = tempfile.gettempdir()
 msg_helper_file = os.path.join(system_tempdir, ".commit_msg.txt")
 bump_config_file = os.path.join(system_tempdir, ".bump_version.toml")
+print(f"{print_prefix} config file: {bump_config_file}")
 
 with open(bump_config_file, "w") as f:
     f.write(bump_cfg)
 os.chmod(bump_config_file, 0o644)
 
 
-print_prefix = "[bump-version]:"
-
-
 def bump_version():
-    print(f"{print_prefix} config file: {bump_config_file}")
-
     # open pyproject toml from repo's root dir
     with open("pyproject.toml", "rb") as f:
         toml_dict = tomllib.load(f)

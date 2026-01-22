@@ -2,7 +2,8 @@
 
 ### Bug Fixes
 
-- added bump-config as string into python script (c4a02b1)
+- fixed escape chars (e22026c)
+- added bump-config as string into python script (5195bf1)
 - missing closing quots (ce808c0)
 - bump-my-version config to separate file (fcdcd9b)
 - removed changing of directory (2f645cf)
