@@ -213,3 +213,10 @@ def bump_version():
         except Exception:
             pass
     sys.exit(exit_code)
+
+
+def bump_version_finalize():
+    if os.path.exists(temp_helper_file):
+        os.remove(temp_helper_file)
+    # always exit with status 0
+    sys.exit(0)

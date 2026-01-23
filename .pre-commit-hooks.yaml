@@ -45,3 +45,13 @@
   always_run: true
   stages: [post-commit]
   verbose: true
+
+# bump version
+- id: bump-version-finalize
+  name: bump-version-finalize
+  entry: bump_version_finalize
+  language: python
+  language_version: python3
+  always_run: true
+  stages: [pre-push]
+  verbose: true
