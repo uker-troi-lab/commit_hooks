@@ -22,7 +22,7 @@ def bump_version_helper():
     generate_helper_file(fn=temp_helper_file)
 
 
-def handle_config(version: str, pyproj_toml: dict | None = None):
+def get_bumpversion_cfg():
     bump_cfg_bumpversion = '''
     [tool.bumpversion]
     parse = """
@@ -61,9 +61,7 @@ def handle_config(version: str, pyproj_toml: dict | None = None):
     replace = "version = \\"{new_version}\\""
     """
 
-    add_cfg = f'current_version = "{version}"'
-
-    cfg_file = bump_cfg_bumpversion + add_cfg + bump_cfg_parts
+    cfg_file = bump_cfg_bumpversion + bump_cfg_parts
 
     # parse toml
     bump_toml_dict = tomllib.loads(cfg_file)
@@ -71,6 +69,14 @@ def handle_config(version: str, pyproj_toml: dict | None = None):
     bump_toml_dict["tool"]["bumpversion"]["parse"] = re.sub(
         r"\s+", "", bump_toml_dict["tool"]["bumpversion"]["parse"], flags=re.MULTILINE
     )
+
+    return bump_toml_dict
+
+
+def handle_config(version: str, pyproj_toml: dict | None = None):
+    bump_toml_dict = get_bumpversion_cfg()
+    # update version
+    bump_toml_dict["tool"]["bumpversion"]["current_version"] = version
 
     if pyproj_toml is not None:
         # get tool entries, if defined
@@ -91,6 +97,26 @@ def handle_config(version: str, pyproj_toml: dict | None = None):
         tomli_w.dump(bump_toml_dict, f)
     os.chmod(bump_config_file, 0o644)
     return bump_toml_dict
+
+
+def validate_version(validate_string: str, bump_toml_dict: dict):
+    exit_code = None
+    version_pattern = bump_toml_dict["tool"]["bumpversion"].get("parse", "")
+    if version_pattern == "":
+        print(
+            f"{print_prefix} ERROR: no version pattern (tool.bumpversion.parse) defined but required."
+        )
+        exit_code = 1
+    # remove unwanted characters from stdout output
+    bump_pattern = re.compile(version_pattern)
+    parse_version = bump_pattern.search(validate_string)
+    try:
+        new_version = parse_version.group()
+    except Exception as e:
+        exit_code = 1
+        print(e)
+
+    return new_version, exit_code
 
 
 def bump_version():
@@ -148,21 +174,11 @@ def bump_version():
                 shell=True,
             )
             if rec_output.stdout != "":
-                version_pattern = bump_toml_dict["tool"]["bumpversion"].get("parse", "")
-                if version_pattern == "":
-                    print(
-                        f"{print_prefix} ERROR: no version pattern (tool.bumpversion.parse) defined but required."
-                    )
-                    exit_code = 1
-                # remove unwanted characters from stdout output
-                bump_pattern = re.compile(version_pattern)
-                parse_version = bump_pattern.search(rec_output.stdout)
-                try:
-                    new_version = parse_version.group()
-                except Exception as e:
-                    exit_code = 1
-                    print(e)
-
+                new_version, new_exit_code = validate_version(
+                    validate_string=rec_output.stdout, bump_toml_dict=bump_toml_dict
+                )
+                if new_exit_code is not None:
+                    exit_code = new_exit_code
                 print(f"{print_prefix} bumping to '{new_version}'")
             else:
                 print(rec_output.stderr)
@@ -243,5 +259,21 @@ def bump_version():
 def bump_version_finalize():
     if os.path.exists(temp_helper_file):
         os.remove(temp_helper_file)
+        bump_toml_dict = get_bumpversion_cfg()
+
+        _cmd = "git describe --exact-match --tags HEAD"
+        rec_output = subprocess.run(
+            _cmd,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            universal_newlines=True,
+            shell=True,
+        )
+        new_version, new_exit_code = validate_version(
+            validate_string=rec_output.stdout, bump_toml_dict=bump_toml_dict
+        )
+        if new_exit_code is not None:
+            # if we got a valid tag, we can push it
+            _cmd = f"git push origin v{new_version}"
     # always exit with status 0
     sys.exit(0)
