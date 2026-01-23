@@ -30,7 +30,7 @@ repos:
 
   # local hooks
   - repo: .
-    rev: 56df0bbcca46489c7ec6c827d3f301cfffacc1fb
+    rev: main
     hooks:
       - id: check-commit-msg
       - id: changelog-helper
