@@ -273,7 +273,7 @@ def bump_version_finalize():
     )
     if new_exit_code is None:
         # if we got a valid tag, we can push it
-        _cmd = f"SKIP=bump-version-finalize git push origin v{new_version}"
+        _cmd = f"SKIP=bump-version-finalize git push --no-verify origin v{new_version}"
         subprocess.run(_cmd, shell=True)
     # always exit with status 0
     try:

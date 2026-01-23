@@ -2,7 +2,7 @@
 
 ### Bug Fixes
 
-- added missing subprocess.run (e22a703)
+- added missing subprocess.run (b499687)
 - handling pre-push (0ae50a1)
 - bug in pre-push (930cb34)
 - fixed version-regex (f554443)
@@ -50,6 +50,7 @@
 
 ### Other changes
 
+- also no-verify to tag pushing (2b04a4f)
 - more logging (ee4943f)
 - udpated errorhandling (cb35967)
 - renamed temp-files for bump-version (eef7b22)
