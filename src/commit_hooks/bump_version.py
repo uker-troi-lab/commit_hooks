@@ -8,6 +8,7 @@ import subprocess
 import re
 import tomllib
 import tomli_w
+from .utilities import generate_helper_file
 
 print_prefix = "[bump-version]:"
 
@@ -15,6 +16,10 @@ system_tempdir = tempfile.gettempdir()
 msg_helper_file = os.path.join(system_tempdir, ".commit_msg.txt")
 bump_config_file = os.path.join(system_tempdir, ".bump_version.toml")
 temp_helper_file = os.path.join(system_tempdir, ".versionbump_temp_helper")
+
+
+def bump_version_helper():
+    generate_helper_file(fn=temp_helper_file)
 
 
 def handle_config(version: str, pyproj_toml: dict | None = None):
@@ -93,11 +98,7 @@ def handle_config(version: str, pyproj_toml: dict | None = None):
 def bump_version():
     exit_code = 0
     try:
-        if not os.path.exists(temp_helper_file):
-            # create helper file to avoid endless loops
-            with open(temp_helper_file, "w"):
-                pass
-
+        if os.path.exists(temp_helper_file):
             # open pyproject toml from repo's root dir
             with open("pyproject.toml", "rb") as f:
                 pyproj_toml_dict = tomllib.load(f)

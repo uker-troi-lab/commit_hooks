@@ -4,20 +4,14 @@ import os
 import sys
 import tempfile
 import subprocess
+from .utilities import generate_helper_file
 
 system_tempdir = tempfile.gettempdir()
 temp_helper_file = os.path.join(system_tempdir, ".commit_temp_helper")
 
 
 def changelog_helper():
-    if not os.path.exists(temp_helper_file):
-        # Create the file if it doesn't exist
-        with open(temp_helper_file, "w"):
-            pass
-        # Set permissions to rw-r--r-- (0o644)
-        os.chmod(temp_helper_file, 0o644)
-    # always exit with status 0
-    sys.exit(0)
+    generate_helper_file(fn=temp_helper_file)
 
 
 # original bash-script (which worked well)

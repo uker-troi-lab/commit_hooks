@@ -27,6 +27,16 @@
   stages: [post-commit]
 
 # bump version
+- id: bump-version-helper
+  name: bump-version-helper
+  entry: bump_version_helper
+  language: python
+  language_version: python3
+  always_run: true
+  stages: [post-commit]
+  verbose: true
+
+# bump version
 - id: bump-version
   name: bump-version
   entry: bump_version
