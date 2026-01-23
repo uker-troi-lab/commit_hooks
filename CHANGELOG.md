@@ -50,7 +50,8 @@
 
 ### Other changes
 
-- also no-verify to tag pushing (2b04a4f)
+- updated pre-commit-config (ae1f760)
+- also no-verify to tag pushing (ddc82a1)
 - more logging (ee4943f)
 - udpated errorhandling (cb35967)
 - renamed temp-files for bump-version (eef7b22)

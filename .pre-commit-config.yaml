@@ -2,6 +2,7 @@ default_install_hook_types:
   - pre-commit
   - commit-msg
   - post-commit
+  - pre-push
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
@@ -15,12 +16,12 @@ repos:
     - id: detect-private-key
 
   - repo: https://github.com/astral-sh/uv-pre-commit
-    rev: 0.8.19
+    rev: 0.9.26
     hooks:
       - id: uv-lock
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.13.1
+    rev: v0.14.14
     hooks:
       - id: ruff-format
         always_run: true
@@ -29,8 +30,11 @@ repos:
 
   # local hooks
   - repo: .
-    rev: main
+    rev: ddc82a10c6dc7dbbb35be646eddb7832f7b59961
     hooks:
       - id: check-commit-msg
       - id: changelog-helper
       - id: recreate-changelog
+      - id: bump-version-helper
+      - id: bump-version
+      - id: bump-version-finalize
