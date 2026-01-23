@@ -2,6 +2,7 @@
 
 ### Bug Fixes
 
+- bug in pre-push (4049890)
 - fixed version-regex (f554443)
 - updated version-conf for compliance with uv (33c7fe7)
 - to hopefully exit endless loop (2711b79)
@@ -33,7 +34,7 @@
 
 ### New Features
 
-- enhanced pre-push stage (6f57d93)
+- enhanced pre-push stage (7afe479)
 - added bump-version pre-push hook (30e2ae9)
 - re-introduced the commit-args to bump-cfg (b305dc7)
 - move bump-version hook to python (a877111)

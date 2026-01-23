@@ -257,23 +257,21 @@ def bump_version():
 
 
 def bump_version_finalize():
-    if os.path.exists(temp_helper_file):
-        os.remove(temp_helper_file)
-        bump_toml_dict = get_bumpversion_cfg()
+    bump_toml_dict = get_bumpversion_cfg()
 
-        _cmd = "git describe --exact-match --tags HEAD"
-        rec_output = subprocess.run(
-            _cmd,
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
-            universal_newlines=True,
-            shell=True,
-        )
-        new_version, new_exit_code = validate_version(
-            validate_string=rec_output.stdout, bump_toml_dict=bump_toml_dict
-        )
-        if new_exit_code is not None:
-            # if we got a valid tag, we can push it
-            _cmd = f"git push origin v{new_version}"
+    _cmd = "git describe --exact-match --tags HEAD"
+    rec_output = subprocess.run(
+        _cmd,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        universal_newlines=True,
+        shell=True,
+    )
+    new_version, new_exit_code = validate_version(
+        validate_string=rec_output.stdout, bump_toml_dict=bump_toml_dict
+    )
+    if new_exit_code is not None:
+        # if we got a valid tag, we can push it
+        _cmd = f"git push origin v{new_version}"
     # always exit with status 0
     sys.exit(0)
