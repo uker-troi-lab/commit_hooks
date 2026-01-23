@@ -2,7 +2,7 @@
 
 ### Bug Fixes
 
-- handling pre-push (bece0de)
+- handling pre-push (0ae50a1)
 - bug in pre-push (930cb34)
 - fixed version-regex (f554443)
 - updated version-conf for compliance with uv (33c7fe7)
@@ -32,6 +32,10 @@
 - typo in hook-def and added exec-flag to script (2a9e567)
 - fixed changelog-generation (1a49232)
 - re-organized repo; customize template in class (31a1d4e)
+
+### Documentation
+
+- added readme (5903588)
 
 ### New Features
 

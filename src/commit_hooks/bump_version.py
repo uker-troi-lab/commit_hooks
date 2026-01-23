@@ -275,4 +275,8 @@ def bump_version_finalize():
         # if we got a valid tag, we can push it
         _cmd = f"git push origin v{new_version}"
     # always exit with status 0
+    try:
+        os.remove(temp_helper_file)
+    except Exception:
+        pass
     sys.exit(0)
