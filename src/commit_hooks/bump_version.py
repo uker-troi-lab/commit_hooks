@@ -13,9 +13,9 @@ from .utilities import generate_helper_file
 print_prefix = "[bump-version]:"
 
 system_tempdir = tempfile.gettempdir()
-msg_helper_file = os.path.join(system_tempdir, ".commit_msg.txt")
+msg_helper_file = os.path.join(system_tempdir, ".bump_version_commit_msg.txt")
 bump_config_file = os.path.join(system_tempdir, ".bump_version.toml")
-temp_helper_file = os.path.join(system_tempdir, ".versionbump_temp_helper")
+temp_helper_file = os.path.join(system_tempdir, ".bump_version_temp_helper")
 
 
 def bump_version_helper():

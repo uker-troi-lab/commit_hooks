@@ -30,7 +30,7 @@
 
 ### New Features
 
-- added bump-version pre-push hook (90f2882)
+- added bump-version pre-push hook (30e2ae9)
 - re-introduced the commit-args to bump-cfg (b305dc7)
 - move bump-version hook to python (a877111)
 - workaround to get correct version from project's pyproject.toml (7ee7e53)
@@ -39,6 +39,7 @@
 
 ### Other changes
 
+- renamed temp-files for bump-version (fe299e8)
 - introduce bump-version-helper (e6bc7cf)
 - try fixing endless loops (531f685)
 - also added skip-statement to changelog (104fb7f)
