@@ -1,5 +1,11 @@
 ## Unreleased
 
+### Other changes
+
+- main as rev for local hooks (5b563ba)
+
+## v0.0.2 (2026-01-23)
+
 ### Bug Fixes
 
 - added missing subprocess.run (b499687)
@@ -47,7 +53,7 @@
 
 ### Other changes
 
-- bump version 0.0.1 -> 0.0.2 (3190a89)
+- bump version 0.0.1 -> 0.0.2 (56df0bb)
 - updated commit-hook-cfg (f859206)
 - clean up main (b7a8b81)
 - updated pre-commit-config (ebf1ab4)
