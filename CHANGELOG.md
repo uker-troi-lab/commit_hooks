@@ -37,7 +37,8 @@
 
 ### Other changes
 
-- also added skip-statement to changelog (2429b0c)
+- try fixing endless loops (8cb9420)
+- also added skip-statement to changelog (104fb7f)
 - **deps**: added missing tomli_w library (761dd43)
 - last try for today (f669c26)
 - trigger pipeline (75e424e)

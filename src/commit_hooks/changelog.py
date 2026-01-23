@@ -42,6 +42,7 @@ def recreate_changelog():
         _cmd = (
             "cz -n cz_troi_hook ch && "
             "git add CHANGELOG.md && "
+            "SKIP=changelog-helper,recreate-changelog "
             "git commit --no-verify --amend --no-edit"
         )
         subprocess.run(_cmd, shell=True)
