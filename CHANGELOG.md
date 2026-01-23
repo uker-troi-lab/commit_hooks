@@ -39,7 +39,8 @@
 
 ### Other changes
 
-- renamed temp-files for bump-version (fe299e8)
+- udpated errorhandling (ff48191)
+- renamed temp-files for bump-version (eef7b22)
 - introduce bump-version-helper (e6bc7cf)
 - try fixing endless loops (531f685)
 - also added skip-statement to changelog (104fb7f)

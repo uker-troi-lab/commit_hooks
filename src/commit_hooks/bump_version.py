@@ -104,8 +104,8 @@ def bump_version():
                 pyproj_toml_dict = tomllib.load(f)
             current_version = pyproj_toml_dict["project"]["version"]
             if len(current_version) == "":
-                print(f"{print_prefix} failed to extract current version")
-                sys.exit(1)
+                exit_code = 1
+                raise Exception(f"{print_prefix} failed to extract current version")
             else:
                 print(
                     f"{print_prefix} extracted current version '{current_version}' from pyproject.toml"
@@ -120,12 +120,12 @@ def bump_version():
             base_command = f"--config-file {bump_config_file}"
 
             if os.getenv("BUMP") is None:
-                print(
-                    f"{print_prefix} just showing potential version paths, not incrementing version"
-                )
                 _cmd = f"bump-my-version show-bump {base_command}"
                 subprocess.run(_cmd, shell=True)
-                sys.exit(0)
+                exit_code = 0
+                raise Exception(
+                    f"{print_prefix} just showing potential version paths, not incrementing version"
+                )
             elif os.getenv("BUMP") == "1":
                 semver = "pre_n"
             else:
@@ -134,10 +134,10 @@ def bump_version():
             allowed_values = ["major", "minor", "patch", "pre_l", "pre_n"]
 
             if semver not in allowed_values:
-                print(
+                exit_code = 1
+                raise Exception(
                     f"{print_prefix} error: allowed values for bump version are '{allowed_values}'"
                 )
-                sys.exit(1)
 
             _cmd = (
                 f"bump-my-version show {base_command} --increment {semver} new_version"
@@ -155,20 +155,23 @@ def bump_version():
                     print(
                         f"{print_prefix} ERROR: no version pattern (tool.bumpversion.parse) defined but required."
                     )
-                    sys.exit(1)
+                    exit_code = 1
                 # remove unwanted characters from stdout output
                 bump_pattern = re.compile(version_pattern)
                 parse_version = bump_pattern.search(rec_output.stdout)
                 try:
                     new_version = parse_version.group()
                 except Exception as e:
+                    exit_code = 1
                     print(e)
-                    sys.exit(1)
 
                 print(f"{print_prefix} bumping to '{new_version}'")
             else:
                 print(rec_output.stderr)
-                sys.exit(1)
+                exit_code = 1
+
+            if exit_code == 1:
+                raise Exception(f"{print_prefix} ERROR")
 
             tag_commit = False if "dev" in new_version else True
 
