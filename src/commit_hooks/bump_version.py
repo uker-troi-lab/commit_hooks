@@ -271,9 +271,11 @@ def bump_version_finalize():
     new_version, new_exit_code = validate_version(
         validate_string=rec_output.stdout, bump_toml_dict=bump_toml_dict
     )
-    if new_exit_code is None:
+    if new_exit_code is None and new_version != "":
+        # https://github.com/pre-commit/pre-commit.com/blob/main/sections/advanced.md#pre-push
+        remote_name = os.getenv("PRE_COMMIT_REMOTE_NAME", "origin")
         # if we got a valid tag, we can push it
-        _cmd = f"SKIP=bump-version-finalize git push --no-verify origin v{new_version}"
+        _cmd = f"SIP=bump-version-finalize git push --no-verify {remote_name} v{new_version}"
         subprocess.run(_cmd, shell=True)
     # always exit with status 0
     try:
