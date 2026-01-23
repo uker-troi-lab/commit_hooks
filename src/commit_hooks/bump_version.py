@@ -93,81 +93,84 @@ def handle_config(version: str, pyproj_toml: dict | None = None):
 def bump_version():
     exit_code = 0
     try:
-        # open pyproject toml from repo's root dir
-        with open("pyproject.toml", "rb") as f:
-            pyproj_toml_dict = tomllib.load(f)
-        current_version = pyproj_toml_dict["project"]["version"]
-        if len(current_version) == "":
-            print(f"{print_prefix} failed to extract current version")
-            sys.exit(1)
-        else:
-            print(
-                f"{print_prefix} extracted current version '{current_version}' from pyproject.toml"
-            )
-
-        bump_toml_dict = handle_config(
-            version=current_version, pyproj_toml=pyproj_toml_dict
-        )
-
-        os.environ["BUMPVERSION_CURRENT_VERSION"] = current_version
-
-        base_command = f"--config-file {bump_config_file}"
-
-        if os.getenv("BUMP") is None:
-            print(
-                f"{print_prefix} just showing potential version paths, not incrementing version"
-            )
-            _cmd = f"bump-my-version show-bump {base_command}"
-            subprocess.run(_cmd, shell=True)
-            sys.exit(0)
-        elif os.getenv("BUMP") == "1":
-            semver = "pre_n"
-        else:
-            semver = str(os.getenv("BUMP"))
-
-        allowed_values = ["major", "minor", "patch", "pre_l", "pre_n"]
-
-        if semver not in allowed_values:
-            print(
-                f"{print_prefix} error: allowed values for bump version are '{allowed_values}'"
-            )
-            sys.exit(1)
-
-        _cmd = f"bump-my-version show {base_command} --increment {semver} new_version"
-        rec_output = subprocess.run(
-            _cmd,
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
-            universal_newlines=True,
-            shell=True,
-        )
-        if rec_output.stdout != "":
-            version_pattern = bump_toml_dict["tool"]["bumpversion"].get("parse", "")
-            if version_pattern == "":
-                print(
-                    f"{print_prefix} ERROR: no version pattern (tool.bumpversion.parse) defined but required."
-                )
-                sys.exit(1)
-            # remove unwanted characters from stdout output
-            bump_pattern = re.compile(version_pattern)
-            parse_version = bump_pattern.search(rec_output.stdout)
-            try:
-                new_version = parse_version.group()
-            except Exception as e:
-                print(e)
-                sys.exit(1)
-
-            print(f"{print_prefix} bumping to '{new_version}'")
-        else:
-            print(rec_output.stderr)
-            sys.exit(1)
-
-        tag_commit = False if "dev" in new_version else True
-
         if not os.path.exists(temp_helper_file):
             # create helper file to avoid endless loops
             with open(temp_helper_file, "w"):
                 pass
+
+            # open pyproject toml from repo's root dir
+            with open("pyproject.toml", "rb") as f:
+                pyproj_toml_dict = tomllib.load(f)
+            current_version = pyproj_toml_dict["project"]["version"]
+            if len(current_version) == "":
+                print(f"{print_prefix} failed to extract current version")
+                sys.exit(1)
+            else:
+                print(
+                    f"{print_prefix} extracted current version '{current_version}' from pyproject.toml"
+                )
+
+            bump_toml_dict = handle_config(
+                version=current_version, pyproj_toml=pyproj_toml_dict
+            )
+
+            os.environ["BUMPVERSION_CURRENT_VERSION"] = current_version
+
+            base_command = f"--config-file {bump_config_file}"
+
+            if os.getenv("BUMP") is None:
+                print(
+                    f"{print_prefix} just showing potential version paths, not incrementing version"
+                )
+                _cmd = f"bump-my-version show-bump {base_command}"
+                subprocess.run(_cmd, shell=True)
+                sys.exit(0)
+            elif os.getenv("BUMP") == "1":
+                semver = "pre_n"
+            else:
+                semver = str(os.getenv("BUMP"))
+
+            allowed_values = ["major", "minor", "patch", "pre_l", "pre_n"]
+
+            if semver not in allowed_values:
+                print(
+                    f"{print_prefix} error: allowed values for bump version are '{allowed_values}'"
+                )
+                sys.exit(1)
+
+            _cmd = (
+                f"bump-my-version show {base_command} --increment {semver} new_version"
+            )
+            rec_output = subprocess.run(
+                _cmd,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+                universal_newlines=True,
+                shell=True,
+            )
+            if rec_output.stdout != "":
+                version_pattern = bump_toml_dict["tool"]["bumpversion"].get("parse", "")
+                if version_pattern == "":
+                    print(
+                        f"{print_prefix} ERROR: no version pattern (tool.bumpversion.parse) defined but required."
+                    )
+                    sys.exit(1)
+                # remove unwanted characters from stdout output
+                bump_pattern = re.compile(version_pattern)
+                parse_version = bump_pattern.search(rec_output.stdout)
+                try:
+                    new_version = parse_version.group()
+                except Exception as e:
+                    print(e)
+                    sys.exit(1)
+
+                print(f"{print_prefix} bumping to '{new_version}'")
+            else:
+                print(rec_output.stderr)
+                sys.exit(1)
+
+            tag_commit = False if "dev" in new_version else True
+
             # finally bump version
             _cmd = f"bump-my-version bump {base_command} --new-version {new_version}"
             subprocess.run(_cmd, shell=True)

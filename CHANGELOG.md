@@ -2,6 +2,7 @@
 
 ### Bug Fixes
 
+- another refactor to fix endless loop (9e3b74d)
 - env-var to skip bump-version (66f56e1)
 - bump_version script (5628efa)
 - cmd (02a43c8)
@@ -37,7 +38,7 @@
 
 ### Other changes
 
-- try fixing endless loops (8cb9420)
+- try fixing endless loops (531f685)
 - also added skip-statement to changelog (104fb7f)
 - **deps**: added missing tomli_w library (761dd43)
 - last try for today (f669c26)
