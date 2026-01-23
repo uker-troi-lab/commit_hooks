@@ -14,7 +14,6 @@ print_prefix = "[bump-version]:"
 system_tempdir = tempfile.gettempdir()
 msg_helper_file = os.path.join(system_tempdir, ".commit_msg.txt")
 bump_config_file = os.path.join(system_tempdir, ".bump_version.toml")
-temp_helper_file = os.path.join(system_tempdir, ".versionbump_temp_helper")
 
 
 def handle_config(version: str, pyproj_toml: dict | None = None):
@@ -92,6 +91,8 @@ def handle_config(version: str, pyproj_toml: dict | None = None):
 
 def bump_version():
     exit_code = 0
+    # add env-var to skip bump-version pre-commit from now on
+    os.environ["SKIP"] = "bump-version"
     try:
         # open pyproject toml from repo's root dir
         with open("pyproject.toml", "rb") as f:
@@ -164,46 +165,42 @@ def bump_version():
 
         tag_commit = False if "dev" in new_version else True
 
-        if not os.path.exists(temp_helper_file):
-            # create helper file to avoid endless loops
-            with open(temp_helper_file, "w"):
-                pass
-            # finally bump version
-            _cmd = f"bump-my-version bump {base_command} --new-version {new_version}"
-            subprocess.run(_cmd, shell=True)
-            # update uv.lock with new version
-            subprocess.run("uv lock", shell=True)
-            commit_message = f"chore: bump version {current_version} -> {new_version}"
-            _cmd = (
-                "git add pyproject.toml uv.lock && "
-                f'SKIP=bump-version git commit --no-verify -m "{commit_message}"'
-            )
-            subprocess.run(_cmd, shell=True)
+        # finally bump version
+        _cmd = f"bump-my-version bump {base_command} --new-version {new_version}"
+        subprocess.run(_cmd, shell=True)
+        # update uv.lock with new version
+        subprocess.run("uv lock", shell=True)
+        commit_message = f"chore: bump version {current_version} -> {new_version}"
+        _cmd = (
+            "git add pyproject.toml uv.lock && "
+            f'SKIP=bump-version git commit --no-verify -m "{commit_message}"'
+        )
+        subprocess.run(_cmd, shell=True)
 
-            # save the changelog-msg
-            subprocess.run(f"git log -1 --pretty=%B > {msg_helper_file}", shell=True)
-            # only run commit-msg hook (to run changelog-helper)
+        # save the changelog-msg
+        subprocess.run(f"git log -1 --pretty=%B > {msg_helper_file}", shell=True)
+        # only run commit-msg hook (to run changelog-helper)
+        subprocess.run(
+            f"pre-commit run --hook-stage commit-msg --commit-msg-file {msg_helper_file}",
+            shell=True,
+        )
+        # run post-commit stage to generate changelog with new commit tag included
+        subprocess.run(
+            "SKIP=bump-version pre-commit run --hook-stage post-commit", shell=True
+        )
+
+        if tag_commit:
+            # now, tag the release with the modified commit-sha
             subprocess.run(
-                f"pre-commit run --hook-stage commit-msg --commit-msg-file {msg_helper_file}",
+                f'git tag -a v{new_version} -m "release v{new_version}"',
                 shell=True,
             )
-            # run post-commit stage to generate changelog with new commit tag included
-            subprocess.run(
-                "SKIP=bump-version pre-commit run --hook-stage post-commit", shell=True
-            )
-
-            if tag_commit:
-                # now, tag the release with the modified commit-sha
-                subprocess.run(
-                    f'git tag -a v{new_version} -m "release v{new_version}"',
-                    shell=True,
-                )
     except Exception as e:
         print(e)
         exit_code = 1
 
     # remove temp files
-    for f in [msg_helper_file, bump_config_file, temp_helper_file]:
+    for f in [msg_helper_file, bump_config_file]:
         try:
             os.remove(f)
         except Exception:
