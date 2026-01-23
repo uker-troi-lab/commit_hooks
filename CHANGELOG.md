@@ -2,7 +2,8 @@
 
 ### Bug Fixes
 
-- bug in pre-push (4049890)
+- handling pre-push (bece0de)
+- bug in pre-push (930cb34)
 - fixed version-regex (f554443)
 - updated version-conf for compliance with uv (33c7fe7)
 - to hopefully exit endless loop (2711b79)

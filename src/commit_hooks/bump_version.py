@@ -113,6 +113,7 @@ def validate_version(validate_string: str, bump_toml_dict: dict):
     try:
         new_version = parse_version.group()
     except Exception as e:
+        new_version = ""
         exit_code = 1
         print(e)
 
@@ -270,7 +271,7 @@ def bump_version_finalize():
     new_version, new_exit_code = validate_version(
         validate_string=rec_output.stdout, bump_toml_dict=bump_toml_dict
     )
-    if new_exit_code is not None:
+    if new_exit_code is None:
         # if we got a valid tag, we can push it
         _cmd = f"git push origin v{new_version}"
     # always exit with status 0
