@@ -4,7 +4,7 @@ import os
 import sys
 import tempfile
 import subprocess
-from .utilities import generate_helper_file
+from .utilities import generate_helper_file, append_skip
 
 system_tempdir = tempfile.gettempdir()
 temp_helper_file = os.path.join(system_tempdir, ".commit_temp_helper")
@@ -31,13 +31,19 @@ def changelog_helper():
 
 def recreate_changelog():
     if os.path.exists(temp_helper_file):
-        os.remove(temp_helper_file)
-        os.environ["SKIP"] = "changelog-helper,recreate-changelog"
+        skip_string = (
+            "check-commit-msg,"
+            "changelog-helper,"
+            "recreate-changelog,"
+            "bump-version-helper,"
+            "bump-version,"
+            "bump-version-finalize"
+        )
+        skip_var = append_skip(skip_string)
         _cmd = (
             "cz -n cz_troi_hook ch && "
             "git add CHANGELOG.md && "
-            "SKIP=changelog-helper,recreate-changelog "
-            "git commit --no-verify --amend --no-edit"
+            f"SKIP={skip_var} git commit --no-verify --amend --no-edit"
         )
         subprocess.run(_cmd, shell=True)
     # always exit with status 0

@@ -2,6 +2,7 @@
 
 ### Bug Fixes
 
+- to hopefully exit endless loop (babdf86)
 - another refactor to fix endless loop (bd29b78)
 - env-var to skip bump-version (66f56e1)
 - bump_version script (5628efa)
@@ -39,7 +40,7 @@
 
 ### Other changes
 
-- more logging (7cb685c)
+- more logging (ee4943f)
 - udpated errorhandling (cb35967)
 - renamed temp-files for bump-version (eef7b22)
 - introduce bump-version-helper (e6bc7cf)

@@ -8,7 +8,7 @@ import subprocess
 import re
 import tomllib
 import tomli_w
-from .utilities import generate_helper_file
+from .utilities import generate_helper_file, append_skip
 
 print_prefix = "[bump-version]:"
 
@@ -180,23 +180,43 @@ def bump_version():
             subprocess.run(_cmd, shell=True)
             # update uv.lock with new version
             subprocess.run("uv lock", shell=True)
+
+            # compose skip string
+            skip_string = "bump-version-helper,bump-version,bump-version-finalize"
+            skip_var = append_skip(skip_string)
+
+            # compose commit message
             commit_message = f"chore: bump version {current_version} -> {new_version}"
             _cmd = (
                 "git add pyproject.toml uv.lock && "
-                f'SKIP=bump-version git commit --no-verify -m "{commit_message}"'
+                f'SKIP={skip_var} git commit --no-verify -m "{commit_message}"'
             )
             subprocess.run(_cmd, shell=True)
 
             # save the changelog-msg
             subprocess.run(f"git log -1 --pretty=%B > {msg_helper_file}", shell=True)
+
+            # compose skip string
+            skip_string = (
+                "changelog-helper,"
+                "recreate-changelog,"
+                "bump-version-helper,"
+                "bump-version,"
+                "bump-version-finalize"
+            )
+            skip_var = append_skip(skip_string)
             # only run commit-msg hook (to run changelog-helper)
             subprocess.run(
-                f"SKIP=bump-version pre-commit run --hook-stage commit-msg --commit-msg-file {msg_helper_file}",
+                f"SKIP={skip_var} pre-commit run --hook-stage commit-msg --commit-msg-file {msg_helper_file}",
                 shell=True,
             )
+
+            # compose skip string
+            skip_string = "bump-version-helper,bump-version,bump-version-finalize"
+            skip_var = append_skip(skip_string)
             # run post-commit stage to generate changelog with new commit tag included
             subprocess.run(
-                "SKIP=bump-version pre-commit run --hook-stage post-commit", shell=True
+                f"SKIP={skip_var} pre-commit run --hook-stage post-commit", shell=True
             )
 
             if tag_commit:
