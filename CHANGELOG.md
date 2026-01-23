@@ -2,6 +2,7 @@
 
 ### Bug Fixes
 
+- added missing subprocess.run (e22a703)
 - handling pre-push (0ae50a1)
 - bug in pre-push (930cb34)
 - fixed version-regex (f554443)
@@ -35,7 +36,7 @@
 
 ### Documentation
 
-- added readme (5903588)
+- added readme (f77f341)
 
 ### New Features
 
