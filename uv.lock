@@ -147,7 +147,7 @@ wheels = [
 
 [[package]]
 name = "commit-hooks"
-version = "0.0.2"
+version = "0.1.0"
 source = { editable = "." }
 dependencies = [
     { name = "bump-my-version" },

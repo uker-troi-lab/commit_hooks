@@ -2,7 +2,8 @@
 
 ### Other changes
 
-- main as rev for local hooks (5b563ba)
+- bump version 0.0.2 -> 0.1.0 (70e12c7)
+- main as rev for local hooks (f20c2f2)
 
 ## v0.0.2 (2026-01-23)
 
