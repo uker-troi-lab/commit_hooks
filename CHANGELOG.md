@@ -50,7 +50,8 @@
 
 ### Other changes
 
-- updated pre-commit-config (ae1f760)
+- updated pre-commit-config (341d41a)
+- updated pre-commit-config (3d9da3e)
 - also no-verify to tag pushing (ddc82a1)
 - more logging (ee4943f)
 - udpated errorhandling (cb35967)
