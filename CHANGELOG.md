@@ -2,6 +2,7 @@
 
 ### Bug Fixes
 
+- bump_version script (001fbc8)
 - cmd (02a43c8)
 - commit args to cmd (f51e91b)
 - bump cfg (a1215c8)
@@ -35,7 +36,7 @@
 
 ### Other changes
 
-- last try for today (fb67f6c)
+- last try for today (f669c26)
 - trigger pipeline (75e424e)
 - updated bump-script (0599931)
 - try re-create changelog as pre-push stage (2d2d54a)
