@@ -47,7 +47,8 @@
 
 ### Other changes
 
-- updated commit-hook-cfg (c2053f4)
+- bump version 0.0.1 -> 0.0.2 (3190a89)
+- updated commit-hook-cfg (f859206)
 - clean up main (b7a8b81)
 - updated pre-commit-config (ebf1ab4)
 - updated pre-commit-config (3d9da3e)
