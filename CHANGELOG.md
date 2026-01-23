@@ -2,7 +2,8 @@
 
 ### Bug Fixes
 
-- to hopefully exit endless loop (babdf86)
+- updated version-conf for compliance with uv (4b651ce)
+- to hopefully exit endless loop (2711b79)
 - another refactor to fix endless loop (bd29b78)
 - env-var to skip bump-version (66f56e1)
 - bump_version script (5628efa)

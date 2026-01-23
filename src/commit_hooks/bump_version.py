@@ -36,7 +36,7 @@ def handle_config(version: str, pyproj_toml: dict | None = None):
       )?
     """
     serialize = [
-        "{major}.{minor}.{patch}-{pre_l}{pre_n}",
+        "{major}.{minor}.{patch}{pre_l}{pre_n}",
         "{major}.{minor}.{patch}",
     ]
     search = "{current_version}"
@@ -54,8 +54,7 @@ def handle_config(version: str, pyproj_toml: dict | None = None):
 
     bump_cfg_parts = """
     [tool.bumpversion.parts.pre_l]
-    values = ["dev", "rc", "final"]
-    optional_value = "final"
+    values = ["dev"]
 
     [[tool.bumpversion.files]]
     filename = "pyproject.toml"
