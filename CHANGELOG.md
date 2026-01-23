@@ -39,7 +39,8 @@
 
 ### Other changes
 
-- udpated errorhandling (ff48191)
+- more logging (7cb685c)
+- udpated errorhandling (cb35967)
 - renamed temp-files for bump-version (eef7b22)
 - introduce bump-version-helper (e6bc7cf)
 - try fixing endless loops (531f685)

@@ -96,7 +96,7 @@ def handle_config(version: str, pyproj_toml: dict | None = None):
 
 
 def bump_version():
-    exit_code = 0
+    exit_code = None
     try:
         if os.path.exists(temp_helper_file):
             # open pyproject toml from repo's root dir
@@ -207,10 +207,14 @@ def bump_version():
                 )
     except Exception as e:
         print(e)
-        exit_code = 1
+        if exit_code is None:
+            exit_code = 1
 
+    # default value, if exit_code hasn't set so far
+    if exit_code is None:
+        exit_code = 0
     # remove temp files
-    for f in [msg_helper_file, bump_config_file]:
+    for f in [msg_helper_file, bump_config_file, temp_helper_file]:
         try:
             os.remove(f)
         except Exception:
