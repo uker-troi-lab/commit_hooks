@@ -2,7 +2,8 @@
 
 ### Bug Fixes
 
-- updated version-conf for compliance with uv (4b651ce)
+- fixed version-regex (9c6f0bd)
+- updated version-conf for compliance with uv (33c7fe7)
 - to hopefully exit endless loop (2711b79)
 - another refactor to fix endless loop (bd29b78)
 - env-var to skip bump-version (66f56e1)

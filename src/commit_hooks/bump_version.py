@@ -30,7 +30,6 @@ def handle_config(version: str, pyproj_toml: dict | None = None):
       (?P<minor>0|[1-9]\\\\d*)\\\\.
       (?P<patch>0|[1-9]\\\\d*)
       (?:
-          -
           (?P<pre_l>[a-zA-Z-]+)
           (?P<pre_n>0|[1-9]\\\\d*)
       )?
