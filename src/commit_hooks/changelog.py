@@ -38,10 +38,11 @@ def changelog_helper():
 def recreate_changelog():
     if os.path.exists(temp_helper_file):
         os.remove(temp_helper_file)
+        os.environ["SKIP"] = "changelog-helper,recreate-changelog"
         _cmd = (
             "cz -n cz_troi_hook ch && "
             "git add CHANGELOG.md && "
-            "git commit --amend --no-edit --no-verify"
+            "git commit --no-verify --amend --no-edit"
         )
         subprocess.run(_cmd, shell=True)
     # always exit with status 0

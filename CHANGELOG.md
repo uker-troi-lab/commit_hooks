@@ -2,7 +2,7 @@
 
 ### Bug Fixes
 
-- env-var to skip bump-version (e65607e)
+- env-var to skip bump-version (66f56e1)
 - bump_version script (5628efa)
 - cmd (02a43c8)
 - commit args to cmd (f51e91b)
@@ -37,6 +37,7 @@
 
 ### Other changes
 
+- also added skip-statement to changelog (2429b0c)
 - **deps**: added missing tomli_w library (761dd43)
 - last try for today (f669c26)
 - trigger pipeline (75e424e)
