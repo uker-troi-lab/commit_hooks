@@ -47,7 +47,8 @@
 
 ### Other changes
 
-- clean up main (941572d)
+- updated commit-hook-cfg (c2053f4)
+- clean up main (b7a8b81)
 - updated pre-commit-config (ebf1ab4)
 - updated pre-commit-config (3d9da3e)
 - also no-verify to tag pushing (ddc82a1)
