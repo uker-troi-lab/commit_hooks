@@ -17,9 +17,6 @@ __pycache__
 !/src/commit_hooks/templates
 /src/commit_hooks/templates/*
 !/src/commit_hooks/templates/CHANGELOG.md.j2
-!/scripts/
-/scripts/*
-!/scripts/recreate_changelog.sh
 
 !LICENSE
 !README.md

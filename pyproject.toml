@@ -7,6 +7,8 @@ requires-python = ">=3.11,<4.0"
 dependencies = [
     "jinja2>=3.1.6",
     "commitizen>=4.9.1",
+    "bump-my-version>=1.2.6",
+    "tomli-w>=1.2.0",
 ]
 exclude = [
   "**/doc",
@@ -22,6 +24,9 @@ classifiers = [
 [project.scripts]
 changelog_helper = "commit_hooks.changelog:changelog_helper"
 recreate_changelog = "commit_hooks.changelog:recreate_changelog"
+bump_version = "commit_hooks.bump_version:bump_version"
+bump_version_helper = "commit_hooks.bump_version:bump_version_helper"
+bump_version_finalize = "commit_hooks.bump_version:bump_version_finalize"
 
 [project.entry-points."commitizen.plugin"]
 cz_troi_hook = "commit_hooks.cz_troi_hook:TroiCommitizenCz"
