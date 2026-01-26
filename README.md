@@ -28,7 +28,7 @@ Generates a CHANGELOG.md from commit messages, that are formatted according to [
 
 ## Version Bumper [stages: post-commit / pre-push]
 
-Commit hook wrapper around [`bump-my-version`](https://github.com/callowayproject/bump-my-version). 
+Commit hook wrapper around [`bump-my-version`](https://github.com/callowayproject/bump-my-version).
 
 ```yaml
 - repo: https://github.com/uker-troi-lab/commit_hooks.git
@@ -43,7 +43,7 @@ If you want to bump the version with one commit, prefix your commit command with
 When not specifying `BUMP`, the hook will show the potential bump-path. This can also be achivied running the following:
 
 ```bash
-touch /tmp/.bump_version_temp_helper && pre-commit run --hook-stage post-commit bump-version
+pre-commit run --hook-stage post-commit bump-version
 ```
 
 Hook `bump-version-tag-pusher` is a pre-push hook that will push the tag, if HEAD was tagged.
