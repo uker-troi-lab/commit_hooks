@@ -7,12 +7,13 @@
 
 ### New Features
 
-- post-commit hooks working without helper files (3e55225)
+- post-commit hooks working without helper files (0fceff4)
 - deprecation of helper hook, handling custom bump-my-version configs (5598ccf)
 - make it os-iindependent by switching bash-scripts to python (55e002c)
 
 ### Other changes
 
+- bump version: 0.1.0 -> 0.1.0dev1 (3550459)
 - skip helper-hooks (8312b36)
 - determine remote name by envvar (39199ba)
 - local hooks refer to main (0cad076)
