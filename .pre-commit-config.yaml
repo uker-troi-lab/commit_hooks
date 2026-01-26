@@ -33,8 +33,6 @@ repos:
     rev: main
     hooks:
       - id: check-commit-msg
-      - id: changelog-helper
       - id: recreate-changelog
-      - id: bump-version-helper
       - id: bump-version
-      - id: bump-version-finalize
+      - id: bump-version-tag-pusher
