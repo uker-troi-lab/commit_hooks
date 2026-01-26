@@ -116,7 +116,8 @@ def validate_version(validate_string: str, bump_toml_dict: dict):
     bump_pattern = re.compile(version_pattern)
     parse_version = bump_pattern.search(validate_string)
     try:
-        new_version = parse_version.group()
+        if parse_version is not None:
+            new_version = parse_version.group()
     except Exception as e:
         new_version = ""
         exit_code = 1
@@ -288,6 +289,8 @@ def bump_version_tagpusher():
         remote_name = os.getenv("PRE_COMMIT_REMOTE_NAME", "origin")
         tag_name = eval('f"' + bump_toml_dict["tool"]["bumpversion"]["tag_name"] + '"')
         # if we got a valid tag, we can push it
+        commit_sha = os.getenv("PRE_COMMIT_TO_REF", "")
+        print(f"{print_prefix} tagging commit '{commit_sha}' as {tag_name}")
         _cmd = (
             f"SIP=bump-version-tag-pusher git push --no-verify {remote_name} {tag_name}"
         )

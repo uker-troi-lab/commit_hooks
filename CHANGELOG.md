@@ -2,6 +2,7 @@
 
 ### Bug Fixes
 
+- avoid regex message when pattern does not match (661371e)
 - fixed changelog-generation (1a49232)
 - re-organized repo; customize template in class (31a1d4e)
 
@@ -13,7 +14,7 @@
 
 ### Other changes
 
-- bump version: 0.1.0 -> 0.1.0dev1 (3550459)
+- bump version: 0.1.0 -> 0.1.0dev1 (8385731)
 - skip helper-hooks (8312b36)
 - determine remote name by envvar (39199ba)
 - local hooks refer to main (0cad076)
