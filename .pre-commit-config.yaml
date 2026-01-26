@@ -30,7 +30,7 @@ repos:
 
   # local hooks
   - repo: .
-    rev: patch-no-helper
+    rev: main
     hooks:
       - id: check-commit-msg
       - id: recreate-changelog

@@ -46,4 +46,10 @@ When not specifying `BUMP`, the hook will show the potential bump-path. This can
 pre-commit run --hook-stage post-commit bump-version
 ```
 
+To only trigger the version-bumping, you can run e.g.:
+
+```bash
+BUMP=patch pre-commit run --hook-stage post-commit bump-version
+```
+
 Hook `bump-version-tag-pusher` is a pre-push hook that will push the tag, if HEAD was tagged.

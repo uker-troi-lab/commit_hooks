@@ -112,17 +112,16 @@ def validate_version(validate_string: str, bump_toml_dict: dict):
             f"{print_prefix} ERROR: no version pattern (tool.bumpversion.parse) defined but required."
         )
         exit_code = 1
-    # remove unwanted characters from stdout output
-    bump_pattern = re.compile(version_pattern)
-    parse_version = bump_pattern.search(validate_string)
-    try:
+    else:
+        # remove unwanted characters from stdout output
+        bump_pattern = re.compile(version_pattern)
+        parse_version = bump_pattern.search(validate_string)
         if parse_version is not None:
             new_version = parse_version.group()
-    except Exception as e:
+        else:
+            exit_code = 1
+    if exit_code == 1:
         new_version = ""
-        exit_code = 1
-        print(e)
-
     return new_version, exit_code
 
 
