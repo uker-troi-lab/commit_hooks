@@ -1,6 +1,6 @@
 [project]
 name = "commit_hooks"
-version = "0.1.0"
+version = "0.1.1"
 description = "troi-lab commit hooks."
 readme = "README.md"
 requires-python = ">=3.11,<4.0"
@@ -26,7 +26,7 @@ changelog_helper = "commit_hooks.changelog:changelog_helper"
 recreate_changelog = "commit_hooks.changelog:recreate_changelog"
 bump_version = "commit_hooks.bump_version:bump_version"
 bump_version_helper = "commit_hooks.bump_version:bump_version_helper"
-bump_version_finalize = "commit_hooks.bump_version:bump_version_finalize"
+bump_version_tagpusher = "commit_hooks.bump_version:bump_version_tagpusher"
 
 [project.entry-points."commitizen.plugin"]
 cz_troi_hook = "commit_hooks.cz_troi_hook:TroiCommitizenCz"

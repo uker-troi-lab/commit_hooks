@@ -1,97 +1,24 @@
 ## Unreleased
 
-### Other changes
-
-- bump version 0.0.2 -> 0.1.0 (70e12c7)
-- main as rev for local hooks (f20c2f2)
-
-## v0.0.2 (2026-01-23)
-
 ### Bug Fixes
 
-- added missing subprocess.run (b499687)
-- handling pre-push (0ae50a1)
-- bug in pre-push (930cb34)
-- fixed version-regex (f554443)
-- updated version-conf for compliance with uv (33c7fe7)
-- to hopefully exit endless loop (2711b79)
-- another refactor to fix endless loop (bd29b78)
-- env-var to skip bump-version (66f56e1)
-- bump_version script (5628efa)
-- cmd (02a43c8)
-- commit args to cmd (f51e91b)
-- bump cfg (a1215c8)
-- bump cfg (e7fa87b)
-- still fixiing endless loop (e211d9c)
-- handling of residual files (5afe5e7)
-- sys commands (a2d2241)
-- exiting endless loop (9218e83)
-- exiting endless loop (81c5e85)
-- fixed issue with envar type (6c589f6)
-- finalizing bump-version implementation (6003494)
-- bump-show cmd (3e60e48)
-- typo in bump-config (6a0f0a1)
-- output of show-bump command (6cf32bc)
-- fixed escape chars (d57ce8e)
-- added bump-config as string into python script (5195bf1)
-- missing closing quots (ce808c0)
-- bump-my-version config to separate file (fcdcd9b)
-- removed changing of directory (2f645cf)
-- typo in hook-def and added exec-flag to script (2a9e567)
-
-### Documentation
-
-- added readme (f77f341)
-
-### New Features
-
-- enhanced pre-push stage (7afe479)
-- added bump-version pre-push hook (30e2ae9)
-- re-introduced the commit-args to bump-cfg (b305dc7)
-- move bump-version hook to python (a877111)
-- workaround to get correct version from project's pyproject.toml (7ee7e53)
-- adding bump-version (wip) (0c95c69)
-
-### Other changes
-
-- bump version 0.0.1 -> 0.0.2 (56df0bb)
-- updated commit-hook-cfg (f859206)
-- clean up main (b7a8b81)
-- updated pre-commit-config (ebf1ab4)
-- updated pre-commit-config (3d9da3e)
-- also no-verify to tag pushing (ddc82a1)
-- more logging (ee4943f)
-- udpated errorhandling (cb35967)
-- renamed temp-files for bump-version (eef7b22)
-- introduce bump-version-helper (e6bc7cf)
-- try fixing endless loops (531f685)
-- also added skip-statement to changelog (104fb7f)
-- **deps**: added missing tomli_w library (761dd43)
-- last try for today (f669c26)
-- trigger pipeline (75e424e)
-- updated bump-script (0599931)
-- try re-create changelog as pre-push stage (2d2d54a)
-- try find out source of loop (3c1ab8a)
-- another try, fixing duplicate execution (d2ea704)
-- updated bump-version script (7539207)
-- fixed print statement (0f39c0b)
-- some more enhancements (f26171c)
-- explicitly providing path to config file (f845095)
-- echo config-file path (e063872)
-
-## v0.0.1 (2025-09-23)
-
-### Bug Fixes
-
+- avoid regex message when pattern does not match (bc08f18)
 - fixed changelog-generation (1a49232)
 - re-organized repo; customize template in class (31a1d4e)
 
 ### New Features
 
+- post-commit hooks working without helper files (0fceff4)
+- deprecation of helper hook, handling custom bump-my-version configs (5598ccf)
 - make it os-iindependent by switching bash-scripts to python (55e002c)
 
 ### Other changes
 
+- bump version: 0.1.0dev1 -> 0.1.1 (4707fe7)
+- bump version: 0.1.0 -> 0.1.0dev1 (8385731)
+- skip helper-hooks (8312b36)
+- determine remote name by envvar (39199ba)
+- local hooks refer to main (0cad076)
 - updated pre-commit-version (77ee2ce)
 - removed comments from .pre-commit-config (363e762)
 - cleaning up repo (0ce7d4f)
