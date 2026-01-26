@@ -47,9 +47,9 @@
   verbose: true
 
 # bump version
-- id: bump-version-finalize
-  name: bump-version-finalize
-  entry: bump_version_finalize
+- id: bump-version-tag-pusher
+  name: bump-version-tag-pusher
+  entry: bump_version_tagpusher
   language: python
   language_version: python3
   always_run: true

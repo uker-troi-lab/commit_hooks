@@ -1,12 +1,9 @@
 import subprocess
-from sys import stdout
 import os
 import sys
 import tempfile
 import tomllib
-import subprocess
 import re
-import tomllib
 import tomli_w
 from .utilities import generate_helper_file, append_skip
 
@@ -15,11 +12,12 @@ print_prefix = "[bump-version]:"
 system_tempdir = tempfile.gettempdir()
 msg_helper_file = os.path.join(system_tempdir, ".bump_version_commit_msg.txt")
 bump_config_file = os.path.join(system_tempdir, ".bump_version.toml")
-temp_helper_file = os.path.join(system_tempdir, ".bump_version_temp_helper")
+# temp_helper_file = os.path.join(system_tempdir, ".bump_version_temp_helper")
 
 
 def bump_version_helper():
-    generate_helper_file(fn=temp_helper_file)
+    # generate_helper_file(fn=temp_helper_file)
+    generate_helper_file()
 
 
 def get_bumpversion_cfg():
@@ -202,7 +200,7 @@ def bump_version():
         subprocess.run("uv lock", shell=True)
 
         # compose skip string
-        skip_string = "bump-version-helper,bump-version,bump-version-finalize"
+        skip_string = "bump-version-helper,bump-version,bump-version-tag-pusher"
         skip_var = append_skip(skip_string)
 
         # compose commit message
@@ -224,7 +222,7 @@ def bump_version():
             "recreate-changelog,"
             "bump-version-helper,"
             "bump-version,"
-            "bump-version-finalize"
+            "bump-version-tag-pusher"
         )
         skip_var = append_skip(skip_string)
         # only run commit-msg hook (to run changelog-helper)
@@ -234,7 +232,7 @@ def bump_version():
         )
 
         # compose skip string
-        skip_string = "bump-version-helper,bump-version,bump-version-finalize"
+        skip_string = "bump-version-helper,bump-version,bump-version-tag-pusher"
         skip_var = append_skip(skip_string)
         # run post-commit stage to generate changelog with new commit tag included
         subprocess.run(
@@ -262,7 +260,8 @@ def bump_version():
     if exit_code is None:
         exit_code = 0
     # remove temp files
-    for f in [msg_helper_file, bump_config_file, temp_helper_file]:
+    # for f in [msg_helper_file, bump_config_file, temp_helper_file]:
+    for f in [msg_helper_file, bump_config_file]:
         try:
             os.remove(f)
         except Exception:
@@ -270,7 +269,7 @@ def bump_version():
     sys.exit(exit_code)
 
 
-def bump_version_finalize():
+def bump_version_tagpusher():
     bump_toml_dict = get_bumpversion_cfg()
 
     _cmd = "git describe --exact-match --tags HEAD"
@@ -287,12 +286,15 @@ def bump_version_finalize():
     if new_exit_code is None and new_version != "":
         # https://github.com/pre-commit/pre-commit.com/blob/main/sections/advanced.md#pre-push
         remote_name = os.getenv("PRE_COMMIT_REMOTE_NAME", "origin")
+        tag_name = eval('f"' + bump_toml_dict["tool"]["bumpversion"]["tag_name"] + '"')
         # if we got a valid tag, we can push it
-        _cmd = f"SIP=bump-version-finalize git push --no-verify {remote_name} v{new_version}"
+        _cmd = (
+            f"SIP=bump-version-tag-pusher git push --no-verify {remote_name} {tag_name}"
+        )
         subprocess.run(_cmd, shell=True)
     # always exit with status 0
-    try:
-        os.remove(temp_helper_file)
-    except Exception:
-        pass
+    # try:
+    #     os.remove(temp_helper_file)
+    # except Exception:
+    #     pass
     sys.exit(0)

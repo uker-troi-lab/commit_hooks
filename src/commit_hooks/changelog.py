@@ -1,17 +1,18 @@
 #!/usr/bin/env python
 
-import os
+# import os
 import sys
 import tempfile
 import subprocess
 from .utilities import generate_helper_file, append_skip
 
 system_tempdir = tempfile.gettempdir()
-temp_helper_file = os.path.join(system_tempdir, ".commit_temp_helper")
+# temp_helper_file = os.path.join(system_tempdir, ".commit_temp_helper")
 
 
 def changelog_helper():
-    generate_helper_file(fn=temp_helper_file)
+    # generate_helper_file(fn=temp_helper_file)
+    generate_helper_file()
 
 
 # original bash-script (which worked well)
@@ -37,7 +38,7 @@ def recreate_changelog():
         "recreate-changelog,"
         "bump-version-helper,"
         "bump-version,"
-        "bump-version-finalize"
+        "bump-version-tag-pusher"
     )
     skip_var = append_skip(skip_string)
     _cmd = (
