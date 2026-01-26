@@ -30,21 +30,22 @@ def changelog_helper():
 
 
 def recreate_changelog():
-    if os.path.exists(temp_helper_file):
-        skip_string = (
-            "check-commit-msg,"
-            "changelog-helper,"
-            "recreate-changelog,"
-            "bump-version-helper,"
-            "bump-version,"
-            "bump-version-finalize"
-        )
-        skip_var = append_skip(skip_string)
-        _cmd = (
-            "cz -n cz_troi_hook ch && "
-            "git add CHANGELOG.md && "
-            f"SKIP={skip_var} git commit --no-verify --amend --no-edit"
-        )
-        subprocess.run(_cmd, shell=True)
+    # if os.path.exists(temp_helper_file):
+    skip_string = (
+        "check-commit-msg,"
+        "changelog-helper,"
+        "recreate-changelog,"
+        "bump-version-helper,"
+        "bump-version,"
+        "bump-version-finalize"
+    )
+    skip_var = append_skip(skip_string)
+    _cmd = (
+        "cz -n cz_troi_hook ch && "
+        "git add CHANGELOG.md && "
+        f"SKIP={skip_var} git commit --no-verify --amend --no-edit"
+    )
+    subprocess.run(_cmd, shell=True)
+    # os.remove(temp_helper_file)
     # always exit with status 0
     sys.exit(0)
