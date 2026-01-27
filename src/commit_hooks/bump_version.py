@@ -213,31 +213,31 @@ def bump_version():
         )
         subprocess.run(_cmd, shell=True)
 
-        # save the changelog-msg
-        subprocess.run(f"git log -1 --pretty=%B > {msg_helper_file}", shell=True)
+        # # save the changelog-msg
+        # subprocess.run(f"git log -1 --pretty=%B > {msg_helper_file}", shell=True)
 
-        # compose skip string
-        skip_string = (
-            "changelog-helper,"
-            "recreate-changelog,"
-            "bump-version-helper,"
-            "bump-version,"
-            "bump-version-tag-pusher"
-        )
-        skip_var = append_skip(skip_string)
-        # only run commit-msg hook (to run changelog-helper)
-        subprocess.run(
-            f"SKIP={skip_var} pre-commit run --hook-stage commit-msg --commit-msg-file {msg_helper_file}",
-            shell=True,
-        )
+        # # compose skip string
+        # skip_string = (
+        #     "changelog-helper,"
+        #     "recreate-changelog,"
+        #     "bump-version-helper,"
+        #     "bump-version,"
+        #     "bump-version-tag-pusher"
+        # )
+        # skip_var = append_skip(skip_string)
+        # # only run commit-msg hook (to run changelog-helper)
+        # subprocess.run(
+        #     f"SKIP={skip_var} pre-commit run --hook-stage commit-msg --commit-msg-file {msg_helper_file}",
+        #     shell=True,
+        # )
 
-        # compose skip string
-        skip_string = "bump-version-helper,bump-version,bump-version-tag-pusher"
-        skip_var = append_skip(skip_string)
-        # run post-commit stage to generate changelog with new commit tag included
-        subprocess.run(
-            f"SKIP={skip_var} pre-commit run --hook-stage post-commit", shell=True
-        )
+        # # compose skip string
+        # skip_string = "bump-version-helper,bump-version,bump-version-tag-pusher"
+        # skip_var = append_skip(skip_string)
+        # # run post-commit stage to generate changelog with new commit tag included
+        # subprocess.run(
+        #     f"SKIP={skip_var} pre-commit run --hook-stage post-commit", shell=True
+        # )
 
         if tag_commit:
             tag_name = eval(

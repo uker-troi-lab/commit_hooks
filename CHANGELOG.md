@@ -2,11 +2,17 @@
 
 ### Bug Fixes
 
+- removed duplicate run of post-commit hooks after version bumping (9652932)
+
+## v0.1.2 (2026-01-27)
+
+### Bug Fixes
+
 - typo in skip-envvar (446a419)
 
 ### Other changes
 
-- bump version: 0.1.1 -> 0.1.2 (b4675e0)
+- bump version: 0.1.1 -> 0.1.2 (14ba882)
 
 ## v0.1.1 (2026-01-26)
 
