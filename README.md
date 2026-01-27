@@ -14,7 +14,7 @@ Check if commit message is valid with respect to [conventional commits](https://
     - id: check-commit-msg
 ```
 
-## Changelog Helper [stage: post-commit]
+## Recreate Changelog [stage: post-commit]
 
 Generates a CHANGELOG.md from commit messages, that are formatted according to [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/).
 

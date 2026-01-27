@@ -5,19 +5,12 @@ import tempfile
 import tomllib
 import re
 import tomli_w
-from .utilities import generate_helper_file, append_skip
+from .utilities import append_skip
 
 print_prefix = "[bump-version]:"
 
 system_tempdir = tempfile.gettempdir()
-msg_helper_file = os.path.join(system_tempdir, ".bump_version_commit_msg.txt")
 bump_config_file = os.path.join(system_tempdir, ".bump_version.toml")
-# temp_helper_file = os.path.join(system_tempdir, ".bump_version_temp_helper")
-
-
-def bump_version_helper():
-    # generate_helper_file(fn=temp_helper_file)
-    generate_helper_file()
 
 
 def get_bumpversion_cfg():
@@ -128,7 +121,6 @@ def validate_version(validate_string: str, bump_toml_dict: dict):
 def bump_version():
     exit_code = None
     try:
-        # if os.path.exists(temp_helper_file):
         # open pyproject toml from repo's root dir
         with open("pyproject.toml", "rb") as f:
             pyproj_toml_dict = tomllib.load(f)
@@ -200,7 +192,7 @@ def bump_version():
         subprocess.run("uv lock", shell=True)
 
         # compose skip string
-        skip_string = "bump-version-helper,bump-version,bump-version-tag-pusher"
+        skip_string = "bump-version,bump-version-tag-pusher"
         skip_var = append_skip(skip_string)
 
         # compose commit message
@@ -212,32 +204,6 @@ def bump_version():
             f'SKIP={skip_var} git commit --no-verify -m "{commit_message}"'
         )
         subprocess.run(_cmd, shell=True)
-
-        # # save the changelog-msg
-        # subprocess.run(f"git log -1 --pretty=%B > {msg_helper_file}", shell=True)
-
-        # # compose skip string
-        # skip_string = (
-        #     "changelog-helper,"
-        #     "recreate-changelog,"
-        #     "bump-version-helper,"
-        #     "bump-version,"
-        #     "bump-version-tag-pusher"
-        # )
-        # skip_var = append_skip(skip_string)
-        # # only run commit-msg hook (to run changelog-helper)
-        # subprocess.run(
-        #     f"SKIP={skip_var} pre-commit run --hook-stage commit-msg --commit-msg-file {msg_helper_file}",
-        #     shell=True,
-        # )
-
-        # # compose skip string
-        # skip_string = "bump-version-helper,bump-version,bump-version-tag-pusher"
-        # skip_var = append_skip(skip_string)
-        # # run post-commit stage to generate changelog with new commit tag included
-        # subprocess.run(
-        #     f"SKIP={skip_var} pre-commit run --hook-stage post-commit", shell=True
-        # )
 
         if tag_commit:
             tag_name = eval(
@@ -259,13 +225,11 @@ def bump_version():
     # default value, if exit_code hasn't set so far
     if exit_code is None:
         exit_code = 0
-    # remove temp files
-    # for f in [msg_helper_file, bump_config_file, temp_helper_file]:
-    for f in [msg_helper_file, bump_config_file]:
-        try:
-            os.remove(f)
-        except Exception:
-            pass
+    # remove temp file
+    try:
+        os.remove(bump_config_file)
+    except Exception:
+        pass
     sys.exit(exit_code)
 
 
@@ -292,9 +256,4 @@ def bump_version_tagpusher():
         print(f"{print_prefix} tagging commit '{commit_sha}' as {tag_name}")
         _cmd = f"SKIP=bump-version-tag-pusher git push --no-verify {remote_name} {tag_name}"
         subprocess.run(_cmd, shell=True)
-    # always exit with status 0
-    # try:
-    #     os.remove(temp_helper_file)
-    # except Exception:
-    #     pass
     sys.exit(0)
