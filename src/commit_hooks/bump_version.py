@@ -290,9 +290,7 @@ def bump_version_tagpusher():
         # if we got a valid tag, we can push it
         commit_sha = os.getenv("PRE_COMMIT_TO_REF", "")
         print(f"{print_prefix} tagging commit '{commit_sha}' as {tag_name}")
-        _cmd = (
-            f"SIP=bump-version-tag-pusher git push --no-verify {remote_name} {tag_name}"
-        )
+        _cmd = f"SKIP=bump-version-tag-pusher git push --no-verify {remote_name} {tag_name}"
         subprocess.run(_cmd, shell=True)
     # always exit with status 0
     # try:

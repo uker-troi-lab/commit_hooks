@@ -2,23 +2,29 @@
 
 ### Bug Fixes
 
-- avoid regex message when pattern does not match (bc08f18)
+- typo in skip-envvar (3a9f893)
+
+## v0.1.1 (2026-01-26)
+
+### Other changes
+
+- local hooks refer to main (0cad076)
+
+## v0.1.0 (2026-01-23)
+
+## v0.0.1 (2025-09-23)
+
+### Bug Fixes
+
 - fixed changelog-generation (1a49232)
 - re-organized repo; customize template in class (31a1d4e)
 
 ### New Features
 
-- post-commit hooks working without helper files (0fceff4)
-- deprecation of helper hook, handling custom bump-my-version configs (5598ccf)
 - make it os-iindependent by switching bash-scripts to python (55e002c)
 
 ### Other changes
 
-- bump version: 0.1.0dev1 -> 0.1.1 (4707fe7)
-- bump version: 0.1.0 -> 0.1.0dev1 (8385731)
-- skip helper-hooks (8312b36)
-- determine remote name by envvar (39199ba)
-- local hooks refer to main (0cad076)
 - updated pre-commit-version (77ee2ce)
 - removed comments from .pre-commit-config (363e762)
 - cleaning up repo (0ce7d4f)
