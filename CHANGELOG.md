@@ -2,7 +2,11 @@
 
 ### Bug Fixes
 
-- also respect existing skip-config in pre-push hook (9167297)
+- also respect existing skip-config in pre-push hook (87e8a02)
+
+### Other changes
+
+- bump version: 0.2.0 -> 0.2.0dev1 (7a35fcc)
 
 ## v0.2.0 (2026-01-27)
 
