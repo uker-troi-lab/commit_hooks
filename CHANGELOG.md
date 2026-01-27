@@ -2,7 +2,11 @@
 
 ### Bug Fixes
 
-- typo in skip-envvar (3a9f893)
+- typo in skip-envvar (446a419)
+
+### Other changes
+
+- bump version: 0.1.1 -> 0.1.2 (b4675e0)
 
 ## v0.1.1 (2026-01-26)
 
