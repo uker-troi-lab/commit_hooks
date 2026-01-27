@@ -2,11 +2,17 @@
 
 ### Bug Fixes
 
+- also respect existing skip-config in pre-push hook (9167297)
+
+## v0.2.0 (2026-01-27)
+
+### Bug Fixes
+
 - removed duplicate run of post-commit hooks after version bumping (807ecbf)
 
 ### Other changes
 
-- bump version: 0.1.2dev2 -> 0.2.0 (ad0fce1)
+- bump version: 0.1.2dev2 -> 0.2.0 (5708747)
 - bump version: 0.1.2dev1 -> 0.1.2dev2 (4815ffc)
 - removed deprecated features (b44405f)
 - bump version: 0.1.2 -> 0.1.2dev1 (11de759)
