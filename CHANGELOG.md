@@ -6,7 +6,8 @@
 
 ### Other changes
 
-- bump version: 0.1.2dev1 -> 0.1.2dev2 (418a627)
+- bump version: 0.1.2dev2 -> 0.2.0 (ad0fce1)
+- bump version: 0.1.2dev1 -> 0.1.2dev2 (4815ffc)
 - removed deprecated features (b44405f)
 - bump version: 0.1.2 -> 0.1.2dev1 (11de759)
 
