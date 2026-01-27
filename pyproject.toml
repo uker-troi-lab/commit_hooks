@@ -1,6 +1,6 @@
 [project]
 name = "commit_hooks"
-version = "0.1.2dev1"
+version = "0.1.2dev2"
 description = "troi-lab commit hooks."
 readme = "README.md"
 requires-python = ">=3.11,<4.0"
