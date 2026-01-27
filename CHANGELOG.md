@@ -2,7 +2,11 @@
 
 ### Bug Fixes
 
-- removed duplicate run of post-commit hooks after version bumping (9652932)
+- removed duplicate run of post-commit hooks after version bumping (807ecbf)
+
+### Other changes
+
+- bump version: 0.1.2 -> 0.1.2dev1 (0a8c673)
 
 ## v0.1.2 (2026-01-27)
 
