@@ -199,11 +199,14 @@ def bump_version():
         commit_message = eval(
             'f"' + bump_toml_dict["tool"]["bumpversion"]["message"] + '"'
         )
+
         _cmd = (
             "git add pyproject.toml uv.lock && "
-            f'SKIP={skip_var} git commit --no-verify -m "{commit_message}"'
+            f'git commit --no-verify -m "{commit_message}"'
         )
-        subprocess.run(_cmd, shell=True)
+        env = os.environ.copy()  # or without a copy if no other variables are needed
+        env["SKIP"] = skip_var
+        subprocess.run(_cmd, shell=True, env=env)
 
         if tag_commit:
             tag_name = eval(
@@ -256,6 +259,8 @@ def bump_version_tagpusher():
         print(f"{print_prefix} tagging commit '{commit_sha}' as {tag_name}")
         skip_string = "bump-version-tag-pusher"
         skip_var = append_skip(skip_string)
-        _cmd = f"SKIP={skip_var} git push --no-verify {remote_name} {tag_name}"
-        subprocess.run(_cmd, shell=True)
+        env = os.environ.copy()  # or without a copy if no other variables are needed
+        env["SKIP"] = skip_var
+        _cmd = f"git push --no-verify {remote_name} {tag_name}"
+        subprocess.run(_cmd, shell=True,  env=env)
     sys.exit(0)
