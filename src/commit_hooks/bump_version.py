@@ -142,7 +142,7 @@ def bump_version():
         base_command = f"--config-file {bump_config_file}"
 
         if os.getenv("BUMP") is None:
-            _cmd = f"bump-my-version show-bump {base_command}"
+            _cmd = f"bump-my-version show-bump {base_command} --ascii"
             subprocess.run(_cmd, shell=True)
             exit_code = 0
             raise Exception(
@@ -262,5 +262,5 @@ def bump_version_tagpusher():
         env = os.environ.copy()  # or without a copy if no other variables are needed
         env["SKIP"] = skip_var
         _cmd = f"git push --no-verify {remote_name} {tag_name}"
-        subprocess.run(_cmd, shell=True,  env=env)
+        subprocess.run(_cmd, shell=True, env=env)
     sys.exit(0)

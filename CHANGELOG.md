@@ -2,11 +2,13 @@
 
 ### Bug Fixes
 
+- added ascii to show-bump cmd (a203554)
+- use env argument of subprocess for windows compatibility (cc70d0e)
 - also respect existing skip-config in pre-push hook (87e8a02)
 
 ### Other changes
 
-- bump version: 0.2.0 -> 0.2.0dev1 (7a35fcc)
+- bump version: 0.2.0 -> 0.2.0dev1 (675cd26)
 
 ## v0.2.0 (2026-01-27)
 
