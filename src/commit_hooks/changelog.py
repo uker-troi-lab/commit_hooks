@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# import os
+import os
 import sys
 import tempfile
 import subprocess
@@ -28,11 +28,13 @@ def recreate_changelog():
         "check-commit-msg,recreate-changelog,bump-version,bump-version-tag-pusher"
     )
     skip_var = append_skip(skip_string)
+    env = os.environ.copy()  # or without a copy if no other variables are needed
+    env["SKIP"] = skip_var
     _cmd = (
         "cz -n cz_troi_hook ch && "
         "git add CHANGELOG.md && "
-        f"SKIP={skip_var} git commit --no-verify --amend --no-edit"
+        f"git commit --no-verify --amend --no-edit"
     )
-    subprocess.run(_cmd, shell=True)
+    subprocess.run(_cmd, shell=True, env=env)
     # always exit with status 0
     sys.exit(0)
