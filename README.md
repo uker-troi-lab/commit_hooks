@@ -46,10 +46,18 @@ When not specifying `BUMP`, the hook will show the potential bump-path. This can
 pre-commit run --hook-stage post-commit bump-version
 ```
 
+If you like, you can use this alias for the previous command:
+
+```bash
+echo "alias bmp='pre-commit run --hook-stage post-commit bump-version'" >> ~/.bash_aliases
+```
+
 To only trigger the version-bumping, you can run e.g.:
 
 ```bash
 BUMP=patch pre-commit run --hook-stage post-commit bump-version
+# Using the alias:
+# BUMP=patch bmp
 ```
 
 Hook `bump-version-tag-pusher` is a pre-push hook that will push the tag, if HEAD was tagged.
