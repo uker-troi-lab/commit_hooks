@@ -2,7 +2,7 @@
 
 ### Bug Fixes
 
-- added missing dict object (3e1956b)
+- added missing dict object (736a4fa)
 
 ### Documentation
 
@@ -11,6 +11,10 @@
 ### New Features
 
 - add committing of multiple version files (044520d)
+
+### Other changes
+
+- bump version: 0.2.1 -> 0.2.2 (b50cdee)
 
 ## v0.2.1 (2026-01-28)
 
