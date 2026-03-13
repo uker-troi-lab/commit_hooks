@@ -36,3 +36,10 @@
   always_run: true
   stages: [pre-push]
   verbose: true
+  
+- id: troi_lab_base_hooks
+  name: troi_lab_base_hooks
+  entry: troi_lab_base_hooks
+  language: python
+  language_version: python3
+  verbose: true

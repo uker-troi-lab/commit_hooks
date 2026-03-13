@@ -29,10 +29,10 @@ repos:
         args: [ --output-format, concise, --exit-zero ]
 
   # local hooks
-  - repo: .
-    rev: v0.2.2
-    hooks:
-      - id: check-commit-msg
-      - id: recreate-changelog
-      - id: bump-version
-      - id: bump-version-tag-pusher
+  # - repo:  .
+  #   rev: v0.2.2
+  #   hooks:
+  #     - id: check-commit-msg
+  #     - id: recreate-changelog
+  #     - id: bump-version
+  #     - id: bump-version-tag-pusher
