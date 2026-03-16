@@ -28,6 +28,7 @@ repos:
       - id: ruff-check
         args: [ --output-format, concise, --exit-zero ]
 
+  # this now needs to be added to the downstream branches
   # local hooks
   # - repo:  .
   #   rev: v0.2.2
