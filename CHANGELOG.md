@@ -1,12 +1,18 @@
 ## Unreleased
 
+### Other changes
+
+- updated pre-commit hooks (a316332)
+
+## v0.2.3 (2026-03-18)
+
 ### New Features
 
 - create dependabot.yml (fc0d535)
 
 ### Other changes
 
-- bump version: 0.2.2 -> 0.2.3 (9b290dd)
+- bump version: 0.2.2 -> 0.2.3 (b64db53)
 - updated pre-commit versions (9fd0a8e)
 - added license file (21d55b0)
 
