@@ -6,7 +6,8 @@
 
 ### Other changes
 
-- updated pre-commit versions (dde8d42)
+- bump version: 0.2.2 -> 0.2.3 (9b290dd)
+- updated pre-commit versions (9fd0a8e)
 - added license file (21d55b0)
 
 ## v0.2.2 (2026-02-19)
