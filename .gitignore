@@ -16,6 +16,8 @@ __pycache__
 !/src/commit_hooks/*.py
 !/src/commit_hooks/templates
 /src/commit_hooks/templates/*
+!/src/commit_hooks/templates/configs
+!/src/commit_hooks/templates/configs/*
 !/src/commit_hooks/templates/CHANGELOG.md.j2
 
 !LICENSE
