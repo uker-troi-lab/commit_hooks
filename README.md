@@ -2,6 +2,10 @@
 
 This repo provides commit hooks for the troi-lab working group.
 
+## Base Hooks [stage: pre-commit]
+
+Base hooks are wrapped in the `troi_lab_base_hooks` hook. The underlying config-file is located at [src/commit_hooks/templates/config/pre-commit-cfg.yaml](src/commit_hooks/templates/config/pre-commit-cfg.yaml).
+
 
 ## Check Commit-Message [stage: commit-msg]
 
