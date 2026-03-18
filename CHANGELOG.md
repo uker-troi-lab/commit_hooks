@@ -1,5 +1,16 @@
 ## Unreleased
 
+### New Features
+
+- create dependabot.yml (fc0d535)
+
+### Other changes
+
+- updated pre-commit versions (dde8d42)
+- added license file (21d55b0)
+
+## v0.2.2 (2026-02-19)
+
 ### Bug Fixes
 
 - added missing dict object (736a4fa)
@@ -14,7 +25,7 @@
 
 ### Other changes
 
-- bump version: 0.2.1 -> 0.2.2 (b50cdee)
+- bump version: 0.2.1 -> 0.2.2 (af00a2e)
 
 ## v0.2.1 (2026-01-28)
 
