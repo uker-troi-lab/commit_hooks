@@ -1,25 +1,28 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "assignees": [
-    "kapsnelz", "kapsner",
-    "schreihs", "hann-sch",
-    "georgeau", "ajugeorge97"
+    "kapsnelz",
+    "kapsner",
+    "schreihs",
+    "hann-sch",
+    "georgeau",
+    "ajugeorge97"
   ],
   "extends": [
     ":preserveSemverRanges",
     "group:all",
-    "config:base"
+    "config:recommended"
   ],
   "groupName": "all dependencies",
   "separateMajorMinor": true,
   "groupSlug": "all",
   "packageRules": [
     {
-      "matchPackagePatterns": [
-        "*"
-      ],
       "groupName": "all dependencies",
-      "groupSlug": "all"
+      "groupSlug": "all",
+      "matchPackageNames": [
+        "*"
+      ]
     }
   ]
 }
