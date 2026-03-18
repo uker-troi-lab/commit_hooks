@@ -22,7 +22,10 @@
       "groupSlug": "all",
       "matchPackageNames": [
         "*"
-      ]
+      ],
+      "pre-commit": {
+        "managerFilePatterns": ["/^.*pre-commit.*\\.yaml$/"]
+      }
     }
   ]
 }
