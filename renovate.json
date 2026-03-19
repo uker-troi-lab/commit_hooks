@@ -28,5 +28,13 @@
   "pre-commit": {
     "enabled": true,
     "managerFilePatterns": ["/^.*pre-commit.*\\.yaml$/"]
-  }
+  },
+  "bumpVersions": [
+    {
+      "name": "Updating release version file",
+      "filePatterns": [".release-version"],
+      "bumpType": "minor",
+      "matchStrings": ["version:\\s(?<version>[^\\s]+)"]
+    }
+  ]
 }
