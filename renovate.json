@@ -23,18 +23,24 @@
       "matchPackageNames": [
         "*"
       ]
+    },
+    {
+      "matchFileNames": [
+        "src/commit_hooks/templates/configs/**",
+        "pyproject.toml"
+      ],
+      "bumpVersions": [
+        {
+          "name": "Bump version on config template update",
+          "filePatterns": ["pyproject.toml"],
+          "matchStrings": ["version\\s*=\\s*\"(?<version>[^\\s\"]+)\""],
+          "bumpType": "patch"
+        }
+      ]
     }
   ],
   "pre-commit": {
     "enabled": true,
     "managerFilePatterns": ["/^.*pre-commit.*\\.yaml$/"]
-  },
-  "bumpVersions": [
-    {
-      "name": "Updating release version file",
-      "filePatterns": ["pyproject.toml"],
-      "bumpType": "minor",
-      "matchStrings": ["version\\s=\\s(?<version>[^\\s]+)"]
-    }
-  ]
+  }
 }
