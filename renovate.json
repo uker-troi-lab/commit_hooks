@@ -43,7 +43,7 @@
     "enabled": true,
     "managerFilePatterns": ["/^.*pre-commit.*\\.yaml$/"]
   },
-  "lockFileMaintenance:" {
+  "lockFileMaintenance": {
     "enabled": true
   }
 }
