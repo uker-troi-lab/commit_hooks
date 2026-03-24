@@ -34,7 +34,7 @@
           "name": "Bump version on config template update",
           "filePatterns": ["pyproject.toml"],
           "matchStrings": ["version\\s*=\\s*\"(?<version>[^\\s\"]+)\""],
-          "bumpType": "{{#if isMajor}}major{{else if isMinor}}minor{{else}}patch{{/if}}"
+          "bumpType": "patch"
         }
       ]
     }
