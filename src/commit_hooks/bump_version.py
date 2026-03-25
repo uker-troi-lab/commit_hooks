@@ -14,47 +14,16 @@ bump_config_file = os.path.join(system_tempdir, ".bump_version.toml")
 
 
 def get_bumpversion_cfg():
-    bump_cfg_bumpversion = '''
-    [tool.bumpversion]
-    parse = """
-      (?P<major>0|[1-9]\\\\d*)\\\\.
-      (?P<minor>0|[1-9]\\\\d*)\\\\.
-      (?P<patch>0|[1-9]\\\\d*)
-      (?:
-          (?P<pre_l>[a-zA-Z-]+)
-          (?P<pre_n>0|[1-9]\\\\d*)
-      )?
-    """
-    serialize = [
-        "{major}.{minor}.{patch}{pre_l}{pre_n}",
-        "{major}.{minor}.{patch}",
-    ]
-    search = "{current_version}"
-    replace = "{new_version}"
-    regex = false
-    ignore_missing_version = false
-    sign_tags = false
-    tag = false  # default this to false as we are tagging manually
-    tag_name = "v{new_version}"
-    tag_message = "release v{new_version}"
-    allow_dirty = false
-    message = "chore: bump version: {current_version} -> {new_version}"
-    '''
+    # open pyproject toml from repo's root dir
+    bump_cfg = os.path.join(
+      os.path.realpath(os.path.abspath(os.path.dirname(__file__))),
+      "templates",
+      "configs",
+      "cfg_version_bump.toml"
+    )
+    with open(bump_cfg, "rb") as f:
+        bump_toml_dict = tomllib.load(f)
 
-    bump_cfg_parts = """
-    [tool.bumpversion.parts.pre_l]
-    values = ["dev"]
-
-    [[tool.bumpversion.files]]
-    filename = "pyproject.toml"
-    search = "version = \\"{current_version}\\""
-    replace = "version = \\"{new_version}\\""
-    """
-
-    cfg_file = bump_cfg_bumpversion + bump_cfg_parts
-
-    # parse toml
-    bump_toml_dict = tomllib.loads(cfg_file)
     # clean up the parse pattern
     bump_toml_dict["tool"]["bumpversion"]["parse"] = re.sub(
         r"\s+", "", bump_toml_dict["tool"]["bumpversion"]["parse"], flags=re.MULTILINE
