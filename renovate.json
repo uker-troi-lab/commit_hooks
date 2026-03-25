@@ -35,6 +35,20 @@
     "ignorePaths": ["**/.pre-commit-config.yaml"]
   },
   "lockFileMaintenance": {
-    "enabled": true
-  }
+    "enabled": true,
+    "extends": [
+      "schedule:weekly"
+    ]
+  },
+  "minor": {
+    "automerge": true
+  },
+  "patch": {
+    "automerge": true
+  },
+  "pin": {
+    "automerge": true
+  },
+  "dependencyDashboard": true,
+  "rebaseWhen": "behind-base-branch"
 }
