@@ -2,7 +2,8 @@
 
 ### CI
 
-- fix endless loop with repo-pre-commit-config (161de73)
+- trigger release also on workflow-run (5286815)
+- fix endless loop with repo-pre-commit-config (8fe7bf6)
 
 ## v0.3.2 (2026-03-25)
 

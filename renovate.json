@@ -1,11 +1,8 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "assignees": [
-    "kapsnelz",
     "kapsner",
-    "schreihs",
     "hann-sch",
-    "georgeau",
     "ajugeorge97"
   ],
   "extends": [
@@ -32,7 +29,7 @@
     }
   ],
   "pre-commit": {
-    "enabled": true,
+    "enabled": false,
     "managerFilePatterns": ["/^.*pre-commit.*\\.yaml$/"]
   },
   "lockFileMaintenance": {

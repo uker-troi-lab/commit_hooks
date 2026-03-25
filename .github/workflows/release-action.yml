@@ -4,6 +4,10 @@ on:
   push:
     tags:
     - '*'
+  workflow_run:
+    workflows: [Bump patch on PR on renovate-update]
+    types:
+      - completed
 
 jobs:
 
