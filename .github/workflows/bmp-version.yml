@@ -10,7 +10,8 @@ on:
 
 jobs:
  bump-version:
-    if: ${{ startsWith(github.event.head_commit.message, 'chore(deps):') }}
+    # if: ${{ startsWith(github.event.head_commit.message, 'chore(deps):') }}
+    if: ${{ github.actor == 'renovate[bot]' }}
     name: "bump-version"
     runs-on: ubuntu-latest
     steps:
