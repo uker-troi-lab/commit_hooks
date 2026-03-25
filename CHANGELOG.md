@@ -2,7 +2,11 @@
 
 ### CI
 
-- added github-release action (e070b5d)
+- added github-release action (65d5bbc)
+
+### Other changes
+
+- bump version: 0.3.0 -> 0.4.0 (b3824bc)
 
 ## v0.3.0 (2026-03-25)
 
