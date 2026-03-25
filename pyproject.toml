@@ -45,8 +45,6 @@ package = true
 [[tool.bumpversion.files]]
 filename = ".pre-commit-config.yaml"
 search = """
-  - repo: https://github.com/uker-troi-lab/commit_hooks
     rev: v{current_version}"""
 replace = """
-  - repo: https://github.com/uker-troi-lab/commit_hooks
     rev: v{new_version}"""
