@@ -1,8 +1,14 @@
 ## Unreleased
 
+### Other changes
+
+- bump version: 0.2.7 -> 0.3.0 (7c2d7e6)
+
+## v0.2.7 (2026-03-25)
+
 ### CI
 
-- trigger for yet another test (6fa61f2)
+- trigger for yet another test (b434b19)
 - try gettin push work (390e2ca)
 - add pushing of action changes (5451eb8)
 - fix typo in gha (5713a2b)
@@ -15,6 +21,8 @@
 
 ### Other changes
 
+- bump version: 0.2.6 -> 0.2.7 (5e230a3)
+- **deps**: update pre-commit hook astral-sh/ruff-pre-commit to v0.15.7 (#38) (b73036d)
 - **deps**: update pre-commit hook astral-sh/ruff-pre-commit to v0.15.7 (#37) (dfd62de)
 - **deps**: update pre-commit hook astral-sh/ruff-pre-commit to v0.15.7 (#36) (6936b1d)
 - **deps**: update pre-commit hook astral-sh/ruff-pre-commit to v0.15.7 (#35) (257d7d2)
