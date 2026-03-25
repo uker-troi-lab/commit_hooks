@@ -1,8 +1,14 @@
 ## Unreleased
 
+### CI
+
+- added github-release action (e070b5d)
+
+## v0.3.0 (2026-03-25)
+
 ### Other changes
 
-- bump version: 0.2.7 -> 0.3.0 (7c2d7e6)
+- bump version: 0.2.7 -> 0.3.0 (8f911f1)
 
 ## v0.2.7 (2026-03-25)
 

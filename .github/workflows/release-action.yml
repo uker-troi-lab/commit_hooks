@@ -1,0 +1,21 @@
+name: Releases
+
+on:
+  push:
+    tags:
+    - '*'
+
+jobs:
+
+  create_release:
+    if: github.ref != 'refs/tags/v1'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    name: Create Release
+
+    steps:
+      - uses: actions/checkout@v6
+      - name: Create Release
+        id: create_release
+        uses: ncipollo/release-action@v1

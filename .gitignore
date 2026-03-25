@@ -7,6 +7,9 @@ __pycache__
 .coverage
 .ruff_cache
 
+!.github/
+!.github/workflows/
+!.github/workflows/*.yml
 !.gitignore
 !.pre-commit-config.yaml
 !.pre-commit-hooks.yaml
