@@ -2,6 +2,7 @@
 
 ### CI
 
+- test gh-actions (d4f0088)
 - another try to fix bumping (79d9d7d)
 - try to fix bump-version action (735bd55)
 - fix python venv install in uv (02a2ddf)
