@@ -2,7 +2,8 @@
 
 ### CI
 
-- fix typo in gha (e84d270)
+- add pushing of action changes (c6e48dc)
+- fix typo in gha (5713a2b)
 - test gh-actions (c71451e)
 - another try to fix bumping (79d9d7d)
 - try to fix bump-version action (735bd55)

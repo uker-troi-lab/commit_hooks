@@ -29,4 +29,8 @@ jobs:
         run: uv run bump_version
         env:
           BUMP: patch
+      - name: Git push
+        run: git push origin main
+      - name: Tag-pusher
+        run: uv run bump_version_tagpusher
         #run: uv run bump-my-version bump patch --config-file src/commit_hooks/templates/configs/cfg_version_bump.toml --tag --commit
