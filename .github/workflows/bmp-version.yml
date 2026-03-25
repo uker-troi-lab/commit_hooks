@@ -3,6 +3,10 @@ on:
   push:
     branches:
       - main
+    paths:
+      - src/commit_hooks/templates/configs/pre-commit-cfg.yaml
+      - .pre-commit-config.yaml
+      - pyproject.toml
 
 jobs:
  bump-version:
@@ -11,6 +15,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
+      - uses: qoomon/actions--setup-git@v1
+        with:
+          user: commiter
       - name: Install uv
         uses: astral-sh/setup-uv@v7
         with:
