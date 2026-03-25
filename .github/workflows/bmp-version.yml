@@ -18,6 +18,8 @@ jobs:
       - name: Set up Python 3.12
         run: uv python install 3.12
       - name: Install dependencies
-        run: uv pip install bump-my-version
+        run: |
+          uv venv
+          uv pip install bump-my-version
       - name: Bump-my-version
         run: uv run bump-my-version bump patch --config-file src/commit_hooks/templates/configs/cfg_version_bump.toml --tag --commit
