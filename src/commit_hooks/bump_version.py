@@ -16,10 +16,10 @@ bump_config_file = os.path.join(system_tempdir, ".bump_version.toml")
 def get_bumpversion_cfg():
     # open pyproject toml from repo's root dir
     bump_cfg = os.path.join(
-      os.path.realpath(os.path.abspath(os.path.dirname(__file__))),
-      "templates",
-      "configs",
-      "cfg_version_bump.toml"
+        os.path.realpath(os.path.abspath(os.path.dirname(__file__))),
+        "templates",
+        "configs",
+        "cfg_version_bump.toml",
     )
     with open(bump_cfg, "rb") as f:
         bump_toml_dict = tomllib.load(f)

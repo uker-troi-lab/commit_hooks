@@ -5,9 +5,9 @@ on:
       - main
 
 jobs:
- pre-commit:
+ bump-version:
     if: ${{ startsWith(github.event.head_commit.message, 'chore(deps):') }}
-    name: "pre-commit checks"
+    name: "bump-version"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
@@ -17,7 +17,9 @@ jobs:
           enable-cache: true
       - name: Install dependencies
         run: |
-          uv venv --python 3.12
-          uv pip install bump-my-version
-      - name: Bump-my-version
-        run: uv run bump-my-version bump patch --config-file src/commit_hooks/templates/configs/cfg_version_bump.toml --tag --commit
+          uv sync --all-extras
+      - name: Bump version
+        run: uv run bump_version
+        env:
+          BUMP: patch
+        #run: uv run bump-my-version bump patch --config-file src/commit_hooks/templates/configs/cfg_version_bump.toml --tag --commit

@@ -1,8 +1,66 @@
 ## Unreleased
 
+### CI
+
+- try to fix bump-version action (d930e37)
+- fix python venv install in uv (02a2ddf)
+- fixed uv venv activation (5182613)
+- working on version-bump gh-action (48ea5fa)
+
 ### Other changes
 
-- added renovate.json (9ba8d60)
+- **deps**: update pre-commit hook uker-troi-lab/commit_hooks to v0.2.6 (#30) (a2363fa)
+- **deps**: update all dependencies (#29) (672d23b)
+- **deps**: update pre-commit/action action to v3.0.1 (#28) (ecf17d8)
+- **deps**: update all dependencies (#27) (0b6c43f)
+- **deps**: lock file maintenance (#26) (57b0103)
+
+## v0.2.6 (2026-03-25)
+
+### Other changes
+
+- **deps**: lock file maintenance (#22) (226dc49)
+- **deps**: update actions/checkout action to v6 (#23) (89d423a)
+
+## v0.2.5 (2026-03-25)
+
+### Other changes
+
+- **deps**: lock file maintenance (#21) (dbfc62e)
+- update renovate.json (4ee7c7c)
+- update renovate.json (79d2611)
+
+## v0.2.4 (2026-03-25)
+
+### Bug Fixes
+
+- renovate.json (28dbd58)
+- renovate.json (beab687)
+
+### Documentation
+
+- update README.md (dad2ee1)
+- updated README.md (c2595c7)
+
+### Other changes
+
+- **deps**: update all dependencies (#18) (5605ccd)
+- test bump pre-commit-cfg.yaml (513fea5)
+- renovate support uv.lock (69ac0ac)
+- **deps**: update all dependencies to v0.11.0 (#15) (1fd79ca)
+- **deps**: update pre-commit hook astral-sh/uv-pre-commit to v0.10.12 (#14) (deb598b)
+- update renovate.json (4951da4)
+- update renovate.json (1618513)
+- update renovate.json (e0e326e)
+- **deps**: update pre-commit hook astral-sh/ruff-pre-commit to v0.15.7 (#13) (0d398f3)
+- **deps**: update all dependencies (#11) (5d25f46)
+- update renovate.json (cb7a9b9)
+- update renovate.json (9e39073)
+- update renovate.json (d65ac46)
+- **config**: migrate config renovate.json (#9) (b5d1316)
+- **deps**: update dependency uv_build to >=0.10.11,<0.11.0 (#7) (d4fdb7b)
+- updated .pre-commit-hooks.yaml (57ff06e)
+- added renovate.json (207fbe2)
 - updated pre-commit hooks (bdf73d6)
 
 ## v0.2.3 (2026-03-18)
