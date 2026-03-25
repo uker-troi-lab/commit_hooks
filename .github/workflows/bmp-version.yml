@@ -1,17 +1,18 @@
 name: Bump patch on PR on renovate-update
 on:
-  push:
-    branches:
+  pull_request:
+    branches: 
       - main
+    types: [closed]
     paths:
       - src/commit_hooks/templates/configs/pre-commit-cfg.yaml
-      - .pre-commit-config.yaml
       - pyproject.toml
 
 jobs:
  bump-version:
     # if: ${{ startsWith(github.event.head_commit.message, 'chore(deps):') }}
-    if: ${{ github.actor == 'renovate[bot]' }}
+    #if: ${{ github.actor == 'renovate[bot]' }}
+    if: ${{ github.event.pull_request.merged }}
     name: "bump-version"
     runs-on: ubuntu-latest
     steps:
