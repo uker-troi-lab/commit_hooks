@@ -23,8 +23,7 @@
     },
     {
       "matchFileNames": [
-        "src/commit_hooks/templates/configs/**",
-        "pyproject.toml"
+        "pyproject.toml", "pre-commit-cfg.yaml"
       ]
     }
   ],
