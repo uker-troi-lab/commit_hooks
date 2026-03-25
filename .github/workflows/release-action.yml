@@ -8,7 +8,7 @@ on:
 jobs:
 
   create_release:
-    if: ${{ github.ref == 'refs/heads/main' }}
+    if: ${{ github.ref != 'refs/heads/v1' }}
     runs-on: ubuntu-latest
     permissions:
       contents: write
