@@ -2,7 +2,8 @@
 
 ### CI
 
-- try gettin push work (52dab7e)
+- trigger for yet another test (6fa61f2)
+- try gettin push work (390e2ca)
 - add pushing of action changes (5451eb8)
 - fix typo in gha (5713a2b)
 - test gh-actions (c71451e)
@@ -14,6 +15,7 @@
 
 ### Other changes
 
+- **deps**: update pre-commit hook astral-sh/ruff-pre-commit to v0.15.7 (#37) (dfd62de)
 - **deps**: update pre-commit hook astral-sh/ruff-pre-commit to v0.15.7 (#36) (6936b1d)
 - **deps**: update pre-commit hook astral-sh/ruff-pre-commit to v0.15.7 (#35) (257d7d2)
 - **deps**: update pre-commit hook astral-sh/ruff-pre-commit to v0.15.7 (#34) (1681934)
