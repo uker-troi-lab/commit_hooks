@@ -29,8 +29,8 @@
     }
   ],
   "pre-commit": {
-    "enabled": false,
-    "managerFilePatterns": ["/^.*pre-commit.*\\.yaml$/"]
+    "enabled": true,
+    "managerFilePatterns": ["/^.*pre-commit-cfg\\.yaml$/"]
   },
   "lockFileMaintenance": {
     "enabled": true

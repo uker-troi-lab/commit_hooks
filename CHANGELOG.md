@@ -2,8 +2,19 @@
 
 ### CI
 
-- trigger release also on workflow-run (5286815)
+- enabled again renovate-cfg (2867e17)
+
+## v0.3.3 (2026-03-25)
+
+### CI
+
+- trigger release also on workflow-run (6accbeb)
 - fix endless loop with repo-pre-commit-config (8fe7bf6)
+
+### Other changes
+
+- bump version: 0.3.2 -> 0.3.3 (710ea30)
+- **deps**: update pre-commit hook astral-sh/ruff-pre-commit to v0.15.7 (#40) (ef5d4e3)
 
 ## v0.3.2 (2026-03-25)
 
