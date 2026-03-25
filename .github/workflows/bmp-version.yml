@@ -33,6 +33,11 @@ jobs:
         run: uv run bump_version
         env:
           BUMP: patch
+      - name: pre-commit autoupdate
+        run: |
+          uv run pre-commit autoupdate
+          git add .pre-commit-config.yaml
+          git commit -m "chore: updated pre-commit-config"
       - name: Git push
         run: |
           git status
