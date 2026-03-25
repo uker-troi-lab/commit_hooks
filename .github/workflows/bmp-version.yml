@@ -34,7 +34,7 @@ jobs:
         env:
           BUMP: patch
       - name: pre-commit autoupdate
-        continue-on-error: tru
+        continue-on-error: true
         run: |
           uv run pre-commit install
           uv run autoupdate
