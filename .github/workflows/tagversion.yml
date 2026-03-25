@@ -1,8 +1,9 @@
 name: Tag version
 on:
   push:
-    branches:
-      - main
+    paths:
+      - 'pyproject.toml'
+
 jobs:
   build:
     runs-on: ubuntu-latest
