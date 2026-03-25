@@ -40,6 +40,8 @@ package = true
 # make bash-script executable
 # git update-index --chmod=+x scripts/recreate_changelog.sh
 
+[tool.bumpversion]
+
 [[tool.bumpversion.files]]
 filename = ".pre-commit-config.yaml"
 search = "rev: {current_version}"
