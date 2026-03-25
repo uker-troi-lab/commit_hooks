@@ -13,3 +13,9 @@ repos:
       - id: recreate-changelog
       - id: bump-version
       - id: bump-version-tag-pusher
+
+ci:
+    autofix_prs: false
+    autoupdate_branch: ''
+    autoupdate_commit_msg: 'chore(pre-commit.ci): pre-commit autoupdate'
+    autoupdate_schedule: weekly
