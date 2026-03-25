@@ -2,6 +2,7 @@
 
 ### CI
 
+- try gettin push work (52dab7e)
 - add pushing of action changes (5451eb8)
 - fix typo in gha (5713a2b)
 - test gh-actions (c71451e)
@@ -13,6 +14,7 @@
 
 ### Other changes
 
+- **deps**: update pre-commit hook astral-sh/ruff-pre-commit to v0.15.7 (#36) (6936b1d)
 - **deps**: update pre-commit hook astral-sh/ruff-pre-commit to v0.15.7 (#35) (257d7d2)
 - **deps**: update pre-commit hook astral-sh/ruff-pre-commit to v0.15.7 (#34) (1681934)
 - **deps**: update pre-commit hook uker-troi-lab/commit_hooks to v0.2.6 (#33) (7cce1b1)

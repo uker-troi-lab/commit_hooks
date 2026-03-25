@@ -15,6 +15,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
+        with:
+          persist-credentials: true
       - uses: qoomon/actions--setup-git@v1
         with:
           user: committer
@@ -30,7 +32,9 @@ jobs:
         env:
           BUMP: patch
       - name: Git push
-        run: git push origin main
+        run: |
+          git status
+          git push
       - name: Tag-pusher
         run: uv run bump_version_tagpusher
         #run: uv run bump-my-version bump patch --config-file src/commit_hooks/templates/configs/cfg_version_bump.toml --tag --commit
