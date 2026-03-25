@@ -44,5 +44,5 @@ package = true
 
 [[tool.bumpversion.files]]
 filename = ".pre-commit-config.yaml"
-search = "rev: {current_version}"
-replace = "rev: {new_version}"
+search = "rev: v{current_version}"
+replace = "rev: v{new_version}"
