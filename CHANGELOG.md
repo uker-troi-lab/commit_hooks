@@ -2,11 +2,24 @@
 
 ### CI
 
+- fix endless loop with repo-pre-commit-config (161de73)
+
+## v0.3.2 (2026-03-25)
+
+### Other changes
+
+- bump version: 0.3.1 -> 0.3.2 (c0dc14f)
+- **deps**: update pre-commit hook uker-troi-lab/commit_hooks to v0.3.1 (#39) (6ee6d6a)
+
+## v0.3.1 (2026-03-25)
+
+### CI
+
 - added github-release action (65d5bbc)
 
 ### Other changes
 
-- bump version: 0.3.0 -> 0.3.1 (420adb6)
+- bump version: 0.3.0 -> 0.3.1 (84845ab)
 - revert version (1c75f0b)
 - bump version: 0.4.0 -> 0.4.1 (f4c7cb7)
 - bump version: 0.3.0 -> 0.4.0 (be097d3)
