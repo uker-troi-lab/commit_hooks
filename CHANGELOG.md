@@ -2,7 +2,8 @@
 
 ### CI
 
-- test gh-actions (d4f0088)
+- fix typo in gha (e84d270)
+- test gh-actions (c71451e)
 - another try to fix bumping (79d9d7d)
 - try to fix bump-version action (735bd55)
 - fix python venv install in uv (02a2ddf)
@@ -11,6 +12,8 @@
 
 ### Other changes
 
+- **deps**: update pre-commit hook astral-sh/ruff-pre-commit to v0.15.7 (#34) (1681934)
+- **deps**: update pre-commit hook uker-troi-lab/commit_hooks to v0.2.6 (#33) (7cce1b1)
 - **deps**: update pre-commit hook uker-troi-lab/commit_hooks to v0.2.6 (#32) (fb60fce)
 - **deps**: lock file maintenance (#31) (6ea74fe)
 - **deps**: update pre-commit hook uker-troi-lab/commit_hooks to v0.2.6 (#30) (a2363fa)
