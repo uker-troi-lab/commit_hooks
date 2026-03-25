@@ -5,12 +5,20 @@ on:
       - main
 
 jobs:
- bump:
+ pre-commit:
     if: ${{ startsWith(github.event.head_commit.message, 'chore(deps):') }}
+    name: "pre-commit checks"
     runs-on: ubuntu-latest
     steps:
-      - name: Bump version and tag it 
-        run: |
-          pip install uv
-          uv pip install --system -e .  
-          BUMP="patch" bump_version
+      - uses: actions/checkout@v2
+      - name: Install uv
+        uses: astral-sh/setup-uv@v4
+        with:
+          enable-cache: true
+      - name: Set up Python 3.12
+        run: uv python install 3.12
+      - name: Install dependencies
+        run: uv sync --group dev
+      - uses: pre-commit/action@v3.0.0
+        with:
+          extra_args: bump-version
