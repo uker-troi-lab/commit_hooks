@@ -2,7 +2,7 @@
 
 ### CI
 
-- another try to fix bumping (69fcc89)
+- another try to fix bumping (79d9d7d)
 - try to fix bump-version action (735bd55)
 - fix python venv install in uv (02a2ddf)
 - fixed uv venv activation (5182613)
@@ -10,6 +10,7 @@
 
 ### Other changes
 
+- **deps**: update pre-commit hook uker-troi-lab/commit_hooks to v0.2.6 (#32) (fb60fce)
 - **deps**: lock file maintenance (#31) (6ea74fe)
 - **deps**: update pre-commit hook uker-troi-lab/commit_hooks to v0.2.6 (#30) (a2363fa)
 - **deps**: update all dependencies (#29) (672d23b)
