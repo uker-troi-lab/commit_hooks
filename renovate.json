@@ -29,14 +29,6 @@
         "src/commit_hooks/templates/configs/**",
         "pyproject.toml"
       ]
-      //"bumpVersions": [
-      //  {
-      //    "name": "Bump version on config template update",
-      //    "filePatterns": ["pyproject.toml"],
-      //    "matchStrings": ["version\\s*=\\s*\"(?<version>[^\\s\"]+)\""],
-      //    "bumpType": "patch"
-      //  }
-      ]
     }
   ],
   "pre-commit": {
