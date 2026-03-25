@@ -6,7 +6,8 @@
 
 ### Other changes
 
-- revert version (8acee3a)
+- bump version: 0.3.0 -> 0.3.1 (420adb6)
+- revert version (1c75f0b)
 - bump version: 0.4.0 -> 0.4.1 (f4c7cb7)
 - bump version: 0.3.0 -> 0.4.0 (be097d3)
 
