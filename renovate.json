@@ -31,7 +31,8 @@
     "enabled": true,
     "managerFilePatterns": [
       "/^src/.*pre-commit-cfg\\.yaml$/"
-    ]
+    ],
+    "ignorePaths": ["**/.pre-commit-config.yaml"]
   },
   "lockFileMaintenance": {
     "enabled": true
