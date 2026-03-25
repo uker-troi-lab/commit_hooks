@@ -2,7 +2,8 @@
 
 ### CI
 
-- enabled again renovate-cfg (2867e17)
+- reduce pre-commit renovate pattern to cfg-file only (7460293)
+- enabled again renovate-cfg (06405e5)
 
 ## v0.3.3 (2026-03-25)
 
