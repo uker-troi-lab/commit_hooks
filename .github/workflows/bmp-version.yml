@@ -33,17 +33,13 @@ jobs:
         run: uv run bump_version
         env:
           BUMP: patch
-      - name: pre-commit autoupdate
-        continue-on-error: true
-        run: |
-          uv run pre-commit install
-          uv run autoupdate
-          git add .pre-commit-config.yaml
-          git commit -m "chore: updated pre-commit-config"
       - name: Git push
         run: |
           git status
           git push
       - name: Tag-pusher
         run: uv run bump_version_tagpusher
-        #run: uv run bump-my-version bump patch --config-file src/commit_hooks/templates/configs/cfg_version_bump.toml --tag --commit
+      - uses: pre-commit/action@v3.0.1
+      - uses: pre-commit-ci/lite-action@v1.1.0
+        if: always()
+
