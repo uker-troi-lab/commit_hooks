@@ -12,5 +12,5 @@ jobs:
       - name: Bump version and tag it 
         run: |
           pip install uv
-          uv pip install --system . 
+          uv pip install --system -e .  
           BUMP="patch" bump_version
