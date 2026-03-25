@@ -34,8 +34,10 @@ jobs:
         env:
           BUMP: patch
       - name: pre-commit autoupdate
+        continue-on-error: tru
         run: |
-          uv run pre-commit autoupdate
+          uv run pre-commit install
+          uv run autoupdate
           git add .pre-commit-config.yaml
           git commit -m "chore: updated pre-commit-config"
       - name: Git push
