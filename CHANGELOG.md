@@ -2,7 +2,8 @@
 
 ### Other changes
 
-- **deps**: updated pre-commit config (86787d8)
+- **deps**: added missing check-dependencies dep (d41b8fc)
+- **deps**: updated pre-commit config (a1e923a)
 
 ## v0.4.0 (2026-03-27)
 

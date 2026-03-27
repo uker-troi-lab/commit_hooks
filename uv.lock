@@ -161,6 +161,15 @@ wheels = [
 ]
 
 [[package]]
+name = "check-dependencies"
+version = "1.0.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/4b/72/146b00f09dcd3c4040d015df1b4d15286ae86adb5515d867b79eae6d891c/check_dependencies-1.0.0.tar.gz", hash = "sha256:cf9d8bc965f0e22561aff2b0ad8f69052ef302633997ffd7ef2620ec018fa328", size = 24228, upload-time = "2026-03-14T21:22:49.709Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/d3/3e/0ac9cce5a9252ca65b89252a4517025798f8d7ceec16025769972b6bf1e5/check_dependencies-1.0.0-py3-none-any.whl", hash = "sha256:5cdefd1b0a3f974ffeba95d9b0d18e4db13d4891c70eeeb39375b71072b5a024", size = 30487, upload-time = "2026-03-14T21:22:48.121Z" },
+]
+
+[[package]]
 name = "click"
 version = "8.3.1"
 source = { registry = "https://pypi.org/simple" }
@@ -183,10 +192,11 @@ wheels = [
 
 [[package]]
 name = "commit-hooks"
-version = "0.3.13"
+version = "0.4.0"
 source = { editable = "." }
 dependencies = [
     { name = "bump-my-version" },
+    { name = "check-dependencies" },
     { name = "commitizen" },
     { name = "jinja2" },
     { name = "tomli-w" },
@@ -195,6 +205,7 @@ dependencies = [
 [package.metadata]
 requires-dist = [
     { name = "bump-my-version", specifier = ">=1.2.6" },
+    { name = "check-dependencies", specifier = ">=1.0.0" },
     { name = "commitizen", specifier = ">=4.9.1" },
     { name = "jinja2", specifier = ">=3.1.6" },
     { name = "tomli-w", specifier = ">=1.2.0" },
