@@ -11,8 +11,11 @@ def check_python_dependencies(rel_path: str = "./src"):
     sys.exit(result.returncode)
 
 
-if __name__ == "__main__":
+def main(argv: str | None = None):
     _parser = argparse.ArgumentParser()
     _parser.add_argument("--rel_path", default="./src", type=str)
-    args = _parser.parse_args()
+    args = _parser.parse_args(argv)
     check_python_dependencies(rel_path=args.rel_path)
+
+if __name__ == "__main__":
+    raise SystemExit(main())
