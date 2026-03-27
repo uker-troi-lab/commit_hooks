@@ -6,7 +6,8 @@
 
 ### Other changes
 
-- testing pre-commit hooks (7bd373d)
+- fix entry to check-deps hook (4441e91)
+- testing pre-commit hooks (d47991a)
 - added path to check-deps (28f8d10)
 
 ## v0.4.1 (2026-03-27)
