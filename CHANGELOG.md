@@ -1,5 +1,11 @@
 ## Unreleased
 
+### Other changes
+
+- updated pre-commit-version (695a7c5)
+
+## v0.4.2 (2026-03-27)
+
 ### Bug Fixes
 
 - arg-parsing is working now for check-deps (571bfca)
@@ -13,7 +19,7 @@
 
 ### Other changes
 
-- bump version: 0.4.1 -> 0.4.2 (04f6249)
+- bump version: 0.4.1 -> 0.4.2 (10799c7)
 - fix entry to check-deps hook (24dcb62)
 - testing pre-commit hooks (d47991a)
 - added path to check-deps (28f8d10)
