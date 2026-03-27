@@ -108,7 +108,7 @@ default_install_hook_types:
 
 repos:
   - repo: https://github.com/uker-troi-lab/commit_hooks
-    rev: v0.2.3
+    rev: v0.4.1
     hooks:
       - id: troi-lab-base-hooks
       - id: check-python-dependencies
