@@ -2,7 +2,8 @@
 
 ### Bug Fixes
 
-- parsing known args (f7d77f1)
+- arg-parsing is working now for check-deps (664e5fd)
+- parsing known args (814aaea)
 - arg-parsing for check-python-deps (11b3ed8)
 - arg-parsing for check-python-deps (42f07a5)
 
