@@ -2,7 +2,7 @@
 
 ### Bug Fixes
 
-- arg-parsing is working now for check-deps (664e5fd)
+- arg-parsing is working now for check-deps (571bfca)
 - parsing known args (814aaea)
 - arg-parsing for check-python-deps (11b3ed8)
 - arg-parsing for check-python-deps (42f07a5)
@@ -13,6 +13,7 @@
 
 ### Other changes
 
+- bump version: 0.4.1 -> 0.4.2 (04f6249)
 - fix entry to check-deps hook (24dcb62)
 - testing pre-commit hooks (d47991a)
 - added path to check-deps (28f8d10)
