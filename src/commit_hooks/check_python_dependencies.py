@@ -17,5 +17,6 @@ def main(argv: str | None = None):
     args = _parser.parse_args(argv)
     check_python_dependencies(rel_path=args.rel_path)
 
+
 if __name__ == "__main__":
     raise SystemExit(main())

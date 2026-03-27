@@ -1,12 +1,17 @@
 ## Unreleased
 
+### Bug Fixes
+
+- arg-parsing for check-python-deps (0455ba3)
+- arg-parsing for check-python-deps (42f07a5)
+
 ### Documentation
 
 - update README.md (9922925)
 
 ### Other changes
 
-- fix entry to check-deps hook (4441e91)
+- fix entry to check-deps hook (24dcb62)
 - testing pre-commit hooks (d47991a)
 - added path to check-deps (28f8d10)
 
