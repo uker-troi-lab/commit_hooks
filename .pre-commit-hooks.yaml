@@ -1,7 +1,16 @@
-# wrapper for base-hooks, configured in src/commit_hooks/templates/config/pre-commit-cfg.yaml  
-- id: troi_lab_base_hooks
-  name: troi_lab_base_hooks
+# wrapper for base-hooks, configured in src/commit_hooks/templates/config/pre-commit-cfg.yaml
+- id: troi-lab-base-hooks
+  name: troi-lab-base-hooks
   entry: troi_lab_base_hooks
+  language: python
+  language_version: python3
+  stages: [pre-commit]
+  verbose: true
+
+
+- id: check-python-dependencies
+  name: check-python-dependencies
+  entry: check_python_dependencies
   language: python
   language_version: python3
   stages: [pre-commit]

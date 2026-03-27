@@ -26,6 +26,7 @@ recreate_changelog = "commit_hooks.changelog:recreate_changelog"
 bump_version = "commit_hooks.bump_version:bump_version"
 bump_version_tagpusher = "commit_hooks.bump_version:bump_version_tagpusher"
 troi_lab_base_hooks = "commit_hooks.troi_lab_base_hooks:troi_lab_base_hooks"
+check_python_dependencies = "commit_hooks.check_python_dependencies:check_python_dependencies"
 
 [project.entry-points."commitizen.plugin"]
 cz_troi_hook = "commit_hooks.cz_troi_hook:TroiCommitizenCz"
@@ -39,3 +40,9 @@ package = true
 
 # make bash-script executable
 # git update-index --chmod=+x scripts/recreate_changelog.sh
+
+[tool.check-dependencies]
+known-missing = []
+known-extra = [
+    "bump-my-version"
+]

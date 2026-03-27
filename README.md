@@ -2,10 +2,41 @@
 
 This repo provides commit hooks for the troi-lab working group.
 
-## Base Hooks [stage: pre-commit]
+## Troi Lab Base Hooks [stage: pre-commit]
 
 Base hooks are wrapped in the `troi_lab_base_hooks` hook. The underlying config-file is located at [src/commit_hooks/templates/config/pre-commit-cfg.yaml](src/commit_hooks/templates/config/pre-commit-cfg.yaml).
 
+```yaml
+- repo: https://github.com/uker-troi-lab/commit_hooks.git
+  rev: main
+  hooks:
+    - id: troi-lab-base-hooks
+```
+
+## Check Python Dependencies [stage: pre-commit]
+
+This hook makes use of [`check-dependencies`](https://pypi.org/project/check-dependencies/) to check all imports from python files within the `.src/` sub-directory and compares them against the expected imports as declared in the `pyproject.toml` file.
+
+```yaml
+- repo: https://github.com/uker-troi-lab/commit_hooks.git
+  rev: main
+  hooks:
+    - id: check-python-dependencies
+```
+
+To declare known deviations from the command's output, just configure the following in your `pyproject.toml` (as described [here](https://pypi.org/project/check-dependencies/)):
+
+```yaml
+[tool.check-dependencies]
+known-missing = []
+known-extra = [
+    "pyarrow"
+]
+[tool.check-dependencies.provides]
+# Maps package name (as declared in dependencies) -> import/module name
+hydra-core = "hydra"
+pyyaml = "yaml"
+```
 
 ## Check Commit-Message [stage: commit-msg]
 
@@ -79,7 +110,8 @@ repos:
   - repo: https://github.com/uker-troi-lab/commit_hooks
     rev: v0.2.3
     hooks:
-      - id: troi_lab_base_hooks
+      - id: troi-lab-base-hooks
+      - id: check-python-dependencies
       - id: check-commit-msg
       - id: recreate-changelog
       - id: bump-version
