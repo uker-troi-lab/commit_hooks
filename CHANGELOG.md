@@ -1,8 +1,13 @@
 ## Unreleased
 
+### Documentation
+
+- update README.md (9922925)
+
 ### Other changes
 
-- added path to check-deps (573891d)
+- testing pre-commit hooks (7bd373d)
+- added path to check-deps (28f8d10)
 
 ## v0.4.1 (2026-03-27)
 
