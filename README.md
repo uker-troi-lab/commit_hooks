@@ -22,6 +22,7 @@ This hook makes use of [`check-dependencies`](https://pypi.org/project/check-dep
   rev: main
   hooks:
     - id: check-python-dependencies
+      # args: [--rel_path=./src] (default)
 ```
 
 To declare known deviations from the command's output, just configure the following in your `pyproject.toml` (as described [here](https://pypi.org/project/check-dependencies/)):

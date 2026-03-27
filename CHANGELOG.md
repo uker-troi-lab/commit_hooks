@@ -2,7 +2,8 @@
 
 ### Other changes
 
-- updated pre-commit-version (695a7c5)
+- updated docs (62461fd)
+- updated pre-commit-version (db55749)
 
 ## v0.4.2 (2026-03-27)
 
