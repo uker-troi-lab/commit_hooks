@@ -14,7 +14,7 @@ def check_python_dependencies(rel_path: str = "./src"):
 def main(argv: str | None = None):
     _parser = argparse.ArgumentParser()
     _parser.add_argument("--rel_path", default="./src", type=str)
-    args = _parser.parse_args(argv)
+    args, remaining_argv = _parser.parse_known_args(argv)
     check_python_dependencies(rel_path=args.rel_path)
 
 
