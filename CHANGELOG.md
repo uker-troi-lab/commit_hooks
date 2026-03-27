@@ -2,7 +2,8 @@
 
 ### Other changes
 
-- **deps**: added missing check-dependencies dep (d41b8fc)
+- bump version: 0.4.0 -> 0.4.1 (531f662)
+- **deps**: added missing check-dependencies dep (c13e0a2)
 - **deps**: updated pre-commit config (a1e923a)
 
 ## v0.4.0 (2026-03-27)
