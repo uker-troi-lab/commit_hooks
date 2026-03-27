@@ -6,10 +6,10 @@ default_install_hook_types:
 
 repos:
   - repo: https://github.com/uker-troi-lab/commit_hooks
-    rev: v0.3.9
+    rev: v0.4.0
     hooks:
       - id: troi-lab-base-hooks
-      - id: troi_lab_base_hooks
+      - id: check-python-dependencies
       - id: check-commit-msg
       - id: recreate-changelog
       - id: bump-version

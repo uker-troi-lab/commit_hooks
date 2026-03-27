@@ -1,9 +1,142 @@
 ## Unreleased
 
+### Other changes
+
+- **deps**: updated pre-commit config (86787d8)
+
+## v0.4.0 (2026-03-27)
+
+## v0.3.13 (2026-03-27)
+
 ### CI
 
-- reduce pre-commit renovate pattern to cfg-file only (7460293)
+- precommit autoupdate (7623d2c)
+
+### New Features
+
+- added check-python-dependencies pre-commit hook (66b675a)
+
+### Other changes
+
+- bump version: 0.3.12 -> 0.3.13 (10d2c55)
+- **deps**: update all dependencies (#54) (25f8741)
+- ci update (59b2cf3)
+
+## v0.3.12 (2026-03-25)
+
+### CI
+
+- try out precommit ci (4f9aaa9)
+
+### Other changes
+
+- bump version: 0.3.11 -> 0.3.12 (3df4efe)
+- **deps**: update pre-commit hook astral-sh/ruff-pre-commit to v0.15.7 (#53) (0d88ac9)
+
+## v0.3.11 (2026-03-25)
+
+### CI
+
+- using precommit-ci for autoupdate (8e5ecd3)
+
+### Other changes
+
+- bump version: 0.3.10 -> 0.3.11 (a1d2891)
+- **deps**: update pre-commit hook astral-sh/ruff-pre-commit to v0.15.7 (#52) (88c07d6)
+
+## v0.3.10 (2026-03-25)
+
+### Other changes
+
+- bump version: 0.3.9 -> 0.3.10 (a6f336f)
+- **deps**: update pre-commit hook astral-sh/ruff-pre-commit to v0.15.7 (#51) (0275426)
+- update bmp-version.yml (461ef6f)
+- update ci (a924fb3)
+- **deps**: update pre-commit hook astral-sh/uv-pre-commit to v0.11.1 (#50) (8288b52)
+- update pre-commit-cfg.yaml (f9f34d1)
+- update pyproject.toml (af9b6d9)
+- update bmp-version.yml (031b9b8)
+- update .pre-commit-config.yaml (40613f2)
+
+## v0.3.9 (2026-03-25)
+
+### CI
+
+- update release-action.yml (a722888)
+- update pre-commit-cfg.yaml (87b0abc)
+
+### Other changes
+
+- bump version: 0.3.8 -> 0.3.9 (59077eb)
+- **deps**: update pre-commit hook pre-commit/pre-commit-hooks to v6 (#49) (29f3659)
+- update pyproject.toml (c828b32)
+- update .pre-commit-config.yaml (7d1a1db)
+
+## v0.3.8 (2026-03-25)
+
+### CI
+
+- update pre-commit-cfg.yaml (b3a79f2)
+
+### Other changes
+
+- bump version: 0.3.7 -> 0.3.8 (4fab6ce)
+- **deps**: update pre-commit hook astral-sh/ruff-pre-commit to v0.15.7 (#48) (06c4ec3)
+- update .pre-commit-config.yaml (4b2c507)
+- update pyproject.toml (08b7b61)
+
+## v0.3.7 (2026-03-25)
+
+### CI
+
+- update bmp-version.yml (0cdd1ee)
+
+### Other changes
+
+- bump version: 0.3.6 -> 0.3.7 (f87df25)
+- **deps**: update pre-commit hook astral-sh/ruff-pre-commit to v0.15.7 (#47) (e64fad7)
+- update pre-commit-cfg.yaml (c0f7e56)
+- **deps**: update pre-commit hook astral-sh/uv-pre-commit to v0.11.1 (#46) (61c7643)
+- update pre-commit-cfg.yaml (1e89ca4)
+- update bmp-version.yml (5e79bd5)
+- update .pre-commit-config.yaml (d799bab)
+- update renovate.json (1f75f96)
+- update renovate.json (1e36667)
+- update renovate.json (e170286)
+
+## v0.3.6 (2026-03-25)
+
+### CI
+
+- test trigger update pre-commit-cfg.yaml (b08e167)
+
+### Other changes
+
+- bump version: 0.3.5 -> 0.3.6 (3b2c7b2)
+- **deps**: update pre-commit hook astral-sh/ruff-pre-commit to v0.15.7 (#45) (b867364)
+- **deps**: update pre-commit hook uker-troi-lab/commit_hooks to v0.3.5 (6df88b2)
+- update release-action.yml (8e610ed)
+- update pyproject.toml (23444fb)
+
+## v0.3.5 (2026-03-25)
+
+### Other changes
+
+- bump version: 0.3.4 -> 0.3.5 (9cfa446)
+- **deps**: update pre-commit hook uker-troi-lab/commit_hooks to v0.3.4 (#42) (a277f9e)
+- update pyproject.toml (6605900)
+
+## v0.3.4 (2026-03-25)
+
+### CI
+
+- reduce pre-commit renovate pattern to cfg-file only (1bec1bc)
 - enabled again renovate-cfg (06405e5)
+
+### Other changes
+
+- bump version: 0.3.3 -> 0.3.4 (baab114)
+- **deps**: update pre-commit hook uker-troi-lab/commit_hooks to v0.3.3 (#41) (53e2f29)
 
 ## v0.3.3 (2026-03-25)
 
