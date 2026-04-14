@@ -4,13 +4,24 @@ This repo provides commit hooks for the troi-lab working group.
 
 ## Troi Lab Base Hooks [stage: pre-commit]
 
-Base hooks are wrapped in the `troi_lab_base_hooks` hook. The underlying config-file is located at [src/commit_hooks/templates/config/pre-commit-cfg.yaml](src/commit_hooks/templates/config/pre-commit-cfg.yaml).
+Base hooks are wrapped in the `troi_lab_base_hooks` hook. The underlying config-file is located at [src/commit_hooks/templates/config/pre-commit-cfg_base.yaml](src/commit_hooks/templates/config/pre-commit-cfg_base.yaml).
 
 ```yaml
 - repo: https://github.com/uker-troi-lab/commit_hooks.git
   rev: main
   hooks:
     - id: troi-lab-base-hooks
+```
+
+## Troi Lab Base Hooks Python [stage: pre-commit]
+
+Base hooks for python are wrapped in the `troi_lab_base_hooks_python` hook. The underlying config-file is located at [src/commit_hooks/templates/config/pre-commit-cfg_python.yaml](src/commit_hooks/templates/config/pre-commit-cfg_python.yaml).
+
+```yaml
+- repo: https://github.com/uker-troi-lab/commit_hooks.git
+  rev: main
+  hooks:
+    - id: troi-lab-base-hooks-python
 ```
 
 ## Check Python Dependencies [stage: pre-commit]
@@ -112,6 +123,7 @@ repos:
     rev: v0.4.1
     hooks:
       - id: troi-lab-base-hooks
+      - id: troi-lab-base-hooks-python
       - id: check-python-dependencies
       - id: check-commit-msg
       - id: recreate-changelog

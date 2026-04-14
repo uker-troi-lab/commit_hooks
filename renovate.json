@@ -23,14 +23,16 @@
     },
     {
       "matchFileNames": [
-        "pyproject.toml", "pre-commit-cfg.yaml"
+        "pyproject.toml",
+        "pre-commit-cfg_base.yaml",
+        "pre-commit-cfg_python.yaml"
       ]
     }
   ],
   "pre-commit": {
     "enabled": true,
     "managerFilePatterns": [
-      "/^src/.*pre-commit-cfg\\.yaml$/"
+      "/^src/.*pre-commit-cfg.*\\.yaml$/"
     ],
     "ignorePaths": ["**/.pre-commit-config.yaml"]
   },

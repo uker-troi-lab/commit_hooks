@@ -2,8 +2,12 @@
 
 ### Other changes
 
-- updated docs (62461fd)
+- updated docs (cb38791)
 - updated pre-commit-version (db55749)
+
+### Refactor
+
+- separated base-hooks into base and python (04b22f0)
 
 ## v0.4.2 (2026-03-27)
 
