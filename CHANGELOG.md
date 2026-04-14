@@ -2,7 +2,8 @@
 
 ### Other changes
 
-- updated pre-commit ver (12ab540)
+- bump version: 0.4.3 -> 0.4.4 (661e77c)
+- updated pre-commit ver (76cc8ac)
 - Update release-action.yml (6a9c4b6)
 - **deps**: lock file maintenance (#57) (867a4a3)
 
