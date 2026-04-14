@@ -2,7 +2,13 @@
 
 ### Other changes
 
-- bump version: 0.4.4 -> 0.4.5 (f824aa5)
+- updated pre-commit ver (f6eedfb)
+
+## v0.4.5 (2026-04-14)
+
+### Other changes
+
+- bump version: 0.4.4 -> 0.4.5 (2542488)
 - updated ci-file (1704456)
 - **deps**: update all dependencies (#58) (1e59754)
 - updated pre-commit version (e848803)
