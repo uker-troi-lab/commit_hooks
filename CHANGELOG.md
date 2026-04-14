@@ -2,7 +2,13 @@
 
 ### Other changes
 
-- bump version: 0.4.3 -> 0.4.4 (661e77c)
+- updated pre-commit version (185d57d)
+
+## v0.4.4 (2026-04-14)
+
+### Other changes
+
+- bump version: 0.4.3 -> 0.4.4 (5f8d929)
 - updated pre-commit ver (76cc8ac)
 - Update release-action.yml (6a9c4b6)
 - **deps**: lock file maintenance (#57) (867a4a3)
