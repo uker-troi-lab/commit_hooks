@@ -2,12 +2,23 @@
 
 ### Other changes
 
+- updated pre-commit ver (12ab540)
+- Update release-action.yml (6a9c4b6)
+- **deps**: lock file maintenance (#57) (867a4a3)
+
+## v0.4.3 (2026-04-07)
+
+### Other changes
+
+- bump version: 0.4.2 -> 0.4.3 (002cb41)
+- **deps**: update all dependencies (#56) (d0cc83d)
+- **deps**: lock file maintenance (#55) (ca14a9d)
 - updated docs (cb38791)
 - updated pre-commit-version (db55749)
 
 ### Refactor
 
-- separated base-hooks into base and python (04b22f0)
+- separated base-hooks into base and python (8880066)
 
 ## v0.4.2 (2026-03-27)
 
