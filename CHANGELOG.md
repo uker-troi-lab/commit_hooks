@@ -2,7 +2,9 @@
 
 ### Other changes
 
-- updated pre-commit version (185d57d)
+- updated ci-file (167e931)
+- **deps**: update all dependencies (#58) (1e59754)
+- updated pre-commit version (e848803)
 
 ## v0.4.4 (2026-04-14)
 

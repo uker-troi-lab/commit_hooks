@@ -1,11 +1,12 @@
 name: Bump patch on PR on renovate-update
 on:
   pull_request:
-    branches: 
+    branches:
       - main
     types: [closed]
     paths:
-      - src/commit_hooks/templates/configs/pre-commit-cfg.yaml
+      - src/commit_hooks/templates/configs/pre-commit-cfg_base.yaml
+      - src/commit_hooks/templates/configs/pre-commit-cfg_python.yaml
       - pyproject.toml
 
 jobs:
