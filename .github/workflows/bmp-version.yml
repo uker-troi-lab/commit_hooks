@@ -17,7 +17,7 @@ jobs:
     name: "bump-version"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           persist-credentials: true
       - uses: qoomon/actions--setup-git@v1
