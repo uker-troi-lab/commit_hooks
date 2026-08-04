@@ -2,7 +2,7 @@
 
 ### Bug Fixes
 
-- adapt check-dependencies call to new v2.0.0 api (611a450)
+- adapt check-dependencies call to new v2.0.0 api (0d6a732)
 - arg-parsing is working now for check-deps (571bfca)
 - parsing known args (814aaea)
 - arg-parsing for check-python-deps (11b3ed8)
@@ -52,6 +52,7 @@
 
 ### Other changes
 
+- bump version: 0.4.13 -> 0.4.13dev1 (3db99ac)
 - **deps**: lock file maintenance (f08a822)
 - **deps**: update astral-sh/setup-uv action to v9 (05137ac)
 - bump version: 0.4.12 -> 0.4.13 (1c2e906)
