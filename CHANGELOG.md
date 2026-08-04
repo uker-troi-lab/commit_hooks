@@ -52,7 +52,8 @@
 
 ### Other changes
 
-- bump version: 0.4.13 -> 0.4.13dev1 (3db99ac)
+- bump version: 0.4.13dev1 -> 0.4.14 (dad5dc9)
+- bump version: 0.4.13 -> 0.4.13dev1 (557ba67)
 - **deps**: lock file maintenance (f08a822)
 - **deps**: update astral-sh/setup-uv action to v9 (05137ac)
 - bump version: 0.4.12 -> 0.4.13 (1c2e906)
