@@ -1,5 +1,11 @@
 ## Unreleased
 
+### Other changes
+
+- set upper boundary for check-dependencies version (2802978)
+
+## v0.4.14 (2026-08-04)
+
 ### Bug Fixes
 
 - adapt check-dependencies call to new v2.0.0 api (0d6a732)
@@ -52,7 +58,7 @@
 
 ### Other changes
 
-- bump version: 0.4.13dev1 -> 0.4.14 (dad5dc9)
+- bump version: 0.4.13dev1 -> 0.4.14 (1ea5510)
 - bump version: 0.4.13 -> 0.4.13dev1 (557ba67)
 - **deps**: lock file maintenance (f08a822)
 - **deps**: update astral-sh/setup-uv action to v9 (05137ac)

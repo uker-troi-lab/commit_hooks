@@ -192,7 +192,7 @@ dependencies = [
 requires-dist = [
     { name = "argparse", specifier = ">=1.4.0" },
     { name = "bump-my-version", specifier = ">=1.2.6" },
-    { name = "check-dependencies", specifier = ">=1.0.0" },
+    { name = "check-dependencies", specifier = ">=1.0.0,<2.0.0" },
     { name = "commitizen", specifier = ">=4.9.1" },
     { name = "jinja2", specifier = ">=3.1.6" },
     { name = "tomli-w", specifier = ">=1.2.0" },
