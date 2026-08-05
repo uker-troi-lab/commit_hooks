@@ -2,7 +2,8 @@
 
 ### Other changes
 
-- set upper boundary for check-dependencies version (2802978)
+- bump version: 0.4.14 -> 0.4.15 (29f0ddf)
+- set upper boundary for check-dependencies version (4fff7e3)
 
 ## v0.4.14 (2026-08-04)
 
