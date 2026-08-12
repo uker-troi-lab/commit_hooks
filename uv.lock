@@ -151,11 +151,11 @@ wheels = [
 
 [[package]]
 name = "check-dependencies"
-version = "1.8.0"
+version = "2.0.0"
 source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/22/8a/02444a15956fcb0eb79be5710e94c8d3a4dbef59787253f3f228d91a55ce/check_dependencies-1.8.0.tar.gz", hash = "sha256:76eec9b4d4dc9f2f9b222dca914034155073ebc30bbea45f28a4698cac39d47e", size = 24182, upload-time = "2026-08-04T03:49:40.919Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/b4/9e/e0e4e29285f2d34323cb8fcd7d38440542f939391978cd71992b6eb047de/check_dependencies-2.0.0.tar.gz", hash = "sha256:b38f90c3f88b96591513ebfc13822a785d53c4b907ad52581ad29164e0f2bc60", size = 25656, upload-time = "2026-08-04T11:38:22.744Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/69/98/524accdc737aa388e46dee96dec7db0f956b4a8d1fdfbaf68319a425fdf8/check_dependencies-1.8.0-py3-none-any.whl", hash = "sha256:fd2580a7d4727c15cc87ef8cad5f47622207a5f493532bfb1c86da3e9dc73a77", size = 25215, upload-time = "2026-08-04T03:49:39.617Z" },
+    { url = "https://files.pythonhosted.org/packages/ae/f4/62630c773dc84058e2b0e2e498039223fe7afdfc71c92425fc97a7407430/check_dependencies-2.0.0-py3-none-any.whl", hash = "sha256:a2aae82cb6672b372119fec5a8b907d24b027a4d8129fe3b899c14162fb58e78", size = 26570, upload-time = "2026-08-04T11:38:21.575Z" },
 ]
 
 [[package]]
@@ -196,7 +196,7 @@ dependencies = [
 requires-dist = [
     { name = "argparse", specifier = ">=1.4.0" },
     { name = "bump-my-version", specifier = ">=1.2.6" },
-    { name = "check-dependencies", specifier = ">=1.0.0,<2.0.0" },
+    { name = "check-dependencies", specifier = ">=2.0.0,<2.1.0" },
     { name = "commitizen", specifier = ">=4.9.1" },
     { name = "jinja2", specifier = ">=3.1.6" },
     { name = "tomli-w", specifier = ">=1.2.0" },
