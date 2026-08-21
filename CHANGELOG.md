@@ -6,7 +6,8 @@
 
 ### Other changes
 
-- **deps**: remove upper version boundary for check-dependencies after bug fix (f73649a)
+- bump version: 0.4.16 -> 0.4.17 (1cc2a2b)
+- **deps**: remove upper version boundary for check-dependencies after bug fix (7dc88b3)
 - bump version: 0.4.15 -> 0.4.16 (0c9f31a)
 - **deps**: lock file maintenance (#82) (29ed2e0)
 
