@@ -1,8 +1,20 @@
 ## Unreleased
 
+### Bug Fixes
+
+- **deps**: update dependency check-dependencies to v2 (#81) (8f960af)
+
 ### Other changes
 
-- bump version: 0.4.14 -> 0.4.15 (29f0ddf)
+- **deps**: remove upper version boundary for check-dependencies after bug fix (f73649a)
+- bump version: 0.4.15 -> 0.4.16 (0c9f31a)
+- **deps**: lock file maintenance (#82) (29ed2e0)
+
+## v0.4.15 (2026-08-05)
+
+### Other changes
+
+- bump version: 0.4.14 -> 0.4.15 (1ccf82c)
 - set upper boundary for check-dependencies version (4fff7e3)
 
 ## v0.4.14 (2026-08-04)
@@ -10,29 +22,319 @@
 ### Bug Fixes
 
 - adapt check-dependencies call to new v2.0.0 api (0d6a732)
+
+### Other changes
+
+- bump version: 0.4.13dev1 -> 0.4.14 (1ea5510)
+- bump version: 0.4.13 -> 0.4.13dev1 (557ba67)
+- **deps**: lock file maintenance (f08a822)
+- **deps**: update astral-sh/setup-uv action to v9 (05137ac)
+
+## v0.4.13 (2026-06-29)
+
+### Other changes
+
+- bump version: 0.4.12 -> 0.4.13 (1c2e906)
+- **deps**: update all dependencies (#77) (4dce9f6)
+- **deps**: lock file maintenance (#76) (c123921)
+- **deps**: update all dependencies to v7 (#75) (0d51d27)
+
+## v0.4.12 (2026-06-20)
+
+### Other changes
+
+- bump version: 0.4.11 -> 0.4.12 (334423c)
+- **deps**: update all dependencies (#74) (3a70815)
+- **deps**: lock file maintenance (#73) (199eafb)
+
+## v0.4.11 (2026-06-17)
+
+### Other changes
+
+- bump version: 0.4.10 -> 0.4.11 (8a263f0)
+- **deps**: update all dependencies (#72) (ef1ceb5)
+- **deps**: lock file maintenance (6e35142)
+
+## v0.4.10 (2026-06-02)
+
+### Other changes
+
+- bump version: 0.4.9 -> 0.4.10 (2d57e38)
+- **deps**: update all dependencies (14ab303)
+
+## v0.4.9 (2026-05-11)
+
+### Other changes
+
+- bump version: 0.4.8 -> 0.4.9 (e38aa44)
+- **deps**: update pre-commit hook astral-sh/uv-pre-commit to v0.11.13 (cff47dd)
+- **deps**: lock file maintenance (a846ee3)
+
+## v0.4.8 (2026-05-04)
+
+### Other changes
+
+- bump version: 0.4.7 -> 0.4.8 (c6715b0)
+- **deps**: update pre-commit hook astral-sh/uv-pre-commit to v0.11.8 (e96287e)
+- **deps**: lock file maintenance (e64b69c)
+- **deps**: lock file maintenance (9de5b36)
+- **deps**: lock file maintenance (#64) (09363a5)
+
+## v0.4.7 (2026-04-27)
+
+### Other changes
+
+- bump version: 0.4.6 -> 0.4.7 (e7fb8af)
+- **deps**: update pre-commit hook astral-sh/ruff-pre-commit to v0.15.12 (#62) (34428a7)
+- **deps**: lock file maintenance (#63) (4658c26)
+- **deps**: update astral-sh/setup-uv action to v8 (#61) (378dda6)
+
+## v0.4.6 (2026-04-20)
+
+### Other changes
+
+- bump version: 0.4.5 -> 0.4.6 (ffba999)
+- **deps**: update all dependencies (#59) (37c784e)
+- **deps**: lock file maintenance (#60) (10b6e6c)
+- added version-stuff to __init__.py (7d84a1c)
+- updated pre-commit ver (ff76fc0)
+
+## v0.4.5 (2026-04-14)
+
+### Other changes
+
+- bump version: 0.4.4 -> 0.4.5 (2542488)
+- updated ci-file (1704456)
+- **deps**: update all dependencies (#58) (1e59754)
+- updated pre-commit version (e848803)
+
+## v0.4.4 (2026-04-14)
+
+### Other changes
+
+- bump version: 0.4.3 -> 0.4.4 (5f8d929)
+- updated pre-commit ver (76cc8ac)
+- Update release-action.yml (6a9c4b6)
+- **deps**: lock file maintenance (#57) (867a4a3)
+
+## v0.4.3 (2026-04-07)
+
+### Other changes
+
+- bump version: 0.4.2 -> 0.4.3 (002cb41)
+- **deps**: update all dependencies (#56) (d0cc83d)
+- **deps**: lock file maintenance (#55) (ca14a9d)
+- updated docs (cb38791)
+- updated pre-commit-version (db55749)
+
+### Refactor
+
+- separated base-hooks into base and python (8880066)
+
+## v0.4.2 (2026-03-27)
+
+### Bug Fixes
+
 - arg-parsing is working now for check-deps (571bfca)
 - parsing known args (814aaea)
 - arg-parsing for check-python-deps (11b3ed8)
 - arg-parsing for check-python-deps (42f07a5)
-- renovate.json (28dbd58)
-- renovate.json (beab687)
-- added missing dict object (736a4fa)
+
+### Documentation
+
+- update README.md (9922925)
+
+### Other changes
+
+- bump version: 0.4.1 -> 0.4.2 (10799c7)
+- fix entry to check-deps hook (24dcb62)
+- testing pre-commit hooks (d47991a)
+- added path to check-deps (28f8d10)
+
+## v0.4.1 (2026-03-27)
+
+### Other changes
+
+- bump version: 0.4.0 -> 0.4.1 (cb141c3)
+- **deps**: added missing check-dependencies dep (c13e0a2)
+- **deps**: updated pre-commit config (a1e923a)
+
+## v0.4.0 (2026-03-27)
+
+## v0.3.13 (2026-03-27)
 
 ### CI
 
 - precommit autoupdate (7623d2c)
+
+### New Features
+
+- added check-python-dependencies pre-commit hook (66b675a)
+
+### Other changes
+
+- bump version: 0.3.12 -> 0.3.13 (10d2c55)
+- **deps**: update all dependencies (#54) (25f8741)
+- ci update (59b2cf3)
+
+## v0.3.12 (2026-03-25)
+
+### CI
+
 - try out precommit ci (4f9aaa9)
+
+### Other changes
+
+- bump version: 0.3.11 -> 0.3.12 (3df4efe)
+- **deps**: update pre-commit hook astral-sh/ruff-pre-commit to v0.15.7 (#53) (0d88ac9)
+
+## v0.3.11 (2026-03-25)
+
+### CI
+
 - using precommit-ci for autoupdate (8e5ecd3)
+
+### Other changes
+
+- bump version: 0.3.10 -> 0.3.11 (a1d2891)
+- **deps**: update pre-commit hook astral-sh/ruff-pre-commit to v0.15.7 (#52) (88c07d6)
+
+## v0.3.10 (2026-03-25)
+
+### Other changes
+
+- bump version: 0.3.9 -> 0.3.10 (a6f336f)
+- **deps**: update pre-commit hook astral-sh/ruff-pre-commit to v0.15.7 (#51) (0275426)
+- update bmp-version.yml (461ef6f)
+- update ci (a924fb3)
+- **deps**: update pre-commit hook astral-sh/uv-pre-commit to v0.11.1 (#50) (8288b52)
+- update pre-commit-cfg.yaml (f9f34d1)
+- update pyproject.toml (af9b6d9)
+- update bmp-version.yml (031b9b8)
+- update .pre-commit-config.yaml (40613f2)
+
+## v0.3.9 (2026-03-25)
+
+### CI
+
 - update release-action.yml (a722888)
 - update pre-commit-cfg.yaml (87b0abc)
+
+### Other changes
+
+- bump version: 0.3.8 -> 0.3.9 (59077eb)
+- **deps**: update pre-commit hook pre-commit/pre-commit-hooks to v6 (#49) (29f3659)
+- update pyproject.toml (c828b32)
+- update .pre-commit-config.yaml (7d1a1db)
+
+## v0.3.8 (2026-03-25)
+
+### CI
+
 - update pre-commit-cfg.yaml (b3a79f2)
+
+### Other changes
+
+- bump version: 0.3.7 -> 0.3.8 (4fab6ce)
+- **deps**: update pre-commit hook astral-sh/ruff-pre-commit to v0.15.7 (#48) (06c4ec3)
+- update .pre-commit-config.yaml (4b2c507)
+- update pyproject.toml (08b7b61)
+
+## v0.3.7 (2026-03-25)
+
+### CI
+
 - update bmp-version.yml (0cdd1ee)
+
+### Other changes
+
+- bump version: 0.3.6 -> 0.3.7 (f87df25)
+- **deps**: update pre-commit hook astral-sh/ruff-pre-commit to v0.15.7 (#47) (e64fad7)
+- update pre-commit-cfg.yaml (c0f7e56)
+- **deps**: update pre-commit hook astral-sh/uv-pre-commit to v0.11.1 (#46) (61c7643)
+- update pre-commit-cfg.yaml (1e89ca4)
+- update bmp-version.yml (5e79bd5)
+- update .pre-commit-config.yaml (d799bab)
+- update renovate.json (1f75f96)
+- update renovate.json (1e36667)
+- update renovate.json (e170286)
+
+## v0.3.6 (2026-03-25)
+
+### CI
+
 - test trigger update pre-commit-cfg.yaml (b08e167)
+
+### Other changes
+
+- bump version: 0.3.5 -> 0.3.6 (3b2c7b2)
+- **deps**: update pre-commit hook astral-sh/ruff-pre-commit to v0.15.7 (#45) (b867364)
+- **deps**: update pre-commit hook uker-troi-lab/commit_hooks to v0.3.5 (6df88b2)
+- update release-action.yml (8e610ed)
+- update pyproject.toml (23444fb)
+
+## v0.3.5 (2026-03-25)
+
+### Other changes
+
+- bump version: 0.3.4 -> 0.3.5 (9cfa446)
+- **deps**: update pre-commit hook uker-troi-lab/commit_hooks to v0.3.4 (#42) (a277f9e)
+- update pyproject.toml (6605900)
+
+## v0.3.4 (2026-03-25)
+
+### CI
+
 - reduce pre-commit renovate pattern to cfg-file only (1bec1bc)
 - enabled again renovate-cfg (06405e5)
+
+### Other changes
+
+- bump version: 0.3.3 -> 0.3.4 (baab114)
+- **deps**: update pre-commit hook uker-troi-lab/commit_hooks to v0.3.3 (#41) (53e2f29)
+
+## v0.3.3 (2026-03-25)
+
+### CI
+
 - trigger release also on workflow-run (6accbeb)
 - fix endless loop with repo-pre-commit-config (8fe7bf6)
+
+### Other changes
+
+- bump version: 0.3.2 -> 0.3.3 (710ea30)
+- **deps**: update pre-commit hook astral-sh/ruff-pre-commit to v0.15.7 (#40) (ef5d4e3)
+
+## v0.3.2 (2026-03-25)
+
+### Other changes
+
+- bump version: 0.3.1 -> 0.3.2 (c0dc14f)
+- **deps**: update pre-commit hook uker-troi-lab/commit_hooks to v0.3.1 (#39) (6ee6d6a)
+
+## v0.3.1 (2026-03-25)
+
+### CI
+
 - added github-release action (65d5bbc)
+
+### Other changes
+
+- bump version: 0.3.0 -> 0.3.1 (84845ab)
+- revert version (1c75f0b)
+- bump version: 0.4.0 -> 0.4.1 (f4c7cb7)
+- bump version: 0.3.0 -> 0.4.0 (be097d3)
+
+## v0.3.0 (2026-03-25)
+
+### Other changes
+
+- bump version: 0.2.7 -> 0.3.0 (8f911f1)
+
+## v0.2.7 (2026-03-25)
+
+### CI
+
 - trigger for yet another test (b434b19)
 - try gettin push work (390e2ca)
 - add pushing of action changes (5451eb8)
@@ -44,127 +346,8 @@
 - fixed uv venv activation (5182613)
 - working on version-bump gh-action (48ea5fa)
 
-### Documentation
-
-- update README.md (9922925)
-- update README.md (dad2ee1)
-- updated README.md (c2595c7)
-- added alias for bump-hook (3e9972c)
-
-### New Features
-
-- added check-python-dependencies pre-commit hook (66b675a)
-- create dependabot.yml (fc0d535)
-- add committing of multiple version files (044520d)
-
 ### Other changes
 
-- bump version: 0.4.13dev1 -> 0.4.14 (1ea5510)
-- bump version: 0.4.13 -> 0.4.13dev1 (557ba67)
-- **deps**: lock file maintenance (f08a822)
-- **deps**: update astral-sh/setup-uv action to v9 (05137ac)
-- bump version: 0.4.12 -> 0.4.13 (1c2e906)
-- **deps**: update all dependencies (#77) (4dce9f6)
-- **deps**: lock file maintenance (#76) (c123921)
-- **deps**: update all dependencies to v7 (#75) (0d51d27)
-- bump version: 0.4.11 -> 0.4.12 (334423c)
-- **deps**: update all dependencies (#74) (3a70815)
-- **deps**: lock file maintenance (#73) (199eafb)
-- bump version: 0.4.10 -> 0.4.11 (8a263f0)
-- **deps**: update all dependencies (#72) (ef1ceb5)
-- **deps**: lock file maintenance (6e35142)
-- bump version: 0.4.9 -> 0.4.10 (2d57e38)
-- **deps**: update all dependencies (14ab303)
-- bump version: 0.4.8 -> 0.4.9 (e38aa44)
-- **deps**: update pre-commit hook astral-sh/uv-pre-commit to v0.11.13 (cff47dd)
-- **deps**: lock file maintenance (a846ee3)
-- bump version: 0.4.7 -> 0.4.8 (c6715b0)
-- **deps**: update pre-commit hook astral-sh/uv-pre-commit to v0.11.8 (e96287e)
-- **deps**: lock file maintenance (e64b69c)
-- **deps**: lock file maintenance (9de5b36)
-- **deps**: lock file maintenance (#64) (09363a5)
-- bump version: 0.4.6 -> 0.4.7 (e7fb8af)
-- **deps**: update pre-commit hook astral-sh/ruff-pre-commit to v0.15.12 (#62) (34428a7)
-- **deps**: lock file maintenance (#63) (4658c26)
-- **deps**: update astral-sh/setup-uv action to v8 (#61) (378dda6)
-- bump version: 0.4.5 -> 0.4.6 (ffba999)
-- **deps**: update all dependencies (#59) (37c784e)
-- **deps**: lock file maintenance (#60) (10b6e6c)
-- added version-stuff to __init__.py (7d84a1c)
-- updated pre-commit ver (ff76fc0)
-- bump version: 0.4.4 -> 0.4.5 (2542488)
-- updated ci-file (1704456)
-- **deps**: update all dependencies (#58) (1e59754)
-- updated pre-commit version (e848803)
-- bump version: 0.4.3 -> 0.4.4 (5f8d929)
-- updated pre-commit ver (76cc8ac)
-- Update release-action.yml (6a9c4b6)
-- **deps**: lock file maintenance (#57) (867a4a3)
-- bump version: 0.4.2 -> 0.4.3 (002cb41)
-- **deps**: update all dependencies (#56) (d0cc83d)
-- **deps**: lock file maintenance (#55) (ca14a9d)
-- updated docs (cb38791)
-- updated pre-commit-version (db55749)
-- bump version: 0.4.1 -> 0.4.2 (10799c7)
-- fix entry to check-deps hook (24dcb62)
-- testing pre-commit hooks (d47991a)
-- added path to check-deps (28f8d10)
-- bump version: 0.4.0 -> 0.4.1 (cb141c3)
-- **deps**: added missing check-dependencies dep (c13e0a2)
-- **deps**: updated pre-commit config (a1e923a)
-- bump version: 0.3.12 -> 0.3.13 (10d2c55)
-- **deps**: update all dependencies (#54) (25f8741)
-- ci update (59b2cf3)
-- bump version: 0.3.11 -> 0.3.12 (3df4efe)
-- **deps**: update pre-commit hook astral-sh/ruff-pre-commit to v0.15.7 (#53) (0d88ac9)
-- bump version: 0.3.10 -> 0.3.11 (a1d2891)
-- **deps**: update pre-commit hook astral-sh/ruff-pre-commit to v0.15.7 (#52) (88c07d6)
-- bump version: 0.3.9 -> 0.3.10 (a6f336f)
-- **deps**: update pre-commit hook astral-sh/ruff-pre-commit to v0.15.7 (#51) (0275426)
-- update bmp-version.yml (461ef6f)
-- update ci (a924fb3)
-- **deps**: update pre-commit hook astral-sh/uv-pre-commit to v0.11.1 (#50) (8288b52)
-- update pre-commit-cfg.yaml (f9f34d1)
-- update pyproject.toml (af9b6d9)
-- update bmp-version.yml (031b9b8)
-- update .pre-commit-config.yaml (40613f2)
-- bump version: 0.3.8 -> 0.3.9 (59077eb)
-- **deps**: update pre-commit hook pre-commit/pre-commit-hooks to v6 (#49) (29f3659)
-- update pyproject.toml (c828b32)
-- update .pre-commit-config.yaml (7d1a1db)
-- bump version: 0.3.7 -> 0.3.8 (4fab6ce)
-- **deps**: update pre-commit hook astral-sh/ruff-pre-commit to v0.15.7 (#48) (06c4ec3)
-- update .pre-commit-config.yaml (4b2c507)
-- update pyproject.toml (08b7b61)
-- bump version: 0.3.6 -> 0.3.7 (f87df25)
-- **deps**: update pre-commit hook astral-sh/ruff-pre-commit to v0.15.7 (#47) (e64fad7)
-- update pre-commit-cfg.yaml (c0f7e56)
-- **deps**: update pre-commit hook astral-sh/uv-pre-commit to v0.11.1 (#46) (61c7643)
-- update pre-commit-cfg.yaml (1e89ca4)
-- update bmp-version.yml (5e79bd5)
-- update .pre-commit-config.yaml (d799bab)
-- update renovate.json (1f75f96)
-- update renovate.json (1e36667)
-- update renovate.json (e170286)
-- bump version: 0.3.5 -> 0.3.6 (3b2c7b2)
-- **deps**: update pre-commit hook astral-sh/ruff-pre-commit to v0.15.7 (#45) (b867364)
-- **deps**: update pre-commit hook uker-troi-lab/commit_hooks to v0.3.5 (6df88b2)
-- update release-action.yml (8e610ed)
-- update pyproject.toml (23444fb)
-- bump version: 0.3.4 -> 0.3.5 (9cfa446)
-- **deps**: update pre-commit hook uker-troi-lab/commit_hooks to v0.3.4 (#42) (a277f9e)
-- update pyproject.toml (6605900)
-- bump version: 0.3.3 -> 0.3.4 (baab114)
-- **deps**: update pre-commit hook uker-troi-lab/commit_hooks to v0.3.3 (#41) (53e2f29)
-- bump version: 0.3.2 -> 0.3.3 (710ea30)
-- **deps**: update pre-commit hook astral-sh/ruff-pre-commit to v0.15.7 (#40) (ef5d4e3)
-- bump version: 0.3.1 -> 0.3.2 (c0dc14f)
-- **deps**: update pre-commit hook uker-troi-lab/commit_hooks to v0.3.1 (#39) (6ee6d6a)
-- bump version: 0.3.0 -> 0.3.1 (84845ab)
-- revert version (1c75f0b)
-- bump version: 0.4.0 -> 0.4.1 (f4c7cb7)
-- bump version: 0.3.0 -> 0.4.0 (be097d3)
-- bump version: 0.2.7 -> 0.3.0 (8f911f1)
 - bump version: 0.2.6 -> 0.2.7 (5e230a3)
 - **deps**: update pre-commit hook astral-sh/ruff-pre-commit to v0.15.7 (#38) (b73036d)
 - **deps**: update pre-commit hook astral-sh/ruff-pre-commit to v0.15.7 (#37) (dfd62de)
@@ -179,11 +362,36 @@
 - **deps**: update pre-commit/action action to v3.0.1 (#28) (ecf17d8)
 - **deps**: update all dependencies (#27) (0b6c43f)
 - **deps**: lock file maintenance (#26) (57b0103)
+
+## v0.2.6 (2026-03-25)
+
+### Other changes
+
 - **deps**: lock file maintenance (#22) (226dc49)
 - **deps**: update actions/checkout action to v6 (#23) (89d423a)
+
+## v0.2.5 (2026-03-25)
+
+### Other changes
+
 - **deps**: lock file maintenance (#21) (dbfc62e)
 - update renovate.json (4ee7c7c)
 - update renovate.json (79d2611)
+
+## v0.2.4 (2026-03-25)
+
+### Bug Fixes
+
+- renovate.json (28dbd58)
+- renovate.json (beab687)
+
+### Documentation
+
+- update README.md (dad2ee1)
+- updated README.md (c2595c7)
+
+### Other changes
+
 - **deps**: update all dependencies (#18) (5605ccd)
 - test bump pre-commit-cfg.yaml (513fea5)
 - renovate support uv.lock (69ac0ac)
@@ -202,14 +410,36 @@
 - updated .pre-commit-hooks.yaml (57ff06e)
 - added renovate.json (207fbe2)
 - updated pre-commit hooks (bdf73d6)
+
+## v0.2.3 (2026-03-18)
+
+### New Features
+
+- create dependabot.yml (fc0d535)
+
+### Other changes
+
 - bump version: 0.2.2 -> 0.2.3 (b64db53)
 - updated pre-commit versions (9fd0a8e)
 - added license file (21d55b0)
+
+## v0.2.2 (2026-02-19)
+
+### Bug Fixes
+
+- added missing dict object (736a4fa)
+
+### Documentation
+
+- added alias for bump-hook (3e9972c)
+
+### New Features
+
+- add committing of multiple version files (044520d)
+
+### Other changes
+
 - bump version: 0.2.1 -> 0.2.2 (af00a2e)
-
-### Refactor
-
-- separated base-hooks into base and python (8880066)
 
 ## v0.2.1 (2026-01-28)
 
