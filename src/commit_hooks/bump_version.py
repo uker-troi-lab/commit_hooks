@@ -133,9 +133,8 @@ def bump_version():
         _cmd = f"bump-my-version show {base_command} --increment {semver} new_version"
         rec_output = subprocess.run(
             _cmd,
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
-            universal_newlines=True,
+            capture_output=True,
+            text=True,
             shell=True,
         )
         if rec_output.stdout != "":
