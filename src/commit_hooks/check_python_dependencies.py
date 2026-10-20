@@ -1,13 +1,13 @@
 #!/usr/bin/env python
-import sys
-import subprocess
 import argparse
+import subprocess
+import sys
 
 
 def check_python_dependencies(rel_path: str = "./src"):
     print(f"Relative path: {rel_path}")
     cmd = ["check-dependencies", "--output-format", "concise", rel_path]
-    result = subprocess.run(cmd)
+    result = subprocess.run(cmd, check=False)
     sys.exit(result.returncode)
 
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 import os
-import sys
 import subprocess
+import sys
 
 
 def troi_lab_base_hooks(yaml_file: str = "pre-commit-cfg_base.yaml"):
@@ -12,7 +12,7 @@ def troi_lab_base_hooks(yaml_file: str = "pre-commit-cfg_base.yaml"):
     )
     cfg = os.path.join(config_path, yaml_file)
     cmd = ["pre-commit", "run", "--config", cfg, "--files"] + sys.argv[1:]
-    result = subprocess.run(cmd)
+    result = subprocess.run(cmd, check=False)
     sys.exit(result.returncode)
 
 

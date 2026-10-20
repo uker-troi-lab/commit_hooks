@@ -1,9 +1,10 @@
 #!/usr/bin/env python
 
 import os
+import subprocess
 import sys
 import tempfile
-import subprocess
+
 from .utilities import append_skip
 
 system_tempdir = tempfile.gettempdir()
@@ -35,6 +36,6 @@ def recreate_changelog():
         "git add CHANGELOG.md && "
         f"git commit --no-verify --amend --no-edit"
     )
-    subprocess.run(_cmd, shell=True, env=env)
+    subprocess.run(_cmd, check=False, shell=True, env=env)
     # always exit with status 0
     sys.exit(0)

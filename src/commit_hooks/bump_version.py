@@ -1,10 +1,12 @@
-import subprocess
 import os
+import re
+import subprocess
 import sys
 import tempfile
 import tomllib
-import re
+
 import tomli_w
+
 from .utilities import append_skip
 
 print_prefix = "[bump-version]:"
@@ -112,7 +114,7 @@ def bump_version():
 
         if os.getenv("BUMP") is None:
             _cmd = f"bump-my-version show-bump {base_command} --ascii"
-            subprocess.run(_cmd, shell=True)
+            subprocess.run(_cmd, check=False, shell=True)
             exit_code = 0
             raise Exception(
                 f"{print_prefix} just showing potential version paths, not incrementing version"
@@ -133,6 +135,7 @@ def bump_version():
         _cmd = f"bump-my-version show {base_command} --increment {semver} new_version"
         rec_output = subprocess.run(
             _cmd,
+            check=False,
             capture_output=True,
             text=True,
             shell=True,
@@ -155,9 +158,9 @@ def bump_version():
 
         # finally bump version
         _cmd = f"bump-my-version bump {base_command} --new-version {new_version}"
-        subprocess.run(_cmd, shell=True)
+        subprocess.run(_cmd, check=False, shell=True)
         # update uv.lock with new version
-        subprocess.run("uv lock", shell=True)
+        subprocess.run("uv lock", check=False, shell=True)
 
         # compose skip string
         skip_string = "bump-version,bump-version-tag-pusher"
@@ -184,7 +187,7 @@ def bump_version():
         )
         env = os.environ.copy()  # or without a copy if no other variables are needed
         env["SKIP"] = skip_var
-        subprocess.run(_cmd, shell=True, env=env)
+        subprocess.run(_cmd, check=False, shell=True, env=env)
 
         if tag_commit:
             tag_name = eval(
@@ -196,7 +199,7 @@ def bump_version():
             # now, tag the release with the modified commit-sha
             subprocess.run(
                 f'git tag -a {tag_name} -m "{tag_message}"',
-                shell=True,
+                check=False, shell=True,
             )
     except Exception as e:
         print(e)
@@ -220,9 +223,9 @@ def bump_version_tagpusher():
     _cmd = "git describe --exact-match --tags HEAD"
     rec_output = subprocess.run(
         _cmd,
-        stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE,
-        universal_newlines=True,
+        check=False,
+        capture_output=True,
+        text=True,
         shell=True,
     )
     new_version, new_exit_code = validate_version(
@@ -240,5 +243,5 @@ def bump_version_tagpusher():
         env = os.environ.copy()  # or without a copy if no other variables are needed
         env["SKIP"] = skip_var
         _cmd = f"git push --no-verify {remote_name} {tag_name}"
-        subprocess.run(_cmd, shell=True, env=env)
+        subprocess.run(_cmd, check=False, shell=True, env=env)
     sys.exit(0)
