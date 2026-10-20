@@ -13,6 +13,7 @@ print_prefix = "[bump-version]:"
 
 system_tempdir = tempfile.gettempdir()
 bump_config_file = os.path.join(system_tempdir, ".bump_version.toml")
+bump_config_file = ".bump_version.toml"
 
 
 def get_bumpversion_cfg():
@@ -133,6 +134,7 @@ def bump_version():
             )
 
         _cmd = f"bump-my-version show {base_command} --increment {semver} new_version"
+        print(_cmd)
         rec_output = subprocess.run(
             _cmd,
             check=False,
@@ -146,6 +148,7 @@ def bump_version():
             )
             if new_exit_code is not None:
                 exit_code = new_exit_code
+                print(f"{print_prefix} exit code '{exit_code}'")
             print(f"{print_prefix} bumping to '{new_version}'")
         else:
             print(rec_output.stderr)
