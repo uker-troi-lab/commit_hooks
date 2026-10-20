@@ -2,7 +2,6 @@ import os
 import re
 import subprocess
 import sys
-import tempfile
 import tomllib
 
 import tomli_w
@@ -10,9 +9,6 @@ import tomli_w
 from .utilities import append_skip
 
 print_prefix = "[bump-version]:"
-
-system_tempdir = tempfile.gettempdir()
-bump_config_file = os.path.join(system_tempdir, ".bump_version.toml")
 bump_config_file = ".bump_version.toml"
 
 
